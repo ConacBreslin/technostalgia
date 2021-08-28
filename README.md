@@ -1,104 +1,121 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Technostalgia - a website where you can reminisce about obsolete technologies**
+Technologies are developing at an unprecedented pace. It is easy to forget about older technologies that were once cutting edge but that have been replaced by newer, faster and run the risk of being forgotten. This webpage give people the opportuntity to look at older tcehnologies, comment on them and add other technologies to the website.
+![Technostalgia home page image](static link to image)
+## Visit the deployed website
+[![Technostalgia website](static link to website "Visit the deployed site here")](https://conacbreslin.heroku/)
+## User Experience (UX)
+On visiting the site a visitor should be able to  
+1. Understand what the website is about.
+2. View all technologies on the site, or view by category, or select specific technologies.
+3. Users should be able to register for the website.
+4. Users should be able to login to the website.
+5. Logged in users should be able to post new technologies.
+6. Logged in users should be able to edit and delete their own additions to the site.
+7. Logged in users should be able to post comments on technologies.
+8. Logged in users should be able to edit and delete comments on technologies.
+9. Logged in users should be able to Logout easily.
+10. The site administrator should be able to add new categories to teh site and these should automatically be included in all menus.
 
-Welcome USER_NAME,
+## Strategy
+The site should be a simple and attractive  with sufficient activity to engage visitors, encourage them to sign up and return to the site.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. The last update to this file was: **July 2, 2021**
+Objective Requirement;         To encourage visitors to register with the site.
 
-## Gitpod Reminders
+Functional requirements; 	    To provide a collection of technologies that users can view. To provide a facility for users to register, login an out of the site. To provide users with the facility to add, edit and delete their own technologies and comments.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Non-functional requirements; 	The site should be attractive and intuitive.
+## Structure
+The site will have 9 pages, These will be welcome, registration, login, logout, browsing, add technology, edit techology, delete technology, inie page and a page for the final result. The quiz should automatically usher the player through all the stages of the quiz once they start through to the end. At the end they should be able to quit or replay.
+## Skeleton
+The welcome page  explains what the site is about and encourage visitors to register. 
+The technology collections page should have the ability for teh visitor or member to view all the technologies or to view them by category. [here](assets/images/wireframes.pdf). 
+## Surface/Design
+### Imagery
+The overall image of the site was to be kept clear, simple and intuitive.
+### Colour scheme
+It was important to keep the colour scheme of the quiz extremely simple. Information on the [psychology of colours](https://www.vandelaydesign.com/the-psychology-of-color-in-web-design/) in website design indicates that blue can help convey trustworthiness and so a dark shade of blue was picked for the font. A [minimum contrast ratio](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) of 4.5:1 for small text and 3:1 for large text is recommended. This site wanted a strong but not too stark contrast. The contrast ratio of the site is [11.14](assets/images/contrastratio.png). 
+### Typography
+Information on the [psychology of fonts](https://fabrikbrands.com/font-psychology-and-typography-inspiration-in-logo-design) indicated that a serif font can  convey trust and respectability. With this in mind the Vesper Libre font was selected in [Google Fonts](https://fonts.google.com/) for its simplicity.
+## Features
+- Responsiveness on all device sizes.
+- A navigation bar on main page that displays navigation relevent to the user type.
+- Navigation links to registration/login page
+- A means of allowing registered users to add new technologies to site.
+- A means of allowing members to edit or delete their own additions to the sitedisplaying a random question and four answer options from the question bank and then removing that question from the question bank to avoid duplication.
+- A means of allowing registered users to post comments on the technologies.
+- A means of allowing registered users to post comments on the technologies.
+- A means of allowing an admin user to edit the categories.
+- A means of dynamice populating of category drop down menus to incluse all added categories.
 
-`python3 -m http.server`
+## Future features
+Polls, comments
+## Languages used
+[HTML5](https://en.wikipedia.org/wiki/HTML5)
 
-A blue button should appear to click: _Make Public_,
+[CSS](https://en.wikipedia.org/wiki/CSS)
 
-Another blue button should appear to click: _Open Browser_.
+[JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+## Frameworks, Libraries and online resources used
+- [Balsamiq](https://balsamiq.com/wireframes/) was used to create the wireframes.
+- Gits's [gitpod](https://www.gitpod.io/) was used for writing and editing code, and for submitting and pushing to GitHub.
+- [GitHub](https://github.com/) was used for storing the code after being pushed from Git.
+- [Bootstrap 5.0.1](https://getbootstrap.com/) was used for responsiveness and styling.
+- [Google Fonts](https://fonts.google.com/) was used to choose and import the font.
+- The colour palette was generated using [coolors.co](https://coolors.co/).
+- Foreground/Backgound contrast was checked using [contrast-ratio.com](https://contrast-ratio.com/). 
+- The favicon was downloaded from [favicon.io](https://favicon.io/favicon-generator/) and originated from [twemoji](https://twemoji.twitter.com/).
+- The logo was created on [zyro.com](https://logo.zyro.com/).
+- The following tutorials from [James Q Quick](https://www.youtube.com/playlist?list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx), [Brian Design](https://www.youtube.com/watch?v=f4fB9Xg2JEY&t=2405s) and [codeexplained.org](https://www.youtube.com/watch?v=49pYIMygIcU) were followed in designing the features of the quiz.
+- The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [tutsmake.com](https://www.tutsmake.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [scrimba.com](https://scrimba.com/) and [teamtreehouse.com](https://teamtreehouse.com/community/why-does-jshint-give-me-these-warnings-about-es6).
+- The code was formatted using [webformatter.com](https://webformatter.com/html).
+- The phobias were found in [verywellmind.com](https://www.verywellmind.com/list-of-phobias-2795453).
+- The fauxbias were found it [letterpile.com](https://letterpile.com/humor/Fun-Fictional-and-Humorousl-Phobias) and [inherentlyfunny.com](https://www.inherentlyfunny.com/cat-94-funny_phobias.html).
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Testing.
+Bugs identified during development and testing and their solutions can be seen [here](assets/images/buglog.png).
+### Validation
+- HTML and CSS. All pages of the quiz were tested by direct input into [validator.w3.org](https://validator.w3.org/) for html and [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) for css and errors identified were corrected until no errors were showing in either validator. 
+The javaScript in all the .js files was checked by direct input into [jshint](https://jshint.com/) and errors identified were corrected until no more corrections could be made. There were residual warnings about unused varaibles that had to be left as the variables were used in the code. The final jshint report can be viewed [here](assets/images/jshint.png).
+- Lighthouse Audits. The quiz’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here](assets/images/lighthousereport.png).
+- Manual Testing. Extensive use was made of console.log() at every step of the functionality development and each time an error was noted it was addressed before proceeeding.
+The quiz was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
+It was viewed on a variety of devices. Friends and family members reviewed the site to identify bugs and give feedback on user experience. The code was submitted for peer-review in Code Institute's peer-code-review channel in [slack.com](https://app.slack.com/). 
+### Testing User Stories from User Experience (UX) Section.
+1. Understand what the website is about.
+2. View all technologies on the site, or view by category, or select specific technologies.
+3. Users should be able to register for the website.
+4. Users should be able to login to the website.
+5. Logged in users should be able to post new technologies.
+6. Logged in users should be able to edit and delete their own additions to the site.
+7. Logged in users should be able to post comments on technologies.
+8. Logged in users should be able to edit and delete comments on technologies.
+9. Logged in users should be able to Logout easily.
+10. The site administrator should be able to add new categories to teh site and these should automatically be included in all menus.
+## Changes over course of development
 
-A blue button should appear to click: _Make Public_,
+## Known Bugs
 
-Another blue button should appear to click: _Open Browser_.
+## Deployment
+### The project was deployed to Heroku in the following way. 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Forking the GitHub Repository
+The  GitHub Repository can be forked to make a copy of the original repository on the GitHub account to view and/or make changes without affecting the original repository in the following way.
+1.	By logging in to GitHub and locating the [GitHub Repository](https://github.com/ConacBreslin/Face-your-fears).
+2.	Selecting the "Fork" button at the top of the Repository (it is located above the "Settings" Button and over to the right).
+3.	There should then be a copy of the original repository in your GitHub account.
 
-To log into the Heroku toolbelt CLI:
+### Making a Local Clone
+1.	By logging in to GitHub and locating the [GitHub Repository](https://github.com/ConacBreslin/Face-your-fears).
+2.	Under the repository name, clicking the dropdown button marked “Code” and then selecting "Clone or download".
+3.	Copying the link under "Clone with HTTPS", to clone the repository using HTTPS.
+4.	Opening Git Bash.
+5.	Changing the current working directory to the location where you want the cloned directory to be made.
+6.	Typing git clone, and pasting the URL copied in Step 3.
+7.	Pressing Enter to create the local clone.## Credits
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Acknowledgements
+I would like to thank my mentor Chris Quinn whose advice is always perfectly judged.  
+I would like to thank many tutors in Code Institute for being unfailingly helpful, patient and knowledgeable and without whom I never would have got this far.   
+I would like to thank AMy O'Shea from Code Institute for her [excellent presentation](https:) on preparation for MS3 projects that helped me enormously is getting started.  
+I would like to thank my family and friends for all their support and feedback.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
