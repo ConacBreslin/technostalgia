@@ -59,6 +59,7 @@ Polls, comments
 - [Balsamiq](https://balsamiq.com/wireframes/) was used to create the wireframes.
 - Gits's [gitpod](https://www.gitpod.io/) was used for writing and editing code, and for submitting and pushing to GitHub.
 - [GitHub](https://github.com/) was used for storing the code after being pushed from Git.
+- [RandomKeygen](https://randomkeygen.com/) was used to generate a secret key for the app.
 - [Bootstrap 5.0.1](https://getbootstrap.com/) was used for responsiveness and styling.
 - [Google Fonts](https://fonts.google.com/) was used to choose and import the font.
 - The colour palette was generated using [coolors.co](https://coolors.co/).
