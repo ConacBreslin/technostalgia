@@ -16,12 +16,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
 @app.route("/")
-@app.route("/get_techs")
-def get_techs():
-    techs = mongo.db.technologies.find()
-    return render_template("technologies.html", techs=techs)
+@app.route("/get_technologies")
+def get_technologies():
+    technologies = mongo.db.technologies.find()
+    return render_template("technologies.html", technologies=technologies)
 
 
 if __name__ == "__main__":
