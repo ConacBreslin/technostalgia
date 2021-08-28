@@ -24,6 +24,11 @@ def get_technologies():
     return render_template("technologies.html", technologies=technologies)
 
 
+@app.route("/registration", methods=["GET", "POST"])
+def registration():
+    return render_template("registration.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
