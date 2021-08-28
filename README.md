@@ -98,6 +98,14 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 
 ## Deployment
 ### The project was deployed to Heroku in the following way. 
+In Heroku.com
+1. 'New' was selected.
+2. 'Create new app' was selected.
+3. app-name was added and region selected
+4. 'Create app' was selected.
+5. The app was set up to automatically deploy from the associated GitHub repository by selecting the 'GitHub' Deployment method, ensuring the correct repository was selected, adding the repository name and clicking 'Search'. Once the correct repo is found 'Connect' was clicked
+6. Before enabling automatic deployment Heroku had to be told the environment variables securely. This was done by clicking on 'Settings' for the app, selecting 'Reveal Config Vars' and adding the IP, PORT, SECRET_KEY, MONGO_URI and MONGO_DBNAME and clicking 'Hide Config Vars'.
+7. In the Deploy tab of the app select 'Enable Automatic Deploys' and then as the project only has one branch 'main' was chosen as the branch to deploy and 'Deploy Branch' was selected. After a few minutes, when Heroku was received the code from GitHub and built the app a message appears saying 'Your app was successfully deployed.' The app is then deployed and automaytically updated when code is pushed to GitHub.
 
 ### Forking the GitHub Repository
 The  GitHub Repository can be forked to make a copy of the original repository on the GitHub account to view and/or make changes without affecting the original repository in the following way.
