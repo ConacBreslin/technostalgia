@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for technology in technologies %}
+        {{ technology.category_name }}<br>
+        {{ technology.technology_name }}<br>
+        {{ technology.technology_description }}<br>
+      
+    {% endfor %}
+
+{% endblock  %}
