@@ -3,30 +3,27 @@
 
 {% block content %}
 
-{{ technologies[0]["technology_name"]}}
-
-
 {% for technology in technologies %}
   <div class="col s12 m7">
-    <h2 class="header">Horizontal Card</h2>
-      <div class="card horizontal">
-        <div class="card-image">
-        <img src="https://lorempixel.com/100/190/nature/6">
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <ul>
-              <li>{{ technology.technology_name }}</li><br>
-              <li>{{ technology.technology_description }}</li><br>
-              <li>{{ technology.post_date }}</li><br> 
-              <li>{{ technology.posted_by }}</li><br>
-            </ul>
-          </div>
-          <div class="card-action">
-            <a href="#">See all comments about this {{ technology.category_name}} </a>
-          </div>
-        </div>
+    <div class="card horizontal small">
+      <div class="card-image">
+      <img src="{{ technology.technology_image }}" alt="" >
       </div>
+      <div class="card-stacked">
+      <div class="card-content">
+        <ul>
+          <li>Category: {{ technology.category_name }}</li><br>
+          <li>Name: {{ technology.technology_name }}</li><br>
+          <li>Description: {{ technology.technology_description }}</li><br>
+          <li>Posted by: {{ technology.posted_by }}</li><br>
+          <li>Posted on: {{ technology.post_date }}</li><br> 
+        </ul>
+      </div>
+      <div class="card-action">
+            <a href="#">See all post about {{ technology.category_name}} technologies </a>
+      </div>
+      </div>
+    </div>
   </div>
 {% endfor %} 
 

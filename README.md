@@ -91,6 +91,8 @@ Polls, comments
 ## Images
 - the images were stored in [Imgur](https://i.imgur.com/)
 - The Walkman image is by [Florian Schmetz on unsplash.com](https://unsplash.com/photos/Rks6FTfX5OU)
+- The cassette tape image is in by [Volodymyr Hryshchenko on unsplash.com](https://unsplash.com/photos/D5_cfqMAY0Y)
+  
 
 
 ## Testing.
