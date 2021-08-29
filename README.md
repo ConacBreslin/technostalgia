@@ -42,7 +42,8 @@ The site will have 9 pages, These will be welcome, registration, login, logout, 
 ## Skeleton
 The welcome page  explains what the site is about and encourage visitors to register. 
 The technology collections page should have the ability for teh visitor or member to view all the technologies or to view them by category. [here](assets/images/wireframes.pdf). 
-## Surface/Design (Design Choices)
+## Surface/Design (Design Choices fonts, icons, colours, styling, backgroundss)
+
 ### Imagery
 The overall image of the site was to be kept clear, simple and intuitive.
 ### Colour scheme
@@ -59,6 +60,8 @@ Information on the [psychology of fonts](https://fabrikbrands.com/font-psycholog
 - A means of allowing registered users to post comments on the technologies.
 - A means of allowing an admin user to edit the categories.
 - A means of dynamice populating of category drop down menus to incluse all added categories.
+
+## Wireframes
 
 ## Future features
 Polls, comments
@@ -84,6 +87,11 @@ Polls, comments
 - The code was formatted using [webformatter.com](https://webformatter.com/html).
 - The phobias were found in [verywellmind.com](https://www.verywellmind.com/list-of-phobias-2795453).
 - The fauxbias were found it [letterpile.com](https://letterpile.com/humor/Fun-Fictional-and-Humorousl-Phobias) and [inherentlyfunny.com](https://www.inherentlyfunny.com/cat-94-funny_phobias.html).
+
+## Images
+- the images were stored in [Imgur](https://i.imgur.com/)
+- The Walkman image is by [Florian Schmetz on unsplash.com](https://unsplash.com/photos/Rks6FTfX5OU)
+
 
 ## Testing.
 Bugs identified during development and testing and their solutions can be seen [here](assets/images/buglog.png).

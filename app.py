@@ -64,7 +64,7 @@ def registration():
         flash("Registration Successful!")
         return redirect(url_for("get_technologies", username=session["user"]))
 
-    return render_template("registration.html")
+    return render_template("registration.html", page_title="Register")
 
 
 @app.route("/login", methods=["GET", "POST"])
