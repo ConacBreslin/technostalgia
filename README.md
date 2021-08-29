@@ -4,6 +4,10 @@ Technologies are developing at an unprecedented pace. It is easy to forget about
 ## Visit the deployed website
 [![Technostalgia website](static link to website "Visit the deployed site here")](https://conacbreslin.heroku/)
 ## User Experience (UX)
+
+### Project Goals
+
+#### Visitor Goals
 On visiting the site a visitor should be able to  
 1. Understand what the website is about.
 2. View all technologies on the site, or view by category, or select specific technologies.
@@ -16,6 +20,12 @@ On visiting the site a visitor should be able to
 9. Logged in users should be able to Logout easily.
 10. The site administrator should be able to add new categories to teh site and these should automatically be included in all menus.
 
+#### Registered User goals
+
+#### Developer and Business goals
+
+#### USer Stories
+
 ## Strategy
 The site should be a simple and attractive  with sufficient activity to engage visitors, encourage them to sign up and return to the site.
 
@@ -24,12 +34,15 @@ Objective Requirement;         To encourage visitors to register with the site.
 Functional requirements; 	    To provide a collection of technologies that users can view. To provide a facility for users to register, login an out of the site. To provide users with the facility to add, edit and delete their own technologies and comments.
 
 Non-functional requirements; 	The site should be attractive and intuitive.
+
+## Scope
+
 ## Structure
 The site will have 9 pages, These will be welcome, registration, login, logout, browsing, add technology, edit techology, delete technology, inie page and a page for the final result. The quiz should automatically usher the player through all the stages of the quiz once they start through to the end. At the end they should be able to quit or replay.
 ## Skeleton
 The welcome page  explains what the site is about and encourage visitors to register. 
 The technology collections page should have the ability for teh visitor or member to view all the technologies or to view them by category. [here](assets/images/wireframes.pdf). 
-## Surface/Design
+## Surface/Design (Design Choices)
 ### Imagery
 The overall image of the site was to be kept clear, simple and intuitive.
 ### Colour scheme

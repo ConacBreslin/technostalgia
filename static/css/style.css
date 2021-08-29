@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+ body  {font-family: 'Source Code Pro', monospace;};
+
+
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
