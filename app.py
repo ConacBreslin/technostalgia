@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 @app.route("/home")
 def home():
     technologies = mongo.db.technologies.find()
-    return render_template("/home.html",technologies=technologies, page_title="Home")
+    return render_template("/home.html",technologies=technologies, page_title="Technostalgia")
 
 
 @app.route("/get_technologies")

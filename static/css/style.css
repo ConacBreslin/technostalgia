@@ -1,16 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
-
- body  {font-family: 'Source Code Pro', monospace;};
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu+Mono&display=swap');
 
 
+.brand-logo, .page-topper {
+    font-family: 'Press Start 2P', cursive;
+}
+    
+
+body {
+    font-family: 'Ubuntu Mono', monospace;
+    background-color:#ffeb3b;
+}
+
+    
 .text-shadow {
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
 }
 
 .flashes h4 {
     line-height: 2;
-}
-
-.col-md-4 img {
-    width: 100%;
 }

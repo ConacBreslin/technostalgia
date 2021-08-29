@@ -93,7 +93,7 @@ Polls, comments
 - The Walkman image is by [Florian Schmetz on unsplash.com](https://unsplash.com/photos/Rks6FTfX5OU)
 - The cassette tape image is in by [Volodymyr Hryshchenko on unsplash.com](https://unsplash.com/photos/D5_cfqMAY0Y)
 - The motorola image is from [oneandroid.net/](https://oneandroid.net/)
-  
+- The floppy disk image is by [Photo by Fredy Jacob on unsplash.com](https://www.pexels.com/search/floppy%20disc/)
 
 
 ## Testing.
