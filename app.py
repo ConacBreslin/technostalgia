@@ -22,13 +22,13 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("/home.html")
+    return render_template("/home.html", page_title="Home")
 
 
 @app.route("/get_technologies")
 def get_technologies():
     technologies = mongo.db.technologies.find()
-    return render_template("technologies.html", technologies=technologies)
+    return render_template("technologies.html", technologies=technologies, page_title="Technologies")
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -94,7 +94,7 @@ def login():
             flash("Incorrect Username and/or Password. Please try again")
             return redirect(url_for("login"))
 
-    return render_template("login.html")
+    return render_template("login.html", page_title="Log In")
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -104,7 +104,7 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, page_title="Profile")
 
     return redirect(url_for("login"))
 
