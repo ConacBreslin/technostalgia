@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="center-align">{{ page_title }}</h1>
+<h3 class="center-align">A place to come and reminisce about technologies that have been loved and lost</h3>
 
 
 <div class="carousel">
@@ -9,5 +9,21 @@
     <a class="carousel-item"><img src="{{ technology.technology_image }}"></a>
   {% endfor %}
 </div>
+
+<div class="col s4 offset 1 center-align">
+Feel free to browse  the technologies
+
+</div>
+
+<div class="col s2 center-align">
+OR
+  
+  </div>
+
+<div class="col s4 offset 1 center-align">
+Register and contribute to the site
+
+</div>
+
 
 {% endblock  %}
