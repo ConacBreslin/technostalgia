@@ -29,6 +29,14 @@ def get_technologies():
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     if request.method == "POST":
+
+        # Check if passwords match
+        user_password = request.form.get("password")
+        confirm_password = request.form.get("confirm_password")
+        if user_password != confirm_password:
+            flash('Passwords do not match, please try again')
+            return redirect(url_for("registration"))
+
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -39,7 +47,10 @@ def registration():
 
         registration = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "first_name": request.form.get("first_name").lower(),
+            "last_name": request.form.get("last_name").lower(),
+            "email": request.form.get("email").lower(),
         }
         mongo.db.users.insert_one(registration)
 
@@ -67,6 +78,7 @@ def login():
                             request.form.get("username")))
                         return redirect(url_for(
                             "get_technologies", username=session["user"]))
+
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -96,7 +108,7 @@ def profile(username):
 def logout():
     # remove user from session cookie
     flash("You have been logged out")
-    session.pop("user")
+    session.clear()
     return redirect(url_for("login"))
 
 

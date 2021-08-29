@@ -6,12 +6,38 @@
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('registration') }}">
             <div class="card-panel">
+                <!-- first_name -->
+                <div class="row">
+					<div class="input-field col s12">
+						<i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+						<input id="first_name" name="first_name" type="text" minlength="4"
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" placeholder = "First Name, minimum 4 characters" required>
+						<label for="first_name">First name</label>
+					</div>
+                </div>
+                <!-- last_name -->
+                <div class="row">
+					<div class="input-field col s12">
+						<i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+						<input id="last_name" name="last_name" type="text" minlength="4"
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" placeholder = "Last Name, minimum 4 characters"required>
+						<label for="last_name">Last name</label>
+					</div>
+                </div>
+                <!-- email -->
+                <div class="row">
+					<div class="input-field col s12">
+						<i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+						<input id="email" name="email" type="email" class="validate" placeholder = "Email address" required>
+						<label for="email">Email</label>
+					</div>
+                </div>
                 <!-- username -->
                 <div class="row">
 					<div class="input-field col s12">
 						<i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
 						<input id="username" name="username" type="text" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" placeholder = "username, minimum 5 characters" required>
 						<label for="username">Username</label>
 					</div>
                 </div>
@@ -25,6 +51,17 @@
                         <label for="password">Password</label>
                     </div>
                 </div>
+                 <!-- confirm_password -->
+                 <div class="row">
+                    <div class="input-field col s12">
+						<i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                        
+                        <input id="confirm_password" name="confirm_password" type="password" minlength="5"
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="confirm_password">Confirm Password</label>
+                    </div>
+                </div>
+
                 <!-- register -->
                 <div class="row">
                     <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
