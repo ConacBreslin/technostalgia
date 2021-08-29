@@ -3,15 +3,21 @@
 
 .brand-logo, .page-topper {
     font-family: 'Press Start 2P', cursive;
+    font-size: 2.7rem;
+ 
 }
     
+.sidenav {
+    background-color: #ffeb3b;
+}
+
+
 
 body {
     font-family: 'Ubuntu Mono', monospace;
     background-color:#ffeb3b;
-}
+} 
 
-    
 .text-shadow {
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
 }

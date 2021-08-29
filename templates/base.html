@@ -37,7 +37,7 @@
 
         <!-- mobile sidenav -->
 		<ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align light-blue-text text-darken 4">Technostalgia</h4></li>
+            <li><h4 class="center-align">Technostalgia</h4></li>
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('get_technologies') }}">View Technologies</a></li>
             {% if session.user %}
@@ -59,7 +59,7 @@
             {% if messages %}
                 {% for message in messages %}
                     <div class="row flashes">
-                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                        <h4 class="orange lighten-1 center-align">{{ message }}</h4>
                     </div>
                 {% endfor %}
             {% endif %}
