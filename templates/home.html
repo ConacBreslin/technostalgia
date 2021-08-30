@@ -1,28 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">A place to come and reminisce about technologies that have been loved and lost</h3>
+<h3 class="center-align">A place to come and reminisce about technologies that have been loved and lost, but not forgotten.</h3>
 
 
+<!-- Code for carousel from  https://materializecss.com/ -->
 <div class="carousel">
   {% for technology in technologies %}
     <a class="carousel-item"><img src="{{ technology.technology_image }}"></a>
   {% endfor %}
 </div>
 
-<div class="col s4 offset 1 center-align">
-Feel free to browse  the technologies
 
-</div>
-
-<div class="col s2 center-align">
-OR
-  
+<div class="row">
+  <div class="col s4 offset 1 center-align">
+        <p>Feel free to browse  the technologies</p>
   </div>
 
-<div class="col s4 offset 1 center-align">
-Register and contribute to the site
+  <div class="col s2 center-align">
+    <p>OR</p>  
+  </div>
 
+  <div class="col s4 offset 1 center-align">
+    <p>Register and contribute to the site</p>
+  </div>
 </div>
 
 

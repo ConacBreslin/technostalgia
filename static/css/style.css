@@ -3,7 +3,7 @@
 
 .brand-logo, .page-topper {
     font-family: 'Press Start 2P', cursive;
-    font-size: 2.7rem;
+    font-size: 2rem;
  
 }
     
@@ -11,7 +11,9 @@
     background-color: #ffeb3b;
 }
 
-
+.home-page-links {
+    font-size: 3rem
+}
 
 body {
     font-family: 'Ubuntu Mono', monospace;

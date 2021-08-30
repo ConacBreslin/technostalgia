@@ -29,7 +29,8 @@ def home():
 @app.route("/get_technologies")
 def get_technologies():
     technologies = mongo.db.technologies.find()
-    return render_template("technologies.html", technologies=technologies)
+    categories = mongo.db.categories.find()
+    return render_template("technologies.html", technologies=technologies, categories=categories)
 
 
 @app.route("/registration", methods=["GET", "POST"])

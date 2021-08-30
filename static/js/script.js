@@ -1,15 +1,9 @@
-/*
-    jQuery for MaterializeCSS initialization
-*/
+
 
 $(document).ready(function () {
+    /*     jQuery code from  https://materializecss.com/ for sidenav */
     $(".sidenav").sidenav({edge: "right"});
+    /*     jQuery code from  https://materializecss.com/ for carousel */
+    $('.carousel').carousel();
 });
 
-
-/*
-    jQuery for Initializing carousel on homepage
-*/
-$(document).ready(function(){
-    $('.carousel').carousel();
-  });
