@@ -120,7 +120,7 @@ def logout():
 
 
 @app.route("/add_technology")
-def add_task():
+def add_technology():
     return render_template("add_technology.html", page_title="Add a Technology")
 
 
