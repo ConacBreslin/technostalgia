@@ -16,6 +16,18 @@
                 </div>
             </div>
             <div class="row">
+				<div class="input-field col s12">
+                    <i class="material-icons prefix orange-text text-darken-3">list</i>
+					<select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose a category for your technology</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+					<label for="category_name">Choose a category for your technology</label>
+				</div>
+			</div>
+            <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">camera_alt</i>
                     <input id="technology_image" name="technology_image" type="text" class="validate" placeholder="Important! Must be a url" required>

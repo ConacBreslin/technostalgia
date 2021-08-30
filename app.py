@@ -121,7 +121,8 @@ def logout():
 
 @app.route("/add_technology")
 def add_technology():
-    return render_template("add_technology.html", page_title="Add a Technology")
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_technology.html", page_title="Add a Technology", categories=categories)
 
 
 if __name__ == "__main__":
