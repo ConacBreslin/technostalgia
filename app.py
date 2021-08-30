@@ -119,8 +119,22 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_technology")
+@app.route("/add_technology", methods=["GET", "POST"])
 def add_technology():
+    if request.method == "POST":
+        technology = {
+            "technology_name": request.form.get("technology_name"),
+            "category_name": request.form.get("category_name"),
+            "technology_image": request.form.get("technology_image"),
+            "technology_description": request.form.get("technology_description"),
+            "best_bits": request.form.get("best_bits"),
+            "worst_bits": request.form.get("worst_bits"),
+            "posted_by": session["user"]
+        }
+        mongo.db.tasks.insert_one(technology)
+        flash("You have successfully added this to our collection. Thank you!")
+        return redirect(url_for("get_technologies"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_technology.html", page_title="Add a Technology", categories=categories)
 
