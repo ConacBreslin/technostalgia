@@ -14,7 +14,7 @@
 <body>
 
     <header>
-        <!-- top navbar -->
+        <!-- main navbar using materialize classes -->
 		<nav class="nav-extended text-shadow orange darken-3">
 			<div class="nav-wrapper">
 				<a href="{{ url_for('home') }}" class="brand-logo">Technostalgia</a>
@@ -23,8 +23,10 @@
 					<li><a href="{{ url_for('home') }}">Home</a></li>
 					<li><a href="{{ url_for('get_technologies') }}">View Technologies</a></li>
                     {% if session.user %}
-					    <li><a href="#">Add a Technology</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a href="{{ url_for('add_technology') }}">Add a Technology</a></li>
+					    <li><a href="">Add a new technology</a></li>
+
 					    <li><a href="#">Manage Categories</a></li>
 					    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
@@ -35,7 +37,7 @@
 			</div>
 		</nav>
 
-        <!-- mobile sidenav -->
+        <!--collapsed navbar to left side using materialize -->
 		<ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align">Technostalgia</h4></li>
             <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -43,6 +45,7 @@
             {% if session.user %}
 					    <li><a href="#">Add a Technology</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a href="{{ url_for('add_technology') }}">Add a Technology</a></li>
 					    <li><a href="#">Manage Categories</a></li>
 					    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}

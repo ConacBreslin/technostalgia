@@ -26,7 +26,6 @@
 </form>
       
 
-
 {% for technology in technologies %}
   <div class="col s12 m7">
     <div class="card horizontal small">
@@ -36,7 +35,7 @@
       <div class="card-stacked">
       <div class="card-content">
         <ul>
-          <li>Category: {{ technology.category_name }}</li><br>
+          <li><strong>Category: {{ technology.category_name }}</strong></li>
           <li>Name: {{ technology.technology_name }}</li>
           <li>Description: {{ technology.technology_description }}</li>
           <li>Best bits: {{ technology.best_bits }}</li>
