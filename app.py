@@ -30,7 +30,8 @@ def home():
 def get_technologies():
     technologies = mongo.db.technologies.find()
     categories = mongo.db.categories.find()
-    return render_template("technologies.html", technologies=technologies, categories=categories)
+    return render_template(
+        "technologies.html", technologies=technologies, categories=categories)
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -63,8 +64,10 @@ def registration():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Welcome {}, you have successfullly registered".format(
+                            request.form.get("username")))
         return redirect(url_for("get_technologies", username=session["user"]))
+    
 
     return render_template("registration.html", page_title="Register")
 
@@ -81,7 +84,7 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                         session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}, you have successfully logged in".format(
+                        flash("Welcome {}, you have successfully logged in".format(
                             request.form.get("username")))
                         return redirect(url_for(
                             "get_technologies", username=session["user"]))
@@ -131,8 +134,8 @@ def add_technology():
             "worst_bits": request.form.get("worst_bits"),
             "posted_by": session["user"]
         }
-        mongo.db.tasks.insert_one(technology)
-        flash("You have successfully added this to our collection. Thank you!")
+        mongo.db.technologies.insert_one(technology)
+        flash("You have successfully {{ technology_name }} to {{ category_name}}. Thank you!")
         return redirect(url_for("get_technologies"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)

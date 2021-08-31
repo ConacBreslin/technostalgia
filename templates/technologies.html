@@ -3,26 +3,23 @@
 
 {% block content %}
 
-<h2>You can browse all  technologies or select a category</h2>
+<h3>You can browse all  technologies or select a category</h3>
 
 
  <!-- code from Materialize.com for radiobuttons to select category to browse -->
  <form action="#">
-  <p>
-    <label>
-      <input class="with-gap" name="catogory" type="radio" checked />
-      <span>All</span>
-    </label>
-  </p>
-  {% for category in categories %}
-  <p>
-    <label>
-      <input class="with-gap" name="category" type="radio" />
-      <span>{{ category.category_name }}</span>
-    </label>
-  </p>
- {% endfor %}
-  
+  <div class="row">
+    <div class="input-field col s12">
+                <i class="material-icons prefix orange-text text-darken-3">dehaze</i>
+      <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled selected>Choose a category to browse</option>
+                    {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+      <label for="category_name">Choose a category to browse</label>
+    </div>
+  </div>
 </form>
       
 <!-- code from Materialize.com for cards -->
