@@ -149,6 +149,13 @@ def add_technology():
         "add_technology.html", page_title="Add a Technology", categories=categories)
 
 
+@app.route("/edit_technology/<technology_id>", methods=["GET", "POST"])
+def edit_technology(technology_id):
+    technology = mongo.db.technology.find_one({"_id": ObjectId(technology_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_technology.html", technology=technology, categories=categories, page_title="Edit this technology")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
