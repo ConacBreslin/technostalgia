@@ -151,6 +151,23 @@ def add_technology():
 
 @app.route("/edit_technology/<technology_id>", methods=["GET", "POST"])
 def edit_technology(technology_id):
+
+    # Edit a techonolgy in database
+    if request.method == "POST":
+        edittedtech = {
+            "technology_name": request.form.get("technology_name"),
+            "category_name": request.form.get("category_name"),
+            "technology_image": request.form.get("technology_image"),
+            "technology_description": request.form.get(
+                "technology_description"),
+            "best_bits": request.form.get("best_bits"),
+            "worst_bits": request.form.get("worst_bits"),
+            "posted_by": session["user"]
+        }
+        mongo.db.technologies.update({"_id": ObjectId(technology_id)}, edittedtech)
+        flash("You have successfully updated {{ technology_name }}. Thank you!")
+        return redirect(url_for("get_technologies"))
+
     technology = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_technology.html", technology=technology, categories=categories)
