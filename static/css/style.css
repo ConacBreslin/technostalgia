@@ -1,27 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu+Mono&display=swap');
 
-
-.brand-logo, .page-topper {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 2rem;
- 
-}
-
-    
-.sidenav {
-    background-color: #ffeb3b;
-}
-
-
+/*-- Styles across site --*/
 body {
     font-family: 'Ubuntu Mono', monospace;
     background-color:#ffeb3b;
 } 
 
-.text-shadow {
-    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
-}
-
 .flashes h4 {
     line-height: 2;
 }
+
+
+/*-- Backgorund colour of sidenav to match site --*/
+
+.sidenav {
+    background-color: #ffeb3b;
+}
+
+/*-- Logo and page header font --*/
+.brand-logo, .page-topper {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+ 
+}
+    
+
+
+
+
+

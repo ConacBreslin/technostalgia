@@ -3,29 +3,15 @@
 
 
 <h1 class="center-align page-topper">Technostalgia</h1>
-<h3 class="center-align">A place to come and reminisce about technologies that have been loved and lost, but not forgotten.</h3>
+<h3 class="center-align">A place to come and reminisce about technologies that have been loved and lost, but not
+  forgotten.</h3>
 
 
-<!-- Code for carousel from  https://materializecss.com/ -->
+<!-- Code for carousel from  Materialise.com -->
 <div class="carousel">
   {% for technology in technologies %}
-    <a class="carousel-item"><img src="{{ technology.technology_image }}"></a>
+  <a class="carousel-item"><img src="{{ technology.technology_image }}"></a>
   {% endfor %}
-</div>
-
-
-<div class="row home-page-links">
-  <div class="col s4 offset 1 center-align">
-        <p>Feel free to just browse  the technologies</p>
-  </div>
-
-  <div class="col s2 center-align">
-    <p>OR</p>  
-  </div>
-
-  <div class="col s4 offset 1 center-align">
-    <p>Register and contribute to the site</p>
-  </div>
 </div>
 
 

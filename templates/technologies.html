@@ -1,35 +1,34 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 
-<h3>You can browse all  technologies or select a category</h3>
+<h3>You can browse all our technologies or select just one category</h3>
 
-
- <!-- code from Materialize.com for radiobuttons to select category to browse -->
- <form action="#">
+<!-- Code from Materialize.com for radiobuttons to select category to browse -->
+<form action="#">
   <div class="row">
     <div class="input-field col s12">
-                <i class="material-icons prefix orange-text text-darken-3">dehaze</i>
+      <i class="material-icons prefix orange-text text-darken-3">dehaze</i>
       <select id="category_name" name="category_name" class="validate" required>
-                    <option value="" disabled selected>Choose a category to browse</option>
-                    {% for category in categories %}
-                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                    {% endfor %}
-                </select>
+        <option value="" disabled selected>Choose a category to browse</option>
+        <option value="all">View all</option>
+        {% for category in categories %}
+        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+        {% endfor %}
+      </select>
       <label for="category_name">Choose a category to browse</label>
     </div>
   </div>
 </form>
-      
-<!-- code from Materialize.com for cards -->
+
+<!-- Code from Materialize.com for cards -->
 {% for technology in technologies %}
-  <div class="col s12 m7">
-    <div class="card horizontal small hoverable">
-      <div class="card-image">
-      <img src="{{ technology.technology_image }}" alt="" >
-      </div>
-      <div class="card-stacked">
+<div class="col s12 m7">
+  <div class="card horizontal small hoverable">
+    <div class="card-image">
+      <img src="{{ technology.technology_image }}" alt="">
+    </div>
+    <div class="card-stacked">
       <div class="card-content">
         <ul>
           <li><strong>Category: {{ technology.category_name }}</strong></li>
@@ -42,14 +41,11 @@
         </ul>
       </div>
       <div class="card-action">
-            <a href="#">See all {{ technology.category_name}} comments</a>
-      </div>
+        <a href="#">See all {{ technology.category_name}} comments</a>
       </div>
     </div>
   </div>
-{% endfor %} 
-
-
-
+</div>
+{% endfor %}
 
 {% endblock  %}
