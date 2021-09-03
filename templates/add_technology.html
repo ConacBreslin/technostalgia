@@ -4,7 +4,7 @@
 <h1 class="center-align">{{ page_title }}</h1>
 
 
-<!-- Code for form from  https://materializecss.com/ -->
+<!-- Code for form from Materialize.com -->
 <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('add_technology') }}">
         <div class="card-panel">
@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
-                    <input id="technology_name" name="technology_name" maxlength="75" type="text" class="validate" placeholder="Name" required>
+                    <input id="technology_name" name="technology_name" minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" required>
                     <label for="technology_name">Technology's name</label>
                 </div>
             </div>
@@ -40,12 +40,13 @@
                     <label for="technology_image">Technology's Image</label>
                 </div>
             </div>
+
 <!-- Input for adding a technology description -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">description</i>
                     <textarea id="technology_description" name="technology_description" minlength="5"
-                        maxlength="" placeholder="Brief desciption, lessthan 200 characters!" class="materialize-textarea validate" required></textarea>
+                        maxlength="300" placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate" required></textarea>
                     <label for="technology_description">Description</label>
                 </div>
             </div>
@@ -73,7 +74,6 @@
 <!-- Submit button for adding a technology -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-
                 <button type="submit" class="btn-large waves-effect waves-light orange darken-3">
                         Add this technology now! <i class="material-icons right">add_circle_outline</i>
                     </button>
