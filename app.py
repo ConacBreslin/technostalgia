@@ -173,6 +173,12 @@ def edit_technology(technology_id):
     return render_template("edit_technology.html", technology=technology, categories=categories)
 
 
+@app.route("/delete_technology/<technology_id>")
+def delete_technology(technology_id):
+    mongo.db.technologies.remove({"_id": ObjectId(technology_id)})
+    flash("{{ technology_name }} has been deleted")
+    return redirect(url_for("get_technologies"))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
