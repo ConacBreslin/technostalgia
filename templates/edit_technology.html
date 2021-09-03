@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1 class="center-align">{{ page_title }}</h1>
-<h1>{{ technology.technology_name}}</h1>
+<h1 class="center-align">Edit the entry for "{{ technology.technology_name}}"</h1>
 
 
 <!-- Code for form from Materialize.com -->
@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
-                    <input id="technology_name" name="technology_name" minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" required>
+                    <input id="technology_name" name="technology_name" value="{{ technology.technology_name }}" minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" required>
                     <label for="technology_name">Technology's name</label>
                 </div>
             </div>
@@ -24,9 +24,13 @@
 				<div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">list</i>
 					<select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Choose a category for your technology</option>
+                        <option value="" disabled >Choose a category for your technology</option>
                         {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% if category.category_name == technology.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            {% else %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
 					<label for="category_name">Choose a category for your technology</label>
@@ -37,7 +41,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">camera_alt</i>
-                    <input id="technology_image" name="technology_image" type="text" class="validate" placeholder="Important! Must be a url" required>
+                    <input id="technology_image" name="technology_image" value="{{ technology.technology_image }}" type="text" class="validate" placeholder="Important! Must be a url" required>
                     <label for="technology_image">Technology's Image</label>
                 </div>
             </div>
@@ -47,7 +51,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">description</i>
                     <textarea id="technology_description" name="technology_description" minlength="5"
-                        maxlength="300" placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate" required></textarea>
+                        maxlength="300" placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate" required>{{ technology.technology_description }}</textarea>
                     <label for="technology_description">Description</label>
                 </div>
             </div>
@@ -57,7 +61,7 @@
     <div class="input-field col s12">
         <i class="material-icons prefix orange-text text-darken-3">thumb_up</i>
         <textarea id="best_bits" name="best_bits" minlength="5"
-            maxlength="200" placeholder="What do you love most about this technology?" class="materialize-textarea validate" required></textarea>
+            maxlength="200"  class="materialize-textarea validate" required>{{ technology.best_bits }}</textarea>
         <label for="best_bits">Best bits</label>
     </div>
 </div> 
@@ -67,7 +71,7 @@
     <div class="input-field col s12">
         <i class="material-icons prefix orange-text text-darken-3">thumb_down</i>
         <textarea id="worst_bits" name="worst_bits" minlength="5"
-            maxlength="200" placeholder="What do you NOT love about this technology?" class="materialize-textarea validate" required></textarea>
+            maxlength="200"  class="materialize-textarea validate" required>{{ technology.worst_bits }}</textarea>
         <label for="worst_bits">Worst bits</label>
     </div>
 </div> 

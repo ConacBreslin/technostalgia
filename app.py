@@ -151,9 +151,9 @@ def add_technology():
 
 @app.route("/edit_technology/<technology_id>", methods=["GET", "POST"])
 def edit_technology(technology_id):
-    technology = mongo.db.technology.find_one({"_id": ObjectId(technology_id)})
+    technology = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_technology.html", technology=technology, categories=categories, page_title="Edit this technology")
+    return render_template("edit_technology.html", technology=technology, categories=categories)
 
 
 if __name__ == "__main__":
