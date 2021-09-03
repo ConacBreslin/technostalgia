@@ -24,9 +24,11 @@ body {
  
 }
 
-/*-- To space buttons in technologies.html cards --*/
+/*-- To space buttons in edit_tcehnologies.html  --*/
 
-
+.btn-large {
+    margin-bottom: 20px;
+}
 
 
 
