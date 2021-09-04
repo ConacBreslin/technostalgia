@@ -8,7 +8,7 @@
     <form class="col s12" method="POST" action="{{ url_for('add_technology') }}">
         <div class="card-panel">
 
-<!-- Input for adding a technology's name  -->
+            <!-- Input for adding a technology's name  -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-<!-- Dropdown for picking a technology's category -->
+            <!-- Dropdown for picking a technology's category -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">list</i>
@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-<!-- Input for adding a technology image -->
+            <!-- Input for adding a technology image -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">camera_alt</i>
@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-<!-- Input for adding a technology description -->
+            <!-- Input for adding a technology description -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">description</i>
@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-<!-- Input for adding a best bits about the technology -->
+            <!-- Input for adding a best bits about the technology -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">thumb_up</i>
@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-<!-- Input for adding worst bits about the technology -->
+            <!-- Input for adding worst bits about the technology -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">thumb_down</i>
@@ -75,13 +75,15 @@
                 </div>
             </div>
 
-<!-- Submit button for adding a technology -->
+            <!-- Submit button for adding a technology -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
                     <button type="submit" class="btn-large waves-effect waves-light orange darken-3">
                         Add this technology now! <i class="material-icons right">add_circle_outline</i>
                     </button>
-
+                    <!-- Button to cancel all changes and return to manage_categories -->
+                    <a href="{{ url_for('get_technologies') }}" class="btn-large waves-effect waves-light orange darken-3">
+                        Cancel <i class="material-icons right">close</i></a>
                 </div>
             </div>
         </div>
