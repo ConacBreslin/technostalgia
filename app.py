@@ -186,6 +186,18 @@ def manage_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("manage_categories.html", categories=categories)
 
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        category = {
+            "category_name": request.form.get("category_name")
+        }
+        mongo.db.categories.insert_one(category)
+        flash("You have added a new category of {{category_name }}")
+        return redirect(url_for("manage_categories"))
+
+    return render_template("add_category.html")
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
