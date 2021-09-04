@@ -57,6 +57,7 @@ def registration():
             "first_name": request.form.get("first_name").lower(),
             "last_name": request.form.get("last_name").lower(),
             "email": request.form.get("email").lower(),
+            "is_admin": "off",
         }
         mongo.db.users.insert_one(registration)
 

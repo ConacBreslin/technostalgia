@@ -3,40 +3,41 @@
 
 <h1 class="center-align">{{ page_title }}</h1>
 
-
 <!-- Code for form from Materialize.com -->
 <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('add_technology') }}">
         <div class="card-panel">
 
-            <!-- Input for adding a technology's name  -->
+<!-- Input for adding a technology's name  -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
-                    <input id="technology_name" name="technology_name" minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" required>
+                    <input id="technology_name" name="technology_name" minlength="5" maxlength="100" type="text"
+                        class="validate" placeholder="Name" required>
                     <label for="technology_name">Technology's name</label>
                 </div>
             </div>
 
 <!-- Dropdown for picking a technology's category -->
             <div class="row">
-				<div class="input-field col s12">
+                <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">list</i>
-					<select id="category_name" name="category_name" class="validate" required>
+                    <select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose a category for your technology</option>
                         {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
                     </select>
-					<label for="category_name">Choose a category for your technology</label>
-				</div>
-			</div>
+                    <label for="category_name">Choose a category for your technology</label>
+                </div>
+            </div>
 
 <!-- Input for adding a technology image -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">camera_alt</i>
-                    <input id="technology_image" name="technology_image" type="text" class="validate" placeholder="Important! Must be a url" required>
+                    <input id="technology_image" name="technology_image" type="text" class="validate"
+                        placeholder="Important! Must be a url" required>
                     <label for="technology_image">Technology's Image</label>
                 </div>
             </div>
@@ -45,39 +46,42 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">description</i>
-                    <textarea id="technology_description" name="technology_description" minlength="5"
-                        maxlength="300" placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate" required></textarea>
+                    <textarea id="technology_description" name="technology_description" minlength="5" maxlength="300"
+                        placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate"
+                        required></textarea>
                     <label for="technology_description">Description</label>
                 </div>
             </div>
 
 <!-- Input for adding a best bits about the technology -->
- <div class="row">
-    <div class="input-field col s12">
-        <i class="material-icons prefix orange-text text-darken-3">thumb_up</i>
-        <textarea id="best_bits" name="best_bits" minlength="5"
-            maxlength="200" placeholder="What do you love most about this technology?" class="materialize-textarea validate" required></textarea>
-        <label for="best_bits">Best bits</label>
-    </div>
-</div> 
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix orange-text text-darken-3">thumb_up</i>
+                    <textarea id="best_bits" name="best_bits" minlength="5" maxlength="200"
+                        placeholder="What do you love most about this technology?" class="materialize-textarea validate"
+                        required></textarea>
+                    <label for="best_bits">Best bits</label>
+                </div>
+            </div>
 
 <!-- Input for adding worst bits about the technology -->
-<div class="row">
-    <div class="input-field col s12">
-        <i class="material-icons prefix orange-text text-darken-3">thumb_down</i>
-        <textarea id="worst_bits" name="worst_bits" minlength="5"
-            maxlength="200" placeholder="What do you NOT love about this technology?" class="materialize-textarea validate" required></textarea>
-        <label for="worst_bits">Worst bits</label>
-    </div>
-</div> 
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix orange-text text-darken-3">thumb_down</i>
+                    <textarea id="worst_bits" name="worst_bits" minlength="5" maxlength="200"
+                        placeholder="What do you NOT love about this technology?" class="materialize-textarea validate"
+                        required></textarea>
+                    <label for="worst_bits">Worst bits</label>
+                </div>
+            </div>
 
 <!-- Submit button for adding a technology -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                <button type="submit" class="btn-large waves-effect waves-light orange darken-3">
+                    <button type="submit" class="btn-large waves-effect waves-light orange darken-3">
                         Add this technology now! <i class="material-icons right">add_circle_outline</i>
                     </button>
-                                       
+
                 </div>
             </div>
         </div>

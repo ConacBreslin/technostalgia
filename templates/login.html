@@ -7,7 +7,7 @@
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
         <div class="card-panel">
 
-<!-- Input element for username -->
+            <!-- Input element for username -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">face</i>
@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-<!-- Input element for password -->
+            <!-- Input element for password -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">lock</i>
@@ -27,14 +27,20 @@
                 </div>
             </div>
 
-<!-- Submit button for log in -->
+            <!-- Submit button for log in -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                <button type="submit" class="btn-large waves-effect waves-light orange darken-3">
+                    <button type="submit" class="btn-large waves-effect waves-light orange darken-3">
                         Log In<i class="material-icons right">forward</i>
                     </button>
-                                       
+                    <div class="col s12 ">
+                        <p>If you have not registered yet you can <a href="{{ url_for('registration') }}"
+                                class=" ">Register Here</a></p>
+
+                    </div>
+
                 </div>
+
             </div>
         </div>
     </form>

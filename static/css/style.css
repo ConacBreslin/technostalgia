@@ -18,7 +18,7 @@ body {
 }
 
 /*-- Logo and page header font --*/
-.brand-logo, .page-topper {
+.brand-logo, .page-topper  {
     font-family: 'Press Start 2P', cursive;
     font-size: 2rem;
  
