@@ -18,9 +18,15 @@ body {
 }
 
 /*-- Logo and page header font --*/
-.brand-logo, .page-topper  {
+nav .brand-logo {
     font-family: 'Press Start 2P', cursive;
-    font-size: 1rem;
+    font-size: 1.5rem;
+ 
+}
+
+.page-topper  {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
  
 }
 
@@ -30,6 +36,8 @@ body {
     margin-bottom: 20px;
 }
 
-
+.btn-small {
+    margin-bottom: 5px;
+}
 
 
