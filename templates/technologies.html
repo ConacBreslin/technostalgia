@@ -6,7 +6,7 @@
 
 <!-- Code from Materialize.com for radiobuttons to select category to browse -->
 <form action="#">
-  <div class="row">
+  <div class="row yellow lighten-4">
     <div class="input-field col s12">
       <i class="material-icons prefix orange-text text-darken-3">dehaze</i>
       <select id="category_name" name="category_name" class="validate" required>
@@ -25,10 +25,10 @@
   </div>
 </form>
 
-
+<h1>Or</h1>
 
 <!-- Code for search box  -->
-<div class="row card-panel grey lighten-5">
+<div class="row card-panel yellow lighten-4">
   <form action="{{ url_for('search') }}" method="post" class="col s12">
       <div class="row valign-wrapper center-align">
           <div class="input-field col s12 m8">
@@ -37,16 +37,17 @@
               <label for="query">Search Technologies</label>
           </div>
           <div class="col s12 m4">
-              <a href="{{ url_for('get_technologies') }}" class="red btn text-shadow">Reset</a>
-              <button type="submit" class="light-blue darken-1 btn text-shadow">
-                  Search<i class="material-icons right">Search</i>
+              
+              <button type="submit" class="orange darken-3 btn-small"><i class="material-icons right">search</i>
+                  Search
               </button>
+              <a href="{{ url_for('get_technologies') }}" class="orange darken-3 btn-small"><i class="material-icons right">autorenew</i>Reset</a>
           </div>
       </div>
   </form>
 </div>
 
-{% if tasks|length == 0 %}
+{% if technologies|length == 0 %}
     <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
 {% endif %}
 
