@@ -5,8 +5,12 @@ $(document).ready(function () {
     $('.carousel').carousel();
 // jQuery code from Materialize.com  for select dropdown to add technology category
     $('select').formSelect();
-// jQuery code from Materialize.com  for collapsoible to add manage categories
+// jQuery code from Materialize.com  for collapsible to add manage categories
     $('.collapsible').collapsible();
+// jQuery code from Materialize.com  for modal
+    $('.modal').modal();
+
+    
 
       });
 
