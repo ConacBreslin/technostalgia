@@ -50,7 +50,7 @@
             class="material-icons right">edit</i>Edit this technology</a>
         <a class="waves-effect waves-light  btn-small orange darken-3 align-right modal-trigger"
           href="#modal{{ technology._id }}"><i
-          class="material-icons right">close</i>SUPERSAFE DELETE THIS TECHNOLOGY</a>
+          class="material-icons right">close</i>Delete this technology</a>
                 {% endif %}
       </div>
 
@@ -65,7 +65,7 @@
   </div>
   <div class="modal-footer">
     <a href="{{ url_for('delete_technology', technology_id=technology._id) }}"
-      class="modal-close waves-effect waves-light btn-flat">Yes I am certain I want to delete this</a>
+      class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">Yes I am certain I want to delete this</a>
 
     <a href="{{ url_for('get_technologies', technology_id=technology._id) }}"
       class="modal-close waves-effect waves-light btn-flat">No, return to safety</a>
