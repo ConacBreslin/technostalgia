@@ -94,7 +94,9 @@ Polls, comments
 - The cassette tape image is in by [Volodymyr Hryshchenko on unsplash.com](https://unsplash.com/photos/D5_cfqMAY0Y)
 - The motorola image is from [oneandroid.net/](https://oneandroid.net/)
 - The floppy disk image is by [Photo by Fredy Jacob on unsplash.com](https://www.pexels.com/search/floppy%20disc/)
-
+- The space invader image for the favicon was found in [iconfinder.com](https://www.iconfinder.com/)
+- the favicon image was converted to an .ico file using [favicon.io](https://favicon.io/)
+- instructions for adding the favicon were found on [flask.palletsprojects.co](https://flask.palletsprojects.com/)
 
 ## Testing.
 Bugs identified during development and testing and their solutions can be seen [here](assets/images/buglog.png).
