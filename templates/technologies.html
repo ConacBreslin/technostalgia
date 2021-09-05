@@ -19,7 +19,36 @@
       <label for="category_name">Choose a category to browse</label>
     </div>
   </div>
+
+  <div class="row">
+    
+  </div>
 </form>
+
+
+
+<!-- Code for search box  -->
+<div class="row card-panel grey lighten-5">
+  <form action="{{ url_for('search') }}" method="post" class="col s12">
+      <div class="row valign-wrapper center-align">
+          <div class="input-field col s12 m8">
+              <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+              <input type="text" name="query" id="query" minlength="3" class="validate" required>
+              <label for="query">Search Technologies</label>
+          </div>
+          <div class="col s12 m4">
+              <a href="{{ url_for('get_technologies') }}" class="red btn text-shadow">Reset</a>
+              <button type="submit" class="light-blue darken-1 btn text-shadow">
+                  Search<i class="material-icons right">Search</i>
+              </button>
+          </div>
+      </div>
+  </form>
+</div>
+
+{% if tasks|length == 0 %}
+    <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+{% endif %}
 
 <!-- Code from Materialize.com for cards -->
 {% for technology in technologies %}

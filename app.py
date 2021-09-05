@@ -29,8 +29,15 @@ def get_technologies():
     technologies = mongo.db.technologies.find()
     categories = mongo.db.categories.find()
     return render_template(
-        "technologies.html", technologies=technologies, categories=categories
-    )
+        "technologies.html", technologies=technologies, categories=categories)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    technologies = list(mongo.db.technologies.find({"$text": {"$search": query}}))
+    return render_template(
+        "technologies.html", technologies=technologies)
 
 
 @app.route("/registration", methods=["GET", "POST"])
