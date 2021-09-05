@@ -83,11 +83,9 @@ Polls, comments
 - The favicon was downloaded from [favicon.io](https://favicon.io/favicon-generator/) and originated from [twemoji](https://twemoji.twitter.com/).
 - The logo was created on [zyro.com](https://logo.zyro.com/).
 - The following tutorials from [James Q Quick](https://www.youtube.com/playlist?list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx), [Brian Design](https://www.youtube.com/watch?v=f4fB9Xg2JEY&t=2405s) and [codeexplained.org](https://www.youtube.com/watch?v=49pYIMygIcU) were followed in designing the features of the quiz.
-- The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [tutsmake.com](https://www.tutsmake.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [scrimba.com](https://scrimba.com/) and [teamtreehouse.com](https://teamtreehouse.com/community/why-does-jshint-give-me-these-warnings-about-es6).
+- The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [pythonmorsels.com](https://www.pythonmorsels.com/)
 - The code was formatted using [webformatter.com](https://webformatter.com/html).
-- The phobias were found in [verywellmind.com](https://www.verywellmind.com/list-of-phobias-2795453).
-- The fauxbias were found it [letterpile.com](https://letterpile.com/humor/Fun-Fictional-and-Humorousl-Phobias) and [inherentlyfunny.com](https://www.inherentlyfunny.com/cat-94-funny_phobias.html).
-
+- 
 ## Images
 - the images were stored in [Imgur](https://i.imgur.com/)
 - The Walkman image is by [Florian Schmetz on unsplash.com](https://unsplash.com/photos/Rks6FTfX5OU)
