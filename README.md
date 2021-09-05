@@ -76,15 +76,16 @@ Polls, comments
 - Gits's [gitpod](https://www.gitpod.io/) was used for writing and editing code, and for submitting and pushing to GitHub.
 - [GitHub](https://github.com/) was used for storing the code after being pushed from Git.
 - [RandomKeygen](https://randomkeygen.com/) was used to generate a secret key for the app.
-- [Bootstrap 5.0.1](https://getbootstrap.com/) was used for responsiveness and styling.
+- [Materilaize 1.0.0](https://materializecss.com/) was used for responsiveness and styling.
 - [Google Fonts](https://fonts.google.com/) was used to choose and import the font.
-- The colour palette was generated using [coolors.co](https://coolors.co/).
 - Foreground/Backgound contrast was checked using [contrast-ratio.com](https://contrast-ratio.com/). 
-- The favicon was downloaded from [favicon.io](https://favicon.io/favicon-generator/) and originated from [twemoji](https://twemoji.twitter.com/).
-- The logo was created on [zyro.com](https://logo.zyro.com/).
+- The space invader image for the favicon was found in [iconfinder.com](https://www.iconfinder.com/)
+- the favicon image was converted to an .ico file using [favicon.io](https://favicon.io/)
+- instructions for adding the favicon were found on [flask.palletsprojects.co](https://flask.palletsprojects.com/)
 - The following tutorials from [James Q Quick](https://www.youtube.com/playlist?list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx), [Brian Design](https://www.youtube.com/watch?v=f4fB9Xg2JEY&t=2405s) and [codeexplained.org](https://www.youtube.com/watch?v=49pYIMygIcU) were followed in designing the features of the quiz.
 - The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [pythonmorsels.com](https://www.pythonmorsels.com/)
 - The code was formatted using [webformatter.com](https://webformatter.com/html).
+- The images were formatted using [https://tinypng.com/](https://tinypng.com/)
 - 
 ## Images
 - the images were stored in [Imgur](https://i.imgur.com/)
@@ -92,9 +93,7 @@ Polls, comments
 - The cassette tape image is in by [Volodymyr Hryshchenko on unsplash.com](https://unsplash.com/photos/D5_cfqMAY0Y)
 - The motorola image is from [oneandroid.net/](https://oneandroid.net/)
 - The floppy disk image is by [Photo by Fredy Jacob on unsplash.com](https://www.pexels.com/search/floppy%20disc/)
-- The space invader image for the favicon was found in [iconfinder.com](https://www.iconfinder.com/)
-- the favicon image was converted to an .ico file using [favicon.io](https://favicon.io/)
-- instructions for adding the favicon were found on [flask.palletsprojects.co](https://flask.palletsprojects.com/)
+
 
 ## Testing.
 Bugs identified during development and testing and their solutions can be seen [here](assets/images/buglog.png).

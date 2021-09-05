@@ -1,10 +1,10 @@
 import os
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for)
+from flask import Flask, flash, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
+from datetime import datetime
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+
 if os.path.exists("env.py"):
     import env
 
@@ -29,7 +29,8 @@ def get_technologies():
     technologies = mongo.db.technologies.find()
     categories = mongo.db.categories.find()
     return render_template(
-        "technologies.html", technologies=technologies, categories=categories)
+        "technologies.html", technologies=technologies, categories=categories
+    )
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -40,12 +41,13 @@ def registration():
         user_password = request.form.get("password")
         confirm_password = request.form.get("confirm_password")
         if user_password != confirm_password:
-            flash('Your passwords do not match, please try again')
+            flash("Your passwords do not match, please try again")
             return redirect(url_for("registration"))
 
         # Check if the username is already in the database
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"username": request.form.get("username").lower()}
+        )
 
         if existing_user:
             flash("Username already exists, please try a new username")
@@ -58,13 +60,14 @@ def registration():
             "last_name": request.form.get("last_name").lower(),
             "email": request.form.get("email").lower(),
             "is_admin": "off",
+            "join_date": "datetime.now()",
         }
         mongo.db.users.insert_one(registration)
 
         # Put the new user into the 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Welcome {}, you have successfully registered and you are now logged in ".format(
-                            request.form.get("username")))
+        flash("Welcome {}, you have successfully registered and you are now logged in ".format( 
+            request.form.get("username")))
         return redirect(url_for("get_technologies", username=session["user"]))
     return render_template("registration.html", page_title="Register")
 
@@ -75,19 +78,23 @@ def login():
 
         # Check if the username exists in the database
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"username": request.form.get("username").lower()}
+        )
 
         if existing_user:
 
             # Make sure the hashed password matches the user's password
             if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash(
-                            "Welcome {}, you have successfully logged in"
-                            .format(request.form.get("username")))
-                        return redirect(url_for(
-                            "get_technologies", username=session["user"]))
+                existing_user["password"], request.form.get("password")
+            ):
+                session["user"] = request.form.get("username").lower()
+                flash(
+                    "Welcome {}, you have successfully logged in".format(
+                        request.form.get("username")
+                    )
+                )
+                return redirect(
+                    url_for("get_technologies", username=session["user"]))
 
             else:
                 # If passwords don't match
@@ -98,6 +105,7 @@ def login():
 
             # If username doesn't exist in database
             flash("Your Username and/or Password were incorrect. Please try again")
+                
             return redirect(url_for("login"))
 
     return render_template("login.html", page_title="Log In")
@@ -139,15 +147,19 @@ def add_technology():
                 "technology_description"),
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
-            "posted_by": session["user"]
+            "posted_by": session["user"],
         }
         mongo.db.technologies.insert_one(technology)
-        flash("You have successfully added {{ technology_name }} to {{ category_name }}. Thank you!")
+        flash(
+            "You have successfully added {{ technology_name }} to {{ category_name }}. Thank you!"
+        )
         return redirect(url_for("get_technologies"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
-        "add_technology.html", page_title="Add a Technology", categories=categories)
+        "add_technology.html", page_title="Add a Technology",
+        categories=categories
+    )
 
 
 @app.route("/edit_technology/<technology_id>", methods=["GET", "POST"])
@@ -163,15 +175,19 @@ def edit_technology(technology_id):
                 "technology_description"),
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
-            "posted_by": session["user"]
+            "posted_by": session["user"],
         }
-        mongo.db.technologies.update({"_id": ObjectId(technology_id)}, edittedtech)
-        flash("You have successfully updated {{ technology_name }}. Thank you!")
+        mongo.db.technologies.update(
+            {"_id": ObjectId(technology_id)}, edittedtech)
+        flash("You have successfully updated{{ technology_name }}. Thank you!")
         return redirect(url_for("get_technologies"))
 
-    technology = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)})
+    technology = mongo.db.technologies.find_one(
+        {"_id": ObjectId(technology_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_technology.html", technology=technology, categories=categories)
+    return render_template(
+        "edit_technology.html", technology=technology, categories=categories
+    )
 
 
 @app.route("/delete_technology/<technology_id>")
@@ -186,12 +202,11 @@ def manage_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("manage_categories.html", categories=categories)
 
+
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
-        category = {
-            "category_name": request.form.get("category_name")
-        }
+        category = {"category_name": request.form.get("category_name")}
         mongo.db.categories.insert_one(category)
         flash("You have added a new category of {{ category_name }}")
         return redirect(url_for("manage_categories"))
@@ -202,10 +217,9 @@ def add_category():
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     if request.method == "POST":
-        edittedcategory = {
-            "category_name": request.form.get("category_name")
-        }
-        mongo.db.categories.update({"_id": ObjectId(category_id)}, edittedcategory)
+        edittedcategory = {"category_name": request.form.get("category_name")}
+        mongo.db.categories.update({"_id": ObjectId(
+            category_id)}, edittedcategory)
         flash("{{ category.category_name }} was successfully editted")
         return redirect(url_for("manage_categories"))
 
@@ -213,15 +227,7 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
-@app.route("/delete_category/<category_id>")
-def delete_category(category_id):
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("{{ category.category_name}} was successfully deleted")
-    return redirect(url_for("manage_categories"))
-
-
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=True)
+            port=int(os.environ.get("PORT")), debug=True)
