@@ -44,19 +44,28 @@ def search():
         "technologies.html", technologies=technologies)
 
 
-@app.route("/individual_technologies", methods={"GET", "POST"})
+@app.route("/add_comment", methods={"GET", "POST"})
 def add_comment():
-    if request.method = "POST":
+    if request.method == "POST":
         comment = {
             "technology_name": request.form.get(("technology_name")),
             "technology_comment": request.form.get("technology_comment"),
             "created_by": session["user"],
             "created_on": date.now()
         }
-mongo.db.comments.insert_one(comment)
+        mongo.db.comments.insert_one(comment)
 
-flash("Your comment on {{ technology_name }} has been added")
-return redirect(url_for ('individual_technologies'))
+        flash("Your comment on {{ technology_name }} has been added")
+    return redirect(url_for("individual_technology"))
+
+
+@app.route("/individual_technology/<technology_id>", methods=["GET", "POST"])
+def individual_technology(technology_id):
+    technology = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)})
+    comments = list(mongo.db.reviews.find())
+    return render_template("individual_technology.html", technology=technology, comments=comments)
+
+
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():

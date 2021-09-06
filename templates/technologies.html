@@ -72,7 +72,7 @@
       <div class="card-action">
         <a href="" class="product-details">
           View Full Details</a>
-        <a href="{{ url_for('individual_technologies', technology_id=technology._id) }}">See all {{ technology.technology_name}} comments</a>
+        <a href="{{ url_for('individual_technology', technology_id=technology._id) }}">See all {{ technology.technology_name}} comments</a>
         <br>
         {% if session.user|lower == technology.posted_by|lower %}
         

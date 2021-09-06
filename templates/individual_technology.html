@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="center-align">{{ page_title }}</h1>
+
+<!-- Card containing technology details -->
+
+<div class="col s12 m7">
+    <div class="card horizontal medium hoverable">
+      <div class="card-image">
+        <img src="{{ technology.technology_image }}" alt="">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <ul>
+            <li><strong>Category: {{ technology.category_name }}</strong></li>
+            <li>Name: {{ technology.technology_name }}</li>
+            <li>Description: {{ technology.technology_description }}</li>
+            <li>Best bits: {{ technology.best_bits }}</li>
+            <li>Worst bits: {{ technology.worst_bits }}</li>
+            <li>Added by: {{ technology.posted_by }}</li>
+            <li>Date posted: {{ technology.post_date }}</li>
+          </ul>
+  
+        </div>
+        <div class="card-action">
+          <a href="" class="product-details">
+            View Full Details</a>
+          <a href="{{ url_for('individual_technology', technology_id=technology._id) }}">See all {{ technology.technology_name}} comments</a>
+          <br>
+          {% if session.user|lower == technology.posted_by|lower %}
+          
+          <a href="{{ url_for('edit_technology', technology_id=technology._id) }}"
+            class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
+              class="material-icons right">edit</i>Edit this technology</a>
+          <a class="waves-effect waves-light  btn-small orange darken-3 align-right modal-trigger"
+            href="#modal{{ technology._id }}"><i class="material-icons right">close</i>Delete this technology</a>
+          {% endif %}
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <!--  modal -->
+  <div id="modal{{ technology._id }}" class="modal">
+    <div class="modal-content">
+      <h4>Are you sure you want to delete this item?</h4>
+      <p>The entire entry and all its comments will be deleted and you will not be able to retrieve them</p>
+    </div>
+    <div class="modal-footer center-align">
+      <a href="{{ url_for('delete_technology', technology_id=technology._id) }}"
+        class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">Yes I am certain I want to
+        delete this</a>
+  
+      <a href="{{ url_for('get_technologies', technology_id=technology._id) }}"
+        class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">No, return to safety</a>
+  
+    </div>
+  </div>
+
+  
+    <div class="row">
+      <div class="col s12 text-center">
+        <h3 class="heading">Add your own comments about {{ technology.technology_name }}</h3>
+      </div>
+    </div>
+    <div class="row card-panel yellow lighten-5 ">
+      <form class="col s12 m8 " method="POST" action="{{ url_for('add_comment') }}">
+        
+          <div class="row">
+            <div class="input-field col s12">
+              <label for="technology_name">Name</label>
+              <input id="technology_name" type="text" name="technology_name" value="{{ technology.technology_name }}">
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
+               
+                <label for="technology_comment">Your comments</label>
+                <textarea id="technology_comment" name="technology_comment" minlength="10" maxlength="200"
+                  class="materialize-textarea validate" required></textarea>
+              </div>
+            </div>
+          </div>
+     
+        <!--Reset Button-->
+        <div class="row card-action">
+          <div class="col s6">
+            <button class="btn-large  submit" type="reset">
+              <i class="material-icons prefix orange-text text-darken-3">important_devices</i> Clear
+            </button>
+          </div>
+          <div class="col s6">
+            <!--Submit Button-->
+            <button type="submit" class="btn-large ">
+              Submit  <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- Comments section-->
+  
+    <div class="row">
+      <div class="col s12 text-center">
+        <h3>Comments</h3>
+      </div>
+    </div>
+    <div class="row">
+      
+      {% for comment in comments if comment.technology_name == technology.technology_name %}
+      <!--Technology Comment-->
+      <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="card-content ">
+            <h4 class="card-title">{{ comment.technology_name }}</h4>
+            <p>{{ comment.technology_comment }}</p>
+            <span><em>Added by: {{ comment.created_by|capitalize }}</em></span>
+            <span><em>Added on: {{ comment.created_on }}</em></span>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <!--If no comments-->
+      <div class="col s12">
+        <h3 class="text-center">Noone has added a comment yet - you can be the first!</h3>
+        
+          <a href="#add_comment" class="btn-small">Add the first comment</a>
+       
+      </div>
+      {% endfor %}
+    </div>
+    <!--Back to technologies page-->
+    <div class="row">
+      <div class="col s12 center-align">
+        <a href="{{ url_for('get_technologies') }}" class="btn-small">See all the technologies</a>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+{% endblock %}
