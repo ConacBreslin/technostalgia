@@ -51,12 +51,12 @@ def add_comment():
             "technology_name": request.form.get(("technology_name")),
             "technology_comment": request.form.get("technology_comment"),
             "created_by": session["user"],
-            "created_on": date.now()
+            "created_on": "datetime.now()",
         }
         mongo.db.comments.insert_one(comment)
 
         flash("Your comment on {{ technology_name }} has been added")
-    return redirect(url_for("individual_technology"))
+    return redirect(url_for("get_technologies"))
 
 
 @app.route("/individual_technology/<technology_id>", methods=["GET", "POST"])

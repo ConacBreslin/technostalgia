@@ -24,9 +24,8 @@
   
         </div>
         <div class="card-action">
-          <a href="" class="product-details">
-            View Full Details</a>
-          <a href="{{ url_for('individual_technology', technology_id=technology._id) }}">See all {{ technology.technology_name}} comments</a>
+          
+          <a href="{{ url_for('individual_technology', technology_id=technology._id) }}">Go to the comments about {{ technology.technology_name}}</a>
           <br>
           {% if session.user|lower == technology.posted_by|lower %}
           
@@ -57,11 +56,45 @@
   
     </div>
   </div>
+<!-- Comments section-->
+
+
 
   
+      
+    {% for comment in comments if comment.technology_name == technology.technology_name %}
+    <!--Comments on this technology-->
+      
+<div class="row">
+  <div class="col s12 text-center">
+    <h3>Comments</h3>
+  </div>
+</div>
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-content ">
+          <h4 class="card-title">{{ comment.technology_name }}</h4>
+          <p>{{ comment.technology_comment }}</p>
+          <span><em>Added by: {{ comment.created_by|capitalize }}</em></span>
+          <span><em>Added on: {{ comment.created_on }}</em></span>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <!--If no comments-->
+    <div class="col s12 center-align">
+      <h3 >Noone has added a comment yet - you can be the first!</h3>
+      
+        <a href="#add_comment" class="btn-large waves-effect waves-light orange darken-3 "><i class="material-icons">add_circle_outline</i>Add the first comment</a>
+     
+    </div>
+    
+    {% endfor %}
+  
+  
     <div class="row">
-      <div class="col s12 text-center">
-        <h3 class="heading">Add your own comments about {{ technology.technology_name }}</h3>
+      <div class="col s12 center-align">
+        <h3 class="heading">Add a comment about {{ technology.technology_name }}</h3>
       </div>
     </div>
     <div class="row card-panel yellow lighten-5 ">
@@ -69,12 +102,12 @@
         
           <div class="row">
             <div class="input-field col s12">
-              <label for="technology_name">Name</label>
+              <label for="technology_name">Technology</label>
               <input id="technology_name" type="text" name="technology_name" value="{{ technology.technology_name }}">
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
+                <i class="material-icons prefix orange-text text-darken-3">comment</i>
                
                 <label for="technology_comment">Your comments</label>
                 <textarea id="technology_comment" name="technology_comment" minlength="10" maxlength="200"
@@ -86,55 +119,25 @@
         <!--Reset Button-->
         <div class="row card-action">
           <div class="col s6">
-            <button class="btn-large  submit" type="reset">
-              <i class="material-icons prefix orange-text text-darken-3">important_devices</i> Clear
+            <button type="reset" class="btn-large waves-effect waves-light orange darken-3" >
+              <i
+              class="material-icons prefix">refresh</i>Clear
             </button>
           </div>
           <div class="col s6">
             <!--Submit Button-->
-            <button type="submit" class="btn-large ">
-              Submit  <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
-            </button>
+            <button type="submit" class="btn-large waves-effect waves-light orange darken-3"><i class="material-icons prefix">forward</i>Submit</button>
           </div>
         </div>
       </form>
     </div>
   </section>
-  <!-- Comments section-->
   
-    <div class="row">
-      <div class="col s12 text-center">
-        <h3>Comments</h3>
-      </div>
-    </div>
-    <div class="row">
-      
-      {% for comment in comments if comment.technology_name == technology.technology_name %}
-      <!--Technology Comment-->
-      <div class="col s12 m6 l4">
-        <div class="card">
-          <div class="card-content ">
-            <h4 class="card-title">{{ comment.technology_name }}</h4>
-            <p>{{ comment.technology_comment }}</p>
-            <span><em>Added by: {{ comment.created_by|capitalize }}</em></span>
-            <span><em>Added on: {{ comment.created_on }}</em></span>
-          </div>
-        </div>
-      </div>
-      {% else %}
-      <!--If no comments-->
-      <div class="col s12">
-        <h3 class="text-center">Noone has added a comment yet - you can be the first!</h3>
-        
-          <a href="#add_comment" class="btn-small">Add the first comment</a>
-       
-      </div>
-      {% endfor %}
-    </div>
+    
     <!--Back to technologies page-->
     <div class="row">
       <div class="col s12 center-align">
-        <a href="{{ url_for('get_technologies') }}" class="btn-small">See all the technologies</a>
+        <a href="{{ url_for('get_technologies') }}" class="btn-large waves-effect waves-light orange darken-3">Go back and browse all the technologies</a>
       </div>
     </div>
   </section>
