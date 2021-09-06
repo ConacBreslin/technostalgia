@@ -35,7 +35,11 @@ def get_technologies():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    technologies = list(mongo.db.technologies.find({"$text": {"$search": query}}))
+    if query:
+        technologies = list(mongo.db.technologies.find({"$text": {"$search": query}}))
+    else:
+        technologies = mongo.db.technologies.find()
+
     return render_template(
         "technologies.html", technologies=technologies)
 
@@ -59,7 +63,8 @@ def registration():
         if existing_user:
             flash("Username already exists, please try a new username")
             return redirect(url_for("registration"))
-
+        
+        # Add the new user into the database
         registration = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
@@ -158,7 +163,7 @@ def add_technology():
         }
         mongo.db.technologies.insert_one(technology)
         flash(
-            "You have successfully added {{ technology_name }} to {{ category_name }}. Thank you!"
+            "You have successfully added {{ technologies.technology_name }} to {{ categories.category_name }}. Thank you!"
         )
         return redirect(url_for("get_technologies"))
 
@@ -186,7 +191,7 @@ def edit_technology(technology_id):
         }
         mongo.db.technologies.update(
             {"_id": ObjectId(technology_id)}, edittedtech)
-        flash("You have successfully updated{{ technology_name }}. Thank you!")
+        flash("You have successfully updated {{ technology.technology_name }}. Thank you!")
         return redirect(url_for("get_technologies"))
 
     technology = mongo.db.technologies.find_one(
