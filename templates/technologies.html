@@ -63,16 +63,19 @@
           <li>Name: {{ technology.technology_name }}</li>
           <li>Description: {{ technology.technology_description }}</li>
           <li>Best bits: {{ technology.best_bits }}</li>
-          <li>Worst bits: {{ technology.worst_bits }}</li>!
+          <li>Worst bits: {{ technology.worst_bits }}</li>
           <li>Added by: {{ technology.posted_by }}</li>
           <li>Date posted: {{ technology.post_date }}</li>
         </ul>
 
       </div>
       <div class="card-action">
-        <a href="#">See all {{ technology.category_name}} comments</a>
+        <a href="" class="product-details">
+          View Full Details</a>
+        <a href="{{ url_for('individual_technologies', technology_id=technology._id) }}">See all {{ technology.technology_name}} comments</a>
         <br>
         {% if session.user|lower == technology.posted_by|lower %}
+        
         <a href="{{ url_for('edit_technology', technology_id=technology._id) }}"
           class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
             class="material-icons right">edit</i>Edit this technology</a>

@@ -44,6 +44,20 @@ def search():
         "technologies.html", technologies=technologies)
 
 
+@app.route("/individual_technologies", methods={"GET", "POST"})
+def add_comment():
+    if request.method = "POST":
+        comment = {
+            "technology_name": request.form.get(("technology_name")),
+            "technology_comment": request.form.get("technology_comment"),
+            "created_by": session["user"],
+            "created_on": date.now()
+        }
+mongo.db.comments.insert_one(comment)
+
+flash("Your comment on {{ technology_name }} has been added")
+return redirect(url_for ('individual_technologies'))
+
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     if request.method == "POST":
