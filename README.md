@@ -8,30 +8,38 @@ Technologies are developing at an unprecedented pace. It is easy to forget about
 ### Project Goals
 
 #### Visitor Goals
-On visiting the site a visitor should be able to  
-1. Understand what the website is about.
-2. View all technologies on the site, or view by category, or select specific technologies.
-3. Users should be able to register for the website.
-4. Users should be able to login to the website.
-5. Logged in users should be able to post new technologies.
-6. Logged in users should be able to edit and delete their own additions to the site.
-7. Logged in users should be able to post comments on technologies.
-8. Logged in users should be able to edit and delete comments on technologies.
-9. Logged in users should be able to Logout easily.
-10. The site administrator should be able to add new categories to teh site and these should automatically be included in all menus.
+#####All visitors to the site should be able to; 
+1. Understand what the website is about and navigate it intuitively.
+2. View all technologies on the site, search by category, or search by keyword.
+3. View all the comments about any technology.
+4. Register for the website.
+
+#####In addition to the those aspects available to all users, all registered users should be able to log in to the website. When logged in they should be able to;
+1. Add new technologies to the site.
+2. Edit or delete only the technolgies they have added.
+3. Add comments to any technology.
+4. Edit or delete only the comments they have added to a technology.
+5. View their profile page
+6. Log out
+
+#####Admin user should be able to
+1. Add or edit (but not delete) categories.
+2. Delete or edit any comment.
+3. Delete or edit any technology.
+
 
 #### Registered User goals
 
 #### Developer and Business goals
 
-#### USer Stories
+#### User Stories
 
 ## Strategy
 The site should be a simple and attractive  with sufficient activity to engage visitors, encourage them to sign up and return to the site.
 
 Objective Requirement;         To encourage visitors to register with the site.
 
-Functional requirements; 	    To provide a collection of technologies that users can view. To provide a facility for users to register, login an out of the site. To provide users with the facility to add, edit and delete their own technologies and comments.
+Functional requirements; 	    To provide a collection of technologies that users can view. To provide a facility for users to register, log in and log out of the site. To provide registered users with the facility to add, edit and delete their own technologies and comments.
 
 Non-functional requirements; 	The site should be attractive and intuitive.
 
@@ -40,8 +48,8 @@ Non-functional requirements; 	The site should be attractive and intuitive.
 ## Structure
 The site will have 9 pages, These will be welcome, registration, login, logout, browsing, add technology, edit techology, delete technology, inie page and a page for the final result. The quiz should automatically usher the player through all the stages of the quiz once they start through to the end. At the end they should be able to quit or replay.
 ## Skeleton
-The welcome page  explains what the site is about and encourage visitors to register. 
-The technology collections page should have the ability for teh visitor or member to view all the technologies or to view them by category. [here](assets/images/wireframes.pdf). 
+The welcome page  explains what the site is about and encourages visitors to register. 
+The technology collections page should have the ability for the visitor or member to view all the technologies or to sort them by keyword or category. [here](assets/images/wireframes.pdf). 
 ## Surface/Design (Design Choices fonts, icons, colours, styling, backgroundss)
 
 ### Imagery
@@ -64,16 +72,21 @@ Information on the [psychology of fonts](https://fabrikbrands.com/font-psycholog
 ## Wireframes
 
 ## Future features
-Polls, comments
+Polls, rattings, favorites
 ## Languages used
 [HTML5](https://en.wikipedia.org/wiki/HTML5)
 
 [CSS](https://en.wikipedia.org/wiki/CSS)
 
-[JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+[python](https://www.python.org/)
+
 ## Frameworks, Libraries and online resources used
+- The [Flask](https://flask.palletsprojects.com/en/2.0.x/) mictroframewor was used to build the app.
+- The [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) templating engine was used
 - [Balsamiq](https://balsamiq.com/wireframes/) was used to create the wireframes.
 - Gits's [gitpod](https://www.gitpod.io/) was used for writing and editing code, and for submitting and pushing to GitHub.
+- [Heroku](https://id.heroku.com/login) was used to deploy the app.
+- [Mongodb](https://www.mongodb.com/) database was used to store data.
 - [GitHub](https://github.com/) was used for storing the code after being pushed from Git.
 - [RandomKeygen](https://randomkeygen.com/) was used to generate a secret key for the app.
 - [Materilaize 1.0.0](https://materializecss.com/) was used for responsiveness and styling.
@@ -82,11 +95,14 @@ Polls, comments
 - The space invader image for the favicon was found in [iconfinder.com](https://www.iconfinder.com/)
 - the favicon image was converted to an .ico file using [favicon.io](https://favicon.io/)
 - instructions for adding the favicon were found on [flask.palletsprojects.co](https://flask.palletsprojects.com/)
-- The following tutorials from [James Q Quick](https://www.youtube.com/playlist?list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx), [Brian Design](https://www.youtube.com/watch?v=f4fB9Xg2JEY&t=2405s) and [codeexplained.org](https://www.youtube.com/watch?v=49pYIMygIcU) were followed in designing the features of the quiz.
+_ Inorma
 - The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [pythonmorsels.com](https://www.pythonmorsels.com/)
-- The code was formatted using [webformatter.com](https://webformatter.com/html).
+- The html code was formatted using [webformatter.com](https://webformatter.com/html)
+- Information about automatically formatting  python with [black](https://pypi.org/project/black/) was found [freecodecamp.org](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)
 - The images were formatted using [https://tinypng.com/](https://tinypng.com/)
-- 
+- Help on datetime was found on [pythonexamples.org](https://pythonexamples.org/python-datetime-now/)
+
+-
 ## Images
 - the images were stored in [Imgur](https://i.imgur.com/)
 - The Walkman image is by [Florian Schmetz on unsplash.com](https://unsplash.com/photos/Rks6FTfX5OU)
@@ -99,10 +115,10 @@ Polls, comments
 Bugs identified during development and testing and their solutions can be seen [here](assets/images/buglog.png).
 ### Validation
 - HTML and CSS. All pages of the quiz were tested by direct input into [validator.w3.org](https://validator.w3.org/) for html and [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) for css and errors identified were corrected until no errors were showing in either validator. 
-The javaScript in all the .js files was checked by direct input into [jshint](https://jshint.com/) and errors identified were corrected until no more corrections could be made. There were residual warnings about unused varaibles that had to be left as the variables were used in the code. The final jshint report can be viewed [here](assets/images/jshint.png).
+
 - Lighthouse Audits. The quiz’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here](assets/images/lighthousereport.png).
 - Manual Testing. Extensive use was made of console.log() at every step of the functionality development and each time an error was noted it was addressed before proceeeding.
-The quiz was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
+The app was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
 It was viewed on a variety of devices. Friends and family members reviewed the site to identify bugs and give feedback on user experience. The code was submitted for peer-review in Code Institute's peer-code-review channel in [slack.com](https://app.slack.com/). 
 ### Testing User Stories from User Experience (UX) Section.
 1. Understand what the website is about.
@@ -132,12 +148,12 @@ In Heroku.com
 
 ### Forking the GitHub Repository
 The  GitHub Repository can be forked to make a copy of the original repository on the GitHub account to view and/or make changes without affecting the original repository in the following way.
-1.	By logging in to GitHub and locating the [GitHub Repository](https://github.com/ConacBreslin/Face-your-fears).
+1.	By logging in to GitHub and locating the [GitHub Repository](https://github.com/ConacBreslin/technostalgia).
 2.	Selecting the "Fork" button at the top of the Repository (it is located above the "Settings" Button and over to the right).
 3.	There should then be a copy of the original repository in your GitHub account.
 
 ### Making a Local Clone
-1.	By logging in to GitHub and locating the [GitHub Repository](https://github.com/ConacBreslin/Face-your-fears).
+1.	By logging in to GitHub and locating the [GitHub Repository](https://github.com/ConacBreslin/technostalgia).
 2.	Under the repository name, clicking the dropdown button marked “Code” and then selecting "Clone or download".
 3.	Copying the link under "Clone with HTTPS", to clone the repository using HTTPS.
 4.	Opening Git Bash.
