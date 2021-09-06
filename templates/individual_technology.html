@@ -56,27 +56,28 @@
   
     </div>
   </div>
+
+
+
 <!-- Comments section-->
-
-
-
-  
-      
-    {% for comment in comments if comment.technology_name == technology.technology_name %}
-    <!--Comments on this technology-->
-      
 <div class="row">
-  <div class="col s12 text-center">
+  <div class="col s12 center-align">
     <h3>Comments</h3>
   </div>
 </div>
+
+     <!--Comments on this technology--> 
+    {% for comment in comments if comment.technology_name == technology.technology_name %}
+    
+      
+
     <div class="col s12 m6 l4">
       <div class="card">
         <div class="card-content ">
           <h4 class="card-title">{{ comment.technology_name }}</h4>
           <p>{{ comment.technology_comment }}</p>
-          <span><em>Added by: {{ comment.created_by|capitalize }}</em></span>
-          <span><em>Added on: {{ comment.created_on }}</em></span>
+          <p><em>Added by: {{ comment.author|capitalize }}</em></p>
+          <p><em>Added on: {{ comment.created_on }}</em></p>
         </div>
       </div>
     </div>

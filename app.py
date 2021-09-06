@@ -48,21 +48,21 @@ def search():
 def add_comment():
     if request.method == "POST":
         comment = {
-            "technology_name": request.form.get(("technology_name")),
+            "technology_name": request.form.get("technology_name"),
             "technology_comment": request.form.get("technology_comment"),
-            "created_by": session["user"],
-            "created_on": "datetime.now()",
+            "author": session["user"],
+            "created_on": datetime.now()
         }
         mongo.db.comments.insert_one(comment)
 
         flash("Your comment on {{ technology_name }} has been added")
-    return redirect(url_for("get_technologies"))
+    return redirect(url_for("profile.html"))
 
 
 @app.route("/individual_technology/<technology_id>", methods=["GET", "POST"])
 def individual_technology(technology_id):
     technology = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)})
-    comments = list(mongo.db.reviews.find())
+    comments = list(mongo.db.comments.find())
     return render_template("individual_technology.html", technology=technology, comments=comments)
 
 
@@ -95,7 +95,7 @@ def registration():
             "last_name": request.form.get("last_name").lower(),
             "email": request.form.get("email").lower(),
             "is_admin": "off",
-            "join_date": "datetime.now()",
+            "join_date": datetime.now(),
         }
         mongo.db.users.insert_one(registration)
 
