@@ -55,7 +55,8 @@ The technology collections page should have the ability for the visitor or membe
 ### Imagery
 The overall image of the site was to be kept clear, simple and intuitive.
 ### Colour scheme
-It was important to keep the colour scheme of the quiz extremely simple. Information on the [psychology of colours](https://www.vandelaydesign.com/the-psychology-of-color-in-web-design/) in website design indicates that blue can help convey trustworthiness and so a dark shade of blue was picked for the font. A [minimum contrast ratio](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) of 4.5:1 for small text and 3:1 for large text is recommended. This site wanted a strong but not too stark contrast. The contrast ratio of the site is [11.14](assets/images/contrastratio.png). 
+According to Shane Barker in ["The Psychology of Color in Web Design"](https://www.vandelaydesign.com/the-psychology-of-color-in-web-design/), pink raises emotions of fun and romance and is "ideal for websites that hearken back to olden days". The predominantly pink background image was picked with this in mind. The colours from the image were identified using [imagecolorpicker.com](https://imagecolorpicker.com/) and used throughout the site.
+ A [minimum contrast ratio](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) of 4.5:1 for small text and 3:1 for large text is recommended. This site wanted a strong but not too stark contrast. The contrast ratio of the site is [11.14](assets/images/contrastratio.png). 
 ### Typography
 Information on the [psychology of fonts](https://fabrikbrands.com/font-psychology-and-typography-inspiration-in-logo-design) indicated that a serif font can  convey trust and respectability. With this in mind the Vesper Libre font was selected in [Google Fonts](https://fonts.google.com/) for its simplicity.
 ## Features
@@ -104,11 +105,16 @@ _ Inorma
 
 -
 ## Images
-- the images were stored in [Imgur](https://i.imgur.com/)
+- The images were stored in [Imgur](https://i.imgur.com/)
 - The Walkman image is by [Florian Schmetz on unsplash.com](https://unsplash.com/photos/Rks6FTfX5OU)
 - The cassette tape image is in by [Volodymyr Hryshchenko on unsplash.com](https://unsplash.com/photos/D5_cfqMAY0Y)
 - The motorola image is from [oneandroid.net/](https://oneandroid.net/)
-- The floppy disk image is by [Photo by Fredy Jacob on unsplash.com](https://www.pexels.com/search/floppy%20disc/)
+- The floppy disk image is by [Fredy Jacob in unsplash.com](https://unsplash.com/photos/t0SlmanfFcg)
+- The acoustic coupler imager was found on [arstechnica.com](https://arstechnica.com/)
+- The credit card machine image was found on[singletrackworld.com](http://singletrackworld.com/)
+- The punch card image was found on [www.palvenn.no/](http://www.palvenn.no/)
+-The homepage background image is by [Hello I'm Nik in unsplash.com](https://unsplash.com/photos/6nqbKX5UI9I)
+
 
 
 ## Testing.
