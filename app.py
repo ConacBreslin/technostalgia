@@ -59,6 +59,34 @@ def add_comment():
     return redirect(url_for("profile", username=session["user"]))
 
 
+
+@app.route("/edit_comment/<comment_id>", methods={"GET", "POST"})
+def edit_comment(comment_id):
+    # Edit a comment in database
+    if request.method == "POST":
+        editted_comment = {
+            "technology_name": request.form.get("technology_name"),
+            "technology_comment": request.form.get("technology_comment"),
+            "author": session["user"],
+            "created_on": datetime.now()
+        }
+        mongo.db.comments.update(
+            {"_id": ObjectId(comment_id)}, editted_comment)
+
+        flash("Your comment on {{ technology_name }} has been changed")
+    return redirect(url_for("profile", username=session["user"]))
+
+
+@app.route("/delete_comment/<comment_id>")
+def delete_technology(comment_id):
+    mongo.db.comments.remove({"_id": ObjectId(comment_id)})
+    flash("{{ comments.technology_name }} has been deleted")
+    return redirect(url_for("profile", username=session["user"]))
+
+
+
+
+
 @app.route("/individual_technology/<technology_id>", methods=["GET", "POST"])
 def individual_technology(technology_id):
     technology = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)})

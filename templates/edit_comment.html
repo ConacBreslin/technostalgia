@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="center-align">Edit your comment on {{ technology.technology_name}}</h1>
+
+<!-- Code for form from Materialize.com -->
+<div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('edit_comment', comment_id=comment._id) }}">
+        <div class="card-panel">
+
+            <!-- Input for adding the technology being commented on -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
+                    <input id="technology_name" name="technology_name" value="{{ comment.technology_name }}"
+                        minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" required>
+                    <label for="technology_name">Technology's name</label>
+                </div>
+            </div>
+
+                        
+            <!-- Input for editing a comment's content -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix orange-text text-darken-3">description</i>
+                    <textarea id="comment_content" name="comment_content" minlength="5" maxlength="300"
+                        placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate"
+                        required>{{ technology.technology_description }}</textarea>
+                    <label for="comment_content">Comment</label>
+                </div>
+            </div>
+
+            
+
+           
+
+            <!-- Submit button for editting a comment  -->
+            <div class="row">
+                <div class="center-align col s6 offset-s3">
+                    <button type="submit" class="btn-large waves-effect waves-light orange darken-3">
+                        Edit this comment<i class="material-icons right">edit</i>
+                    </button>
+                    <!-- Button to cancel all changes and return to technologies -->
+                    <a href="{{ url_for('get_technologies') }}"
+                        class="btn-large waves-effect waves-light orange darken-3">
+                        Cancel Changes <i class="material-icons right">close</i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

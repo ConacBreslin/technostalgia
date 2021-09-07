@@ -18,7 +18,7 @@
         {% if technologies|length > 0 %}
         <h4 class="heading center-align">Technologies you've added</h4>
         {% for technology in technologies %}
-        <div class="card horizontal medium hoverable">
+        <div class="card horizontal small hoverable">
             <div class="card-image">
                 <img src="{{ technology.technology_image }}" alt="">
             </div>
@@ -27,17 +27,12 @@
                     <ul>
                         <li><strong>Category: {{ technology.category_name }}</strong></li>
                         <li>Name: {{ technology.technology_name }}</li>
-                        <li>Added by: {{ technology.posted_by }}</li>
-                        <li>Date posted: {{ technology.post_date }}</li>
+                        <li>Added by you on : {{ technology.added_on }}</li>
+                        
                     </ul>
                 </div>
                 <div class="card-action">
 
-                    <a href="{{ url_for('individual_technology', technology_id=technology._id) }}">See all
-                        the
-                        comments
-                        about {{ technology.technology_name}}s</a>
-                    <br>
                     <a href="{{ url_for('edit_technology', technology_id=technology._id) }}"
                         class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
                             class="material-icons right">edit</i>Edit this technology</a>
@@ -48,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <!--  modal -->
+        <!--  Delete technology modal -->
         <div id="modal{{ technology._id }}" class="modal">
             <div class="modal-content">
                 <h4>Are you sure you want to delete this item?</h4>
@@ -81,24 +76,47 @@
         {% if comments|length > 0 %}
         <h4 class="heading center-align">Comments you've added</h4>
         {% for comment in comments %}
-        <div class="card horizontal medium hoverable">
-            <div class="card-image">
-                <img src="" alt="">
-            </div>
-        </div>
-        <div class="card-stacked">
-            <div class="card-content">
-                <ul>
-                    <li><strong>Category: {{ comments.technology_name }}</strong></li>
-                    <li>Name: {{ comments.technology_comment }}</li>
-                    <li>Added by: {{ comments.created_on }}</li>
-                    <li>Date posted: {{ comments.author }}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="card-action">
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title"><strong>Category: {{ comment.technology_name }}</strong></span>
+                <p>
+                    <ul>
 
+                        <li>Your comment: {{ comment.technology_comment }}</li>
+                        
+                        <li>Date posted: {{ comment.author }}</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="card-action">
+                <a href="{{ url_for('edit_comment', comment_id=comment._id) }}"
+                        class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
+                            class="material-icons right">edit</i>Edit this comment</a>
+                    <a class="waves-effect waves-light  btn-small orange darken-3 align-right modal-trigger"
+                        href="#modal{{ comment._id }}"><i class="material-icons right">close</i>Delete
+                        this
+                        comment</a>
+            </div>
         </div>
+<!--  Delete technology modal -->
+<div id="modal{{ comment._id }}" class="modal">
+    <div class="modal-content">
+        <h4>Are you sure you want to delete this comment?</h4>
+        <p>It will not be permanenetly deleted and you will not be able to retrieve it</p>
+    </div>
+    <div class="modal-footer center-align">
+        <a href="{{ url_for('delete_comment', comment_id=comment._id) }}"
+            class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">Yes I am
+            certain
+            I
+            want to
+            delete this comment</a>
+        <a href="{{ url_for('get_technologies', technology_id=technology._id) }}"
+            class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">No,
+            return to
+            safety</a>
+    </div>
+</div>
 
         {% endfor %}
     </div>
