@@ -3,7 +3,7 @@
 /*-- Styles across site --*/
 body {
     font-family: 'Ubuntu Mono', monospace;
-    background-color:#f39ada;
+    background-color:#fb91db;
 } 
 
 .flashes h4 {
@@ -14,30 +14,34 @@ body {
 /*-- Backgorund colour of sidenav to match site --*/
 
 .sidenav {
-    background-color: #fe95e0;
+    background-color: #ff93de;
 }
 
 /*-- Logo and page header font --*/
 nav .brand-logo {
     font-family: 'Press Start 2P', cursive;
     font-size: 1.5rem;
+    
  
 }
 
 .page-topper  {
     font-family: 'Press Start 2P', cursive;
     font-size: 3rem;
+    margin: 100px 0;
  
 }
 
 
-/*Code for full background image was used from 
-https://css-tricks.com/perfect-full-page-background-image/*/
+/*-- Code snippet from https://css-tricks.com/perfect-full-page-background-image/ vendor extensions removed for this project --*/
+
 .background-img {
-    background: url("../images/landscapetapes.jpg") no-repeat center center fixed;
+    min-height: 100vh;
+    background: url("../images/tapes.jpg") no-repeat center center;
     background-size: cover;
-    height: 90vh;
- }
+}
+
+
 
 /*-- To space buttons in edit_tcehnologies.html  --*/
 

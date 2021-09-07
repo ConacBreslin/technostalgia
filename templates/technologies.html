@@ -9,7 +9,7 @@
 </div>
 
 <!-- Code for search box  -->
-<div class="row card-panel yellow lighten-4">
+<div class="row card-panel purple lighten-5">
   <form action="{{ url_for('search') }}" method="post" class="col s12">
     <div class="row valign-wrapper center-align">
       <div class="input-field col s12">
@@ -39,10 +39,10 @@
       <!-- Search and reset buttons  -->
       <div class="col s12 center-align">
 
-        <button type="submit" class="orange darken-3 btn-small"><i class="material-icons right">search</i>
+        <button type="submit" class="purple lighten-1 btn-small"><i class="material-icons right">search</i>
           Search
         </button>
-        <a href="{{ url_for('get_technologies') }}" class="orange darken-3 btn-small"><i class="material-icons right">autorenew</i>Reset</a>
+        <a href="{{ url_for('get_technologies') }}" class="purple lighten-1 btn-small"><i class="material-icons right">autorenew</i>Reset</a>
       </div>
     </div>
   </form>
@@ -76,9 +76,9 @@
         {% if session.user|lower == technology.posted_by|lower %}
         
         <a href="{{ url_for('edit_technology', technology_id=technology._id) }}"
-          class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
+          class="waves-effect waves-light btn-small purple lighten-1 aligh-right"><i
             class="material-icons right">edit</i>Edit this technology</a>
-        <a class="waves-effect waves-light  btn-small orange darken-3 align-right modal-trigger"
+        <a class="waves-effect waves-light  btn-small purple lighten-1 align-right modal-trigger"
           href="#modal{{ technology._id }}"><i class="material-icons right">close</i>Delete this technology</a>
         {% endif %}
       </div>
@@ -94,11 +94,11 @@
   </div>
   <div class="modal-footer center-align">
     <a href="{{ url_for('delete_technology', technology_id=technology._id) }}"
-      class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">Yes I am certain I want to
+      class="modal-close waves-effect waves-light btn-small purple lighten-1 aligh-right">Yes I am certain I want to
       delete this</a>
 
     <a href="{{ url_for('get_technologies', technology_id=technology._id) }}"
-      class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">No, return to safety</a>
+      class="modal-close waves-effect waves-light btn-small purple lighten-1 aligh-right">No, return to safety</a>
 
   </div>
 </div>

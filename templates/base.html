@@ -25,7 +25,7 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i
                         class="material-icons prefix">dehaze</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    
                     <li><a href="{{ url_for('get_technologies') }}">View Technologies</a></li>
                     {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
@@ -45,7 +45,7 @@
             <li>
                 <h4 class="center-align">Technostalgia</h4>
             </li>
-            <li><a href="{{ url_for('home') }}">Home</a></li>
+            
             <li><a href="{{ url_for('get_technologies') }}">View Technologies</a></li>
             {% if session.user %}
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
@@ -74,7 +74,7 @@
         {% endwith %}
     </section>
 
-    <main>
+    <main class="container">
         {% block content %}
         {% endblock %}
     </main>

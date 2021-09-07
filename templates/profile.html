@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col s12 m8 offset-m2">
-        <div class="card-panel">
+        <div class="card-panel purple lighten-5">
             <h3 class="center-align">
                 {{ username|capitalize }}'s Profile
             </h3>
@@ -32,9 +32,9 @@
                 <div class="card-action">
 
                     <a href="{{ url_for('edit_technology', technology_id=technology._id) }}"
-                        class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
+                        class="waves-effect waves-light btn-small purple lighten-1 aligh-right"><i
                             class="material-icons right">edit</i>Edit this technology</a>
-                    <a class="waves-effect waves-light  btn-small orange darken-3 align-right modal-trigger"
+                    <a class="waves-effect waves-light  btn-small purple lighten-1 align-right modal-trigger"
                         href="#modal{{ technology._id }}"><i class="material-icons right">close</i>Delete
                         this
                         technology</a>
@@ -51,13 +51,13 @@
             </div>
             <div class="modal-footer center-align">
                 <a href="{{ url_for('delete_technology', technology_id=technology._id) }}"
-                    class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">Yes I am
+                    class="modal-close waves-effect waves-light btn-small purple lighten-1 aligh-right">Yes I am
                     certain
                     I
                     want to
                     delete this</a>
                 <a href="{{ url_for('get_technologies', technology_id=technology._id) }}"
-                    class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">No,
+                    class="modal-close waves-effect waves-light btn-small purple lighten-1 aligh-right">No,
                     return to
                     safety</a>
             </div>
@@ -66,7 +66,7 @@
         {% endfor %}
         {% else %}
         <h4>You haven't added any technologies yet</h4>
-        <a href="{{ url_for('add_technology') }}" class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
+        <a href="{{ url_for('add_technology') }}" class="waves-effect waves-light btn-small purple lighten-1 aligh-right"><i
             class="material-icons right">add_circle_outline</i>Add one now</a>
         {% endif %}
     </div>
@@ -89,9 +89,9 @@
             </div>
             <div class="card-action">
                 <a href="{{ url_for('edit_comment', comment_id=comment._id) }}"
-                        class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
+                        class="waves-effect waves-light btn-small purple lighten-1 aligh-right"><i
                             class="material-icons right">edit</i>Edit this comment</a>
-                    <a class="waves-effect waves-light  btn-small orange darken-3 align-right modal-trigger"
+                    <a class="waves-effect waves-light  btn-small purple lighten-1 align-right modal-trigger"
                         href="#modal{{ comment._id }}"><i class="material-icons right">close</i>Delete
                         this
                         comment</a>
@@ -105,13 +105,13 @@
     </div>
     <div class="modal-footer center-align">
         <a href="{{ url_for('delete_comment', comment_id=comment._id) }}"
-            class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">Yes I am
+            class="modal-close waves-effect waves-light btn-small purple lighten-1 aligh-right">Yes I am
             certain
             I
             want to
             delete this comment</a>
         <a href="{{ url_for('profile', username=session['user']) }}"
-            class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">No,
+            class="modal-close waves-effect waves-light btn-small purple lighten-1 aligh-right">No,
             return to
             safety</a>
     </div>
@@ -122,7 +122,7 @@
     {% else %}
     <h4>You haven't added any comments yet</h4>
     
-    <a href="{{ url_for('get_technologies') }}" class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
+    <a href="{{ url_for('get_technologies') }}" class="waves-effect waves-light btn-small purple lighten-1 aligh-right"><i
         class="material-icons right">edit</i>Pick a technology to comment on</a>
     {% endif %}
     {% endblock %}

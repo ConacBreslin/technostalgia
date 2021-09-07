@@ -30,9 +30,9 @@
           {% if session.user|lower == technology.posted_by|lower %}
           
           <a href="{{ url_for('edit_technology', technology_id=technology._id) }}"
-            class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
+            class="waves-effect waves-light btn-small purple lighten-1 aligh-right"><i
               class="material-icons right">edit</i>Edit this technology</a>
-          <a class="waves-effect waves-light  btn-small orange darken-3 align-right modal-trigger"
+          <a class="waves-effect waves-light  btn-small purple lighten-1 align-right modal-trigger"
             href="#modal{{ technology._id }}"><i class="material-icons right">close</i>Delete this technology</a>
           {% endif %}
         </div>
@@ -48,11 +48,11 @@
     </div>
     <div class="modal-footer center-align">
       <a href="{{ url_for('delete_technology', technology_id=technology._id) }}"
-        class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">Yes I am certain I want to
+        class="modal-close waves-effect waves-light btn-small purple lighten-1 aligh-right">Yes I am certain I want to
         delete this</a>
   
       <a href="{{ url_for('get_technologies', technology_id=technology._id) }}"
-        class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">No, return to safety</a>
+        class="modal-close waves-effect waves-light btn-small purple lighten-1 aligh-right">No, return to safety</a>
   
     </div>
   </div>
@@ -86,7 +86,7 @@
     <div class="col s12 center-align">
       <h3 >Noone has added a comment yet - you can be the first!</h3>
       
-        <a href="#add_comment" class="btn-large waves-effect waves-light orange darken-3 "><i class="material-icons">add_circle_outline</i>Add the first comment</a>
+        <a href="#add_comment" class="btn-large waves-effect waves-light purple lighten-1"><i class="material-icons">add_circle_outline</i>Add the first comment</a>
      
     </div>
     
@@ -108,7 +108,7 @@
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <i class="material-icons prefix orange-text text-darken-3">comment</i>
+                <i class="material-icons prefix purple-text text-darken-3">comment</i>
                
                 <label for="technology_comment">Your comments</label>
                 <textarea id="technology_comment" name="technology_comment" minlength="10" maxlength="200"
@@ -120,14 +120,14 @@
         <!--Reset Button-->
         <div class="row card-action">
           <div class="col s6">
-            <button type="reset" class="btn-large waves-effect waves-light orange darken-3" >
+            <button type="reset" class="btn-large waves-effect waves-light purple lighten-1" >
               <i
               class="material-icons prefix">refresh</i>Clear
             </button>
           </div>
           <div class="col s6">
             <!--Submit Button-->
-            <button type="submit" class="btn-large waves-effect waves-light orange darken-3"><i class="material-icons prefix">forward</i>Submit</button>
+            <button type="submit" class="btn-large waves-effect waves-light purple lighten-1"><i class="material-icons prefix">forward</i>Submit</button>
           </div>
         </div>
       </form>
@@ -138,7 +138,7 @@
     <!--Back to technologies page-->
     <div class="row">
       <div class="col s12 center-align">
-        <a href="{{ url_for('get_technologies') }}" class="btn-large waves-effect waves-light orange darken-3">Go back and browse all the technologies</a>
+        <a href="{{ url_for('get_technologies') }}" class="btn-large waves-effect waves-light purple lighten-1">Go back and browse all the technologies</a>
       </div>
     </div>
   </section>

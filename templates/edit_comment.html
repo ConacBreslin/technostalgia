@@ -11,7 +11,7 @@
             <!-- Input for adding the technology being commented on -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
+                    <i class="material-icons prefix purple-text text-darken-3">important_devices</i>
                     <input id="technology_name" name="technology_name" value="{{ comment.technology_name }}"
                         minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" required>
                     <label for="technology_name">Technology's name</label>
@@ -37,12 +37,12 @@
             <!-- Submit button for editting a comment  -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1"">
+                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">
                         Edit this comment<i class="material-icons right">edit</i>
                     </button>
                     <!-- Button to cancel all changes and return to technologies -->
                     <a href="{{ url_for('get_technologies') }}"
-                        class="btn-large waves-effect waves-light purple lighten-1"">
+                        class="btn-large waves-effect waves-light purple lighten-1">
                         Cancel Changes <i class="material-icons right">close</i>
                     </a>
 
