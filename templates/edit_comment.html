@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="center-align">Edit your comment on {{ technology.technology_name}}</h1>
+<h1 class="center-align">Edit your comment on {{ comment.technology_name}}</h1>
 
 <!-- Code for form from Materialize.com -->
 <div class="row">
@@ -23,10 +23,10 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix orange-text text-darken-3">description</i>
-                    <textarea id="comment_content" name="comment_content" minlength="5" maxlength="300"
+                    <textarea id="technology_comment" name="technology_comment" minlength="5" maxlength="300"
                         placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate"
-                        required>{{ technology.technology_description }}</textarea>
-                    <label for="comment_content">Comment</label>
+                        required>{{ comment.technology_comment }}</textarea>
+                    <label for="technology_comment">Comment</label>
                 </div>
             </div>
 

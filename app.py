@@ -74,16 +74,19 @@ def edit_comment(comment_id):
             {"_id": ObjectId(comment_id)}, editted_comment)
 
         flash("Your comment on {{ technology_name }} has been changed")
-    return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
+
+    comment = mongo.db.comments.find_one(
+        {"_id": ObjectId(comment_id)})
+    
+    return render_template("edit_comment.html", comment=comment)
 
 
 @app.route("/delete_comment/<comment_id>")
-def delete_technology(comment_id):
+def delete_comment(comment_id):
     mongo.db.comments.remove({"_id": ObjectId(comment_id)})
     flash("{{ comments.technology_name }} has been deleted")
     return redirect(url_for("profile", username=session["user"]))
-
-
 
 
 

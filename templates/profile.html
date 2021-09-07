@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="center-align">{{ page_title }}</h1>
-
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="card-panel">
@@ -68,7 +66,8 @@
         {% endfor %}
         {% else %}
         <h4>You haven't added any technologies yet</h4>
-        <a>Add one now</a>
+        <a href="{{ url_for('add_technology') }}" class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
+            class="material-icons right">add_circle_outline</i>Add one now</a>
         {% endif %}
     </div>
 
@@ -84,7 +83,7 @@
 
                         <li>Your comment: {{ comment.technology_comment }}</li>
                         
-                        <li>Date posted: {{ comment.author }}</li>
+                        <li>Added by you on: {{ comment.created_on }}</li>
                     </ul>
                 </p>
             </div>
@@ -111,7 +110,7 @@
             I
             want to
             delete this comment</a>
-        <a href="{{ url_for('get_technologies', technology_id=technology._id) }}"
+        <a href="{{ url_for('profile', username=session['user']) }}"
             class="modal-close waves-effect waves-light btn-small orange darken-3 aligh-right">No,
             return to
             safety</a>
@@ -122,6 +121,8 @@
     </div>
     {% else %}
     <h4>You haven't added any comments yet</h4>
-    <a>Pick a technology to comment on</a>
+    
+    <a href="{{ url_for('get_technologies') }}" class="waves-effect waves-light btn-small orange darken-3 aligh-right"><i
+        class="material-icons right">edit</i>Pick a technology to comment on</a>
     {% endif %}
     {% endblock %}
