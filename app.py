@@ -157,7 +157,7 @@ def profile(username):
     technologies = list(mongo.db.technologies.find({"added_by": session["user"]}))
     if session["user"]:
         return render_template(
-            "profile.html", username=username, page_title="Profile")
+            "profile.html", username=username, comments=comments, technologies=technologies, page_title="Profile")
 
     return redirect(url_for("login"))
 
@@ -184,7 +184,8 @@ def add_technology():
                 "technology_description"),
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
-            "posted_by": session["user"],
+            "added_by": session["user"],
+            "added_on": datetime.now()
         }
         mongo.db.technologies.insert_one(technology)
         flash(
