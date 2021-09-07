@@ -1,5 +1,7 @@
 import os
-from flask import Flask, flash, render_template, redirect, request, session, url_for
+from flask import (
+    Flask, flash, render_template, redirect,
+    request, session, url_for)
 from flask_pymongo import PyMongo
 from datetime import datetime
 from bson.objectid import ObjectId
@@ -36,7 +38,8 @@ def get_technologies():
 def search():
     query = request.form.get("query")
     if query:
-        technologies = list(mongo.db.technologies.find({"$text": {"$search": query}}))
+        technologies = list(
+            mongo.db.technologies.find({"$text": {"$search": query}}))
     else:
         technologies = mongo.db.technologies.find()
 
@@ -59,7 +62,6 @@ def add_comment():
     return redirect(url_for("profile", username=session["user"]))
 
 
-
 @app.route("/edit_comment/<comment_id>", methods={"GET", "POST"})
 def edit_comment(comment_id):
     # Edit a comment in database
@@ -78,7 +80,6 @@ def edit_comment(comment_id):
 
     comment = mongo.db.comments.find_one(
         {"_id": ObjectId(comment_id)})
-    
     return render_template("edit_comment.html", comment=comment)
 
 
@@ -89,13 +90,14 @@ def delete_comment(comment_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
-
 @app.route("/individual_technology/<technology_id>", methods=["GET", "POST"])
 def individual_technology(technology_id):
-    technology = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)})
+    technology = mongo.db.technologies.find_one({"_id": ObjectId(
+        technology_id)})
     comments = list(mongo.db.comments.find())
-    return render_template("individual_technology.html", technology=technology, comments=comments)
-
+    return render_template(
+        "individual_technology.html", technology=technology,
+        comments=comments)
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -117,8 +119,7 @@ def registration():
         if existing_user:
             flash("Username already exists, please try a new username")
             return redirect(url_for("registration"))
-        
-        # Add the new user into the database
+            # Add the new user into the database
         registration = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
@@ -132,8 +133,8 @@ def registration():
 
         # Put the new user into the 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Welcome {}, you have successfully registered and you are now logged in ".format( 
-            request.form.get("username")))
+        flash(
+            "Welcome {}, you have successfully registered and you are now logged in ".format(request.form.get("username")))
         return redirect(url_for("get_technologies", username=session["user"]))
     return render_template("registration.html", page_title="Register")
 
@@ -170,9 +171,9 @@ def login():
         else:
 
             # If username doesn't exist in database
-            flash("Your Username and/or Password were incorrect. Please try again")
-                
-            return redirect(url_for("login"))
+            flash(
+                "Your Username and/or Password were incorrect. Please try again")
+        return redirect(url_for("login"))
 
     return render_template("login.html", page_title="Log In")
 
@@ -185,10 +186,12 @@ def profile(username):
         {"username": session["user"]})["username"]
     comments = list(mongo.db.comments.find(
                            {"author": session["user"]}))
-    technologies = list(mongo.db.technologies.find({"added_by": session["user"]}))
+    technologies = list(
+        mongo.db.technologies.find({"added_by": session["user"]}))
     if session["user"]:
         return render_template(
-            "profile.html", username=username, comments=comments, technologies=technologies, page_title="Profile")
+            "profile.html", username=username,
+            comments=comments, technologies=technologies, page_title="Profile")
 
     return redirect(url_for("login"))
 
@@ -248,7 +251,8 @@ def edit_technology(technology_id):
         }
         mongo.db.technologies.update(
             {"_id": ObjectId(technology_id)}, edittedtech)
-        flash("You have successfully updated {{ technology.technology_name }}. Thank you!")
+        flash(
+            "You have successfully updated {{ technology.technology_name }}. Thank you!")
         return redirect(url_for("get_technologies"))
 
     technology = mongo.db.technologies.find_one(
@@ -294,7 +298,6 @@ def edit_category(category_id):
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template("edit_category.html", category=category)
-
 
 
 if __name__ == "__main__":
