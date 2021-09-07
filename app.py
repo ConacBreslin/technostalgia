@@ -56,7 +56,7 @@ def add_comment():
         mongo.db.comments.insert_one(comment)
 
         flash("Your comment on {{ technology_name }} has been added")
-    return redirect(url_for("profile.html"))
+    return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/individual_technology/<technology_id>", methods=["GET", "POST"])
@@ -152,7 +152,9 @@ def profile(username):
     # Get the session user's username from the database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    comments = list(mongo.db.comments.find(
+                           {"author": session["user"]}))
+    technologies = list(mongo.db.technologies.find({"added_by": session["user"]}))
     if session["user"]:
         return render_template(
             "profile.html", username=username, page_title="Profile")
