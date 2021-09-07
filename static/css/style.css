@@ -3,7 +3,7 @@
 /*-- Styles across site --*/
 body {
     font-family: 'Ubuntu Mono', monospace;
-    background-color:#ffeb3b;
+    background-color:#f39ada;
 } 
 
 .flashes h4 {
@@ -14,7 +14,7 @@ body {
 /*-- Backgorund colour of sidenav to match site --*/
 
 .sidenav {
-    background-color: #ffeb3b;
+    background-color: #fe95e0;
 }
 
 /*-- Logo and page header font --*/
@@ -29,6 +29,15 @@ nav .brand-logo {
     font-size: 3rem;
  
 }
+
+
+/*Code for full background image was used from 
+https://css-tricks.com/perfect-full-page-background-image/*/
+.background-img {
+    background: url("../images/landscapetapes.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 90vh;
+ }
 
 /*-- To space buttons in edit_tcehnologies.html  --*/
 

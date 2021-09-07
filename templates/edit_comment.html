@@ -22,7 +22,7 @@
             <!-- Input for editing a comment's content -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix orange-text text-darken-3">description</i>
+                    <i class="material-icons prefix purple-text text-darken-3">description</i>
                     <textarea id="technology_comment" name="technology_comment" minlength="5" maxlength="300"
                         placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate"
                         required>{{ comment.technology_comment }}</textarea>
@@ -37,12 +37,12 @@
             <!-- Submit button for editting a comment  -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large waves-effect waves-light orange darken-3">
+                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1"">
                         Edit this comment<i class="material-icons right">edit</i>
                     </button>
                     <!-- Button to cancel all changes and return to technologies -->
                     <a href="{{ url_for('get_technologies') }}"
-                        class="btn-large waves-effect waves-light orange darken-3">
+                        class="btn-large waves-effect waves-light purple lighten-1"">
                         Cancel Changes <i class="material-icons right">close</i>
                     </a>
 

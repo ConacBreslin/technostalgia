@@ -19,7 +19,7 @@
     <header>
 
         <!-- Main navbar using Materialize.com  -->
-        <nav class="nav-extended orange darken-3">
+        <nav class="nav-extended purple lighten-1">
             <div class="nav-wrapper">
                 <a href="{{ url_for('home') }}" class="brand-logo">Technostalgia</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i
@@ -67,14 +67,14 @@
         {% if messages %}
         {% for message in messages %}
         <div class="row flashes">
-            <h4 class="orange lighten-1 center-align">{{ message }}</h4>
+            <h4 class="purple lighten-1" center-align">{{ message }}</h4>
         </div>
         {% endfor %}
         {% endif %}
         {% endwith %}
     </section>
 
-    <main class="container">
+    <main>
         {% block content %}
         {% endblock %}
     </main>

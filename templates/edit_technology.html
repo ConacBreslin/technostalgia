@@ -11,7 +11,7 @@
             <!-- Input for adding a technology's name  -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix orange-text text-darken-3">important_devices</i>
+                    <i class="material-icons prefix purple-text text-darken-3">important_devices</i>
                     <input id="technology_name" name="technology_name" value="{{ technology.technology_name }}"
                         minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" required>
                     <label for="technology_name">Technology's name</label>
@@ -21,7 +21,7 @@
             <!-- Dropdown for picking a technology's category -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix orange-text text-darken-3">list</i>
+                    <i class="material-icons prefix purple-text text-darken-3">list</i>
                     <select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled>Choose a category for your technology</option>
                         {% for category in categories %}
@@ -39,7 +39,7 @@
             <!-- Input for adding a technology image -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix orange-text text-darken-3">camera_alt</i>
+                    <i class="material-icons prefix purple-text text-darken-3">camera_alt</i>
                     <input id="technology_image" name="technology_image" value="{{ technology.technology_image }}"
                         type="text" class="validate" placeholder="Important! Must be a url" required>
                     <label for="technology_image">Technology's Image</label>
@@ -49,7 +49,7 @@
             <!-- Input for adding a technology description -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix orange-text text-darken-3">description</i>
+                    <i class="material-icons prefix purple-text text-darken-3">description</i>
                     <textarea id="technology_description" name="technology_description" minlength="5" maxlength="300"
                         placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate"
                         required>{{ technology.technology_description }}</textarea>
@@ -60,7 +60,7 @@
             <!-- Input for adding a best bits about the technology -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix orange-text text-darken-3">thumb_up</i>
+                    <i class="material-icons prefix purple-text text-darken-3">thumb_up</i>
                     <textarea id="best_bits" name="best_bits" minlength="5" maxlength="200"
                         class="materialize-textarea validate" required>{{ technology.best_bits }}</textarea>
                     <label for="best_bits">Best bits</label>
@@ -70,7 +70,7 @@
             <!-- Input for adding worst bits about the technology -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix orange-text text-darken-3">thumb_down</i>
+                    <i class="material-icons prefix purple-text text-darken-3">thumb_down</i>
                     <textarea id="worst_bits" name="worst_bits" minlength="5" maxlength="200"
                         class="materialize-textarea validate" required>{{ technology.worst_bits }}</textarea>
                     <label for="worst_bits">Worst bits</label>
@@ -80,12 +80,12 @@
             <!-- Submit button for adding a technology -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large waves-effect waves-light orange darken-3">
+                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1"">
                         Edit this technology now! <i class="material-icons right">edit</i>
                     </button>
                     <!-- Button to cancel all changes and return to technologies -->
                     <a href="{{ url_for('get_technologies') }}"
-                        class="btn-large waves-effect waves-light orange darken-3">
+                        class="btn-large waves-effect waves-light purple lighten-1"">
                         Cancel Changes <i class="material-icons right">close</i>
                     </a>
 
