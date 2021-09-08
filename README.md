@@ -102,6 +102,7 @@ _ Inorma
 - Information about automatically formatting  python with [black](https://pypi.org/project/black/) was found [freecodecamp.org](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)
 - The images were formatted using [https://tinypng.com/](https://tinypng.com/)
 - Help on datetime was found on [pythonexamples.org](https://pythonexamples.org/python-datetime-now/)
+- INformation on jinja filters was found on [exponea.com](https://docs.exponea.com/docs/filters)
 
 -
 ## Images

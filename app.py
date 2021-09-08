@@ -58,7 +58,7 @@ def add_comment():
         }
         mongo.db.comments.insert_one(comment)
 
-        flash("Your comment on {{ technology_name }} has been added")
+        flash("Your comment has been added")
     return redirect(url_for("profile", username=session["user"]))
 
 
@@ -210,7 +210,7 @@ def add_technology():
 
     # Add a techonolgy to database
     if request.method == "POST":
-        technology = {
+        newtechnology = {
             "technology_name": request.form.get("technology_name"),
             "category_name": request.form.get("category_name"),
             "technology_image": request.form.get("technology_image"),
@@ -221,16 +221,16 @@ def add_technology():
             "added_by": session["user"],
             "added_on": datetime.now()
         }
-        mongo.db.technologies.insert_one(technology)
+        mongo.db.technologies.insert_one(newtechnology)
         flash(
-            "You have successfully added {{ technologies.technology_name }} to {{ categories.category_name }}. Thank you!"
+            "You have successfully added a new technology. Thank you!"
         )
         return redirect(url_for("get_technologies"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
         "add_technology.html", page_title="Add a Technology",
-        categories=categories
+        categories=categories, 
     )
 
 
@@ -252,7 +252,7 @@ def edit_technology(technology_id):
         mongo.db.technologies.update(
             {"_id": ObjectId(technology_id)}, edittedtech)
         flash(
-            "You have successfully updated {{ technology.technology_name }}. Thank you!")
+            "Your technology has been updated. Thank you!")
         return redirect(url_for("get_technologies"))
 
     technology = mongo.db.technologies.find_one(
@@ -266,7 +266,7 @@ def edit_technology(technology_id):
 @app.route("/delete_technology/<technology_id>")
 def delete_technology(technology_id):
     mongo.db.technologies.remove({"_id": ObjectId(technology_id)})
-    flash("{{ technology_name }} has been deleted")
+    flash("Your technology has been deleted")
     return redirect(url_for("get_technologies"))
 
 
@@ -279,9 +279,9 @@ def manage_categories():
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
-        category = {"category_name": request.form.get("category_name")}
-        mongo.db.categories.insert_one(category)
-        flash("You have added a new category of {{ category_name }}")
+        newcategory = {"category_name": request.form.get("category_name")}
+        mongo.db.categories.insert_one(newcategory)
+        flash("You have successfully added a new category.")
         return redirect(url_for("manage_categories"))
 
     return render_template("add_category.html")
@@ -293,7 +293,7 @@ def edit_category(category_id):
         edittedcategory = {"category_name": request.form.get("category_name")}
         mongo.db.categories.update({"_id": ObjectId(
             category_id)}, edittedcategory)
-        flash("{{ category.category_name }} was successfully editted")
+        flash("The category was successfully editted")
         return redirect(url_for("manage_categories"))
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
