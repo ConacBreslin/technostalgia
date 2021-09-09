@@ -14,7 +14,16 @@ body {
     background-color:#f3e5f5;
 }
 
+.dropdown-content li>span {
+    color:#4a148c;
+    background-color: #f3e5f5;
+}
 
+
+.select-dropdown li.disabled>span {
+    background-color: #9b47bc;
+    color: #fff;
+}
 
 /*-- Backgorund colour of sidenav to match site --*/
 

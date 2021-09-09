@@ -72,14 +72,13 @@
           <li>Worst bits: {{ technology.worst_bits }}</li>
           <li>Added by: {{ technology.added_by }}</li>
           <li>Date added: {{ technology.added_on }}</li>
-         
-          
+                  
         </ul>
 
       </div>
       <div class="card-action">
         
-        <a href="{{ url_for('comments', technology_id=technology._id) }}" class="purple-text text-darken-4">See all the comments about {{ technology.technology_name}}s</a>
+        <a href="{{ url_for('comments', technology_id=technology._id) }}" class="purple-text text-darken-4">Add or read the comments about the {{ technology.technology_name}}</a>
         <br>
         
       </div>
