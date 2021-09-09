@@ -242,7 +242,7 @@ def add_technology():
         flash(
             "You have successfully added a new technology. Thank you!"
         )
-        return redirect(url_for("get_technologies"))
+        return redirect(url_for("profile", username=session["user"]))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
@@ -286,7 +286,7 @@ def edit_technology(technology_id):
 def delete_technology(technology_id):
     mongo.db.technologies.remove({"_id": ObjectId(technology_id)})
     flash("Your technology has been deleted")
-    return redirect(url_for("get_technologies"))
+    return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/manage_categories")
