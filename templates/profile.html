@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col s12 m6">
         {% if technologies|length > 0 %}
-        <h4 class="heading center-align">Technologies you've added</h4>
+        <h4 class="heading center-align">Your technologies</h4>
         {% for technology in technologies %}
         <div class="card horizontal small hoverable">
             <div class="card-image">
@@ -74,7 +74,7 @@
 
     <div class="col s12 m6">
         {% if comments|length > 0 %}
-        <h4 class="heading center-align">Comments you've added</h4>
+        <h4 class="heading center-align">Your comments</h4>
         {% for comment in comments %}
         <div class="card">
             <div class="card-content">
@@ -82,8 +82,8 @@
                     <ul>
                         <li><b>Category:</b> {{ comment.technology_name }}</li>
                         <li><b>Your comment:</b> {{ comment.technology_comment }}</li>
-                        
                         <li><b>Added by you on:</b> {{ comment.created_on }}</li>
+                    
                     </ul>
                 </p>
             </div>

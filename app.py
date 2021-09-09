@@ -60,7 +60,7 @@ def add_comment():
             "technology_name": request.form.get("technology_name"),
             "technology_comment": request.form.get("technology_comment"),
             "author": session["user"],
-            "created_on": datetime.now()
+            "created_on": datetime.now().strftime("%d %B, %Y at %H:%M")
         }
         mongo.db.comments.insert_one(comment)
 
@@ -76,7 +76,7 @@ def edit_comment(comment_id):
             "technology_name": request.form.get("technology_name"),
             "technology_comment": request.form.get("technology_comment"),
             "author": session["user"],
-            "created_on": datetime.now()
+            "editted_on": datetime.now().strftime("%d %B, %Y at %H:%M")
         }
         mongo.db.comments.update(
             {"_id": ObjectId(comment_id)}, editted_comment)
@@ -133,7 +133,7 @@ def registration():
             "last_name": request.form.get("last_name").lower(),
             "email": request.form.get("email").lower(),
             "is_admin": "off",
-            "join_date": datetime.now().strftime("%A, %d %b %Y"),
+            "join_date": datetime.now().strftime("%B %Y"),
         }
         mongo.db.users.insert_one(registration)
 
@@ -214,8 +214,19 @@ def logout():
 @app.route("/add_technology", methods=["GET", "POST"])
 def add_technology():
 
-    # Add a technolgy to database
+    
     if request.method == "POST":
+
+        # Check if the technology is already in the database
+        existing_technology = mongo.db.technologies.find_one(
+            {"technology_name": request.form.get("technology_name")}
+        )
+
+        if existing_technology:
+            flash("This technology already exists")
+            return redirect(url_for("add_technology"))
+
+        # Add the new technolgy to the database
         newtechnology = {
             "technology_name": request.form.get("technology_name"),
             "category_name": request.form.get("category_name"),
@@ -225,7 +236,7 @@ def add_technology():
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
             "added_by": session["user"],
-            "added_on": datetime.now.strftime("%d %B, %Y")()
+            "added_on": datetime.now().strftime("%d %B, %Y at %H:%M")
         }
         mongo.db.technologies.insert_one(newtechnology)
         flash(
