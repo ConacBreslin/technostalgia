@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4 class="center-align">{{ page_title }}</h4>
-
-<!-- Code for form from Materialize.com -->
 <div class="row">
+    <div class="col s-12">
+        <h4 class="center-align">{{ page_title }}</h4>
+    </div>
+
+    <!-- Code for form from Materialize.com -->
     <form class="col s12" method="POST" action="{{ url_for('add_category') }}">
         <div class="card-panel">
 
-<!-- Input for adding a cateory name  -->
+            <!-- Input for adding a cateory name  -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix ">important_devices</i>
@@ -18,18 +20,17 @@
                 </div>
             </div>
 
-
-<!-- Submit button for adding a new category -->
+            <!-- Submit button for adding a new category -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
                     <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">
                         Add this new category now! <i class="material-icons right">add_circle_outline</i>
                     </button>
- <!-- Button to cancel all changes and return to manage_categories -->
-                    <a href="{{ url_for('manage_categories') }}" class="btn-large waves-effect waves-light purple lighten-1">
+                    <!-- Button to cancel all changes and return to manage_categories -->
+                    <a href="{{ url_for('manage_categories') }}"
+                        class="btn-large waves-effect waves-light purple lighten-1">
                         Cancel <i class="material-icons right">close</i>
                     </a>
-
                 </div>
             </div>
         </div>
