@@ -103,7 +103,7 @@ def individual_technology(technology_id):
     comments = list(mongo.db.comments.find())
     return render_template(
         "individual_technology.html", technology=technology,
-        comments=comments)
+        comments=comments, page_title="Comment Page")
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -303,7 +303,7 @@ def add_category():
         flash("You have successfully added a new category.")
         return redirect(url_for("manage_categories"))
 
-    return render_template("add_category.html")
+    return render_template("add_category.html", page_title="Manage Categories")
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
