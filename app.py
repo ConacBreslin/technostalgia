@@ -38,16 +38,14 @@ def get_technologies():
 def search():
     query = request.form.get("query")
     category_search = request.form.get("category_search")
-
     if query:
         technologies = list(
             mongo.db.technologies.find({"$text": {"$search": query}}))
-    
+
     elif category_search:
         technologies = list(
             mongo.db.technologies.find({"$text": {"$search": category_search}}))
-        
-       
+            
     else:
         technologies = mongo.db.technologies.find()
 
@@ -227,7 +225,7 @@ def add_technology():
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
             "added_by": session["user"],
-            "added_on": datetime.now()
+            "added_on": datetime.now.strftime("%d %B, %Y")()
         }
         mongo.db.technologies.insert_one(newtechnology)
         flash(
@@ -255,8 +253,10 @@ def edit_technology(technology_id):
                 "technology_description"),
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
-            "posted_by": session["user"],
+            "added_by": session["user"],
+            "added_on": ""
         }
+
         mongo.db.technologies.update(
             {"_id": ObjectId(technology_id)}, edittedtech)
         flash(
