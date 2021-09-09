@@ -14,16 +14,22 @@
     <div class="row valign-wrapper center-align">
       <div class="input-field col s12">
         <i class="material-icons prefix">search</i>
-        <input type="text" name="query" id="query" minlength="3" class="validate" required>
+        <input type="text" name="query" id="query" minlength="3" class="validate" >
         <label for="query">Search by keyword</label>
       </div>
     </div>
     
+    
+      <div class="row">
+        <div class="col s12 m8">
+          <h5>or</h5>
+    </div>
+    </div>
 <div class="row">
   <div class="col s12 m8">
 
     <!-- Code from Materialize.com for radiobuttons to select category to browse -->
-    <select id="category_name" name="category_name" class="validate">
+    <select id="category_search" name="category_search" class="validate">
       <option value="" disabled selected>Choose a category to browse</option>
       <option value="all">View all</option>
       {% for category in categories %}
@@ -75,35 +81,13 @@
         
         <a href="{{ url_for('individual_technology', technology_id=technology._id) }}" class="purple-text text-darken-4">See all the comments about {{ technology.technology_name}}s</a>
         <br>
-        {% if session.user|lower == technology.posted_by|lower %}
         
-        <a href="{{ url_for('edit_technology', technology_id=technology._id) }}"
-          class="waves-effect waves-light btn-small purple lighten-1 align-right"><i
-            class="material-icons right">edit</i>Edit this technology</a>
-        <a class="waves-effect waves-light  btn-small purple lighten-1 align-right modal-trigger"
-          href="#modal{{ technology._id }}"><i class="material-icons right">close</i>Delete this technology</a>
-        {% endif %}
       </div>
 
     </div>
   </div>
 </div>
-<!--  modal -->
-<div id="modal{{ technology._id }}" class="modal">
-  <div class="modal-content">
-    <h4>Are you sure you want to delete this item?</h4>
-    <p>The entire entry and all its comments will be deleted and you will not be able to retrieve them</p>
-  </div>
-  <div class="modal-footer center-align">
-    <a href="{{ url_for('delete_technology', technology_id=technology._id) }}"
-      class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">Yes I am certain I want to
-      delete this</a>
 
-    <a href="{{ url_for('get_technologies', technology_id=technology._id) }}"
-      class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">No, return to safety</a>
-
-  </div>
-</div>
 {% endfor %}
 
 

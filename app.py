@@ -37,9 +37,17 @@ def get_technologies():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
+    category_search = request.form.get("category_search")
+
     if query:
         technologies = list(
             mongo.db.technologies.find({"$text": {"$search": query}}))
+    
+    elif category_search:
+        technologies = list(
+            mongo.db.technologies.find({"$text": {"$search": category_search}}))
+        
+       
     else:
         technologies = mongo.db.technologies.find()
 
@@ -208,7 +216,7 @@ def logout():
 @app.route("/add_technology", methods=["GET", "POST"])
 def add_technology():
 
-    # Add a techonolgy to database
+    # Add a technolgy to database
     if request.method == "POST":
         newtechnology = {
             "technology_name": request.form.get("technology_name"),
