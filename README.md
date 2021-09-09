@@ -103,6 +103,7 @@ _ Inorma
 - The images were formatted using [https://tinypng.com/](https://tinypng.com/)
 - Help on datetime was found on [pythonexamples.org](https://pythonexamples.org/python-datetime-now/)
 - INformation on jinja filters was found on [exponea.com](https://docs.exponea.com/docs/filters)
+Information on date formatting was found on [jquery-az.com](https://www.jquery-az.com/python-datetime-to-string/) and [sendwithus.com](https://support.sendwithus.com/jinja/jinja_time/)
 
 -
 ## Images
