@@ -52,20 +52,18 @@
 </div>
 <div class="row card-panel">
   <form class="col s12 m8 offset-m2 " method="POST" action="{{ url_for('add_comment') }}">
-    
+    <div class="input-field col s12">
+      <label for="technology_name">Technology</label>
+      <input id="technology_name" type="text" name="technology_name" value="{{ technology.technology_name }}">
+    </div>
+    <div class="row">
       <div class="input-field col s12">
-        <label for="technology_name">Technology</label>
-        <input id="technology_name" type="text" name="technology_name" value="{{ technology.technology_name }}">
+        <i class="material-icons prefix purple-text text-darken-3">comment</i>
+        <label for="technology_comment">Your comments</label>
+        <textarea id="technology_comment" name="technology_comment" minlength="10" maxlength="200"
+          class="materialize-textarea validate" required></textarea>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix purple-text text-darken-3">comment</i>
-          <label for="technology_comment">Your comments</label>
-          <textarea id="technology_comment" name="technology_comment" minlength="10" maxlength="200"
-            class="materialize-textarea validate" required></textarea>
-        </div>
-      </div>
-   
+    </div>
 
     <!--Reset Button-->
     <div class="row card-action center-align">
@@ -93,7 +91,7 @@
 <!--Comments on this technology-->
 {% for comment in comments if comment.technology_name == technology.technology_name %}
 <div class="row">
-  <div class="col s12 m6 l4">
+  <div class="col s12">
     <div class="card">
       <div class="card-content ">
         <h4 class="card-title">{{ comment.technology_name }}</h4>
@@ -103,8 +101,10 @@
       </div>
     </div>
   </div>
+  </div>
   {% else %}
   <!--If no comments-->
+  <div class="row">
   <div class="col s12 center-align">
     <h3>Noone has added a comment yet - you can be the first!</h3>
     <a href="#add_comment" class="btn-large waves-effect waves-light purple lighten-1"><i

@@ -194,6 +194,7 @@ def profile(username):
                            {"author": session["user"]}))
     technologies = list(
         mongo.db.technologies.find({"added_by": session["user"]}))
+    
     if session["user"]:
         return render_template(
             "profile.html", username=username,
@@ -284,6 +285,8 @@ def edit_technology(technology_id):
 
 @app.route("/delete_technology/<technology_id>")
 def delete_technology(technology_id):
+    technology_name = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)}).get("technology_name")
+    mongo.db.comments.remove({"technology_name": technology_name})
     mongo.db.technologies.remove({"_id": ObjectId(technology_id)})
     flash("Your technology has been deleted")
     return redirect(url_for("profile", username=session["user"]))

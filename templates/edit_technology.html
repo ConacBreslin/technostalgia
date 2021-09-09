@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4 class="center-align">Edit your entry of {{ technology.technology_name}}</h4>
-
-<!-- Code for form from Materialize.com -->
 <div class="row">
+    <div class="col s12">
+        <h4 class="center-align">Edit your entry for {{ technology.technology_name}}</h4>
+    </div>
+
+    <!-- Code for form from Materialize.com -->
+
     <form class="col s12" method="POST" action="{{ url_for('edit_technology', technology_id=technology._id) }}">
         <div class="card-panel">
 
@@ -88,7 +91,6 @@
                         class="btn-large waves-effect waves-light purple lighten-1">
                         Cancel Changes <i class="material-icons right">close</i>
                     </a>
-
                 </div>
             </div>
         </div>
