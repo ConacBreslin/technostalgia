@@ -58,7 +58,7 @@
 <!-- Code from Materialize.com for cards -->
 {% for technology in technologies %}
 <div class="col s12 m7">
-  <div class="card horizontal medium hoverable">
+  <div class="card horizontal small hoverable">
     <div class="card-image">
       <img src="{{ technology.technology_image }}" alt="">
     </div>
@@ -79,7 +79,7 @@
       </div>
       <div class="card-action">
         
-        <a href="{{ url_for('individual_technology', technology_id=technology._id) }}" class="purple-text text-darken-4">See all the comments about {{ technology.technology_name}}s</a>
+        <a href="{{ url_for('comments', technology_id=technology._id) }}" class="purple-text text-darken-4">See all the comments about {{ technology.technology_name}}s</a>
         <br>
         
       </div>

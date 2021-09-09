@@ -96,13 +96,13 @@ def delete_comment(comment_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
-@app.route("/individual_technology/<technology_id>", methods=["GET", "POST"])
-def individual_technology(technology_id):
+@app.route("/comments/<technology_id>", methods=["GET", "POST"])
+def comments(technology_id):
     technology = mongo.db.technologies.find_one({"_id": ObjectId(
         technology_id)})
     comments = list(mongo.db.comments.find())
     return render_template(
-        "individual_technology.html", technology=technology,
+        "comments.html", technology=technology,
         comments=comments, page_title="Comment Page")
 
 
@@ -292,7 +292,7 @@ def delete_technology(technology_id):
 @app.route("/manage_categories")
 def manage_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("manage_categories.html", categories=categories)
+    return render_template("manage_categories.html", categories=categories, page_title="Manage Categories")
 
 
 @app.route("/add_category", methods=["GET", "POST"])
@@ -303,7 +303,7 @@ def add_category():
         flash("You have successfully added a new category.")
         return redirect(url_for("manage_categories"))
 
-    return render_template("add_category.html", page_title="Manage Categories")
+    return render_template("add_category.html", page_title="Add a new Category")
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
@@ -316,7 +316,7 @@ def edit_category(category_id):
         return redirect(url_for("manage_categories"))
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("edit_category.html", category=category)
+    return render_template("edit_category.html", category=category, page_title="Edit this Category")
 
 
 if __name__ == "__main__":
