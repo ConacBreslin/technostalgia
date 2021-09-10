@@ -143,7 +143,7 @@ def registration():
 
         # Put the new user into the 'session' cookie
         session["user"] = request.form.get("username").lower()
-        session["admin"] = request.form.get("is_admin")
+        
         flash(
             "Welcome {}, you have registered and are logged in ".format(request.form.get("username")))
         return redirect(url_for("get_technologies", username=session["user"]))
@@ -341,7 +341,12 @@ def delete_category(category_id):
     category_name = mongo.db.categories.find_one({"_id": ObjectId(category_id)}).get("category_name")
     mongo.db.technologies.remove({"category_name": category_name})
 
-    # Delete a category from database
+    technologies = mongo.db.technologies.find({ "category_name": category_name})
+
+    for technology in technologies:
+        delete_technology(technology.get("_id"))
+
+    # Delete the category from database
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("You have deleted this category")
     return redirect(url_for("manage_categories"))

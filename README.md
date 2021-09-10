@@ -1,8 +1,9 @@
 # **Technostalgia - a website where you can reminisce about obsolete technologies**
-Technologies are developing at an unprecedented pace. It is easy to forget about older technologies that were once cutting edge but that have been replaced by newer, faster and run the risk of being forgotten. This webpage give people the opportuntity to look at older tcehnologies, comment on them and add other technologies to the website.
+Technologies are developing at an unprecedented pace. It is easy to forget about older technologies that were once cutting edge but are now obsolete and risk being forgotten. This site gives people the opportuntity to look at older technologies, comment on them and add  technologies to the site.
 ![Technostalgia home page image](static link to image)
 ## Visit the deployed website
-[![Technostalgia website](static link to website "Visit the deployed site here")](https://conacbreslin.heroku/)
+[![Technostalgia website](static link to website "Visit the deployed site here")](https://conac-technostalgia.herokuapp.com/)
+
 ## User Experience (UX)
 
 ### Project Goals
@@ -10,22 +11,22 @@ Technologies are developing at an unprecedented pace. It is easy to forget about
 #### Visitor Goals
 #####All visitors to the site should be able to; 
 1. Understand what the website is about and navigate it intuitively.
-2. View all technologies on the site, search by category, or search by keyword.
+2. View technologies on the site, search by category, or search by keyword.
 3. View all the comments about any technology.
 4. Register for the website.
 
 #####In addition to the those aspects available to all users, all registered users should be able to log in to the website. When logged in they should be able to;
 1. Add new technologies to the site.
-2. Edit or delete only the technolgies they have added.
+2. Edit or delete the technolgies they have added.
 3. Add comments to any technology.
-4. Edit or delete only the comments they have added to a technology.
+4. Edit or delete the comments they have added to a technology.
 5. View their profile page
 6. Log out
 
 #####Admin user should be able to
-1. Add or edit (but not delete) categories.
-2. Delete or edit any comment.
-3. Delete or edit any technology.
+1. Add, edit or delete categories.
+2. Edit or delete any comment.
+3. Edit or delete any technology.
 
 
 #### Registered User goals
@@ -46,34 +47,43 @@ Non-functional requirements; 	The site should be attractive and intuitive.
 ## Scope
 
 ## Structure
-The site will have 9 pages, These will be welcome, registration, login, logout, browsing, add technology, edit techology, delete technology, inie page and a page for the final result. The quiz should automatically usher the player through all the stages of the quiz once they start through to the end. At the end they should be able to quit or replay.
+The site has 12 pages, These will be home, registration, login, profile, technologies, add technology, edit technology, comments, edit comment, manage categories, add category and edit category. The user is directed back to an appropriate location after each functionality is complete.
 ## Skeleton
-The welcome page  explains what the site is about and encourages visitors to register. 
-The technology collections page should have the ability for the visitor or member to view all the technologies or to sort them by keyword or category. [here](assets/images/wireframes.pdf). 
+The **home** page  introduces the site. 
+The **registration** page is where the user can register for the site and is navigated to from the navbar.
+The **login** page is where returning users can log in to the site.
+The **profile** page displays all the technologies that the current user has added and all the comments they have made. From this page the user can navigate to the **edit technologies**  or **edit comments** pages. Technologies can also be deleted from the profile page and all comments related to the technology are automatically deleted too.
+The **technologies** page is where each technology is displayed in a card. The page can be searched by keyword or by category From each card the user can navigate to the **comments** page related to that technology where they can read all the comments that have been made about that technology and (if registered) they can add comments.
+The **add technology** page is accessed from the navbar (for registered users only) and has a form where the user can add a new technology.
+The **manage categories** page is accessed from the navbar (for admin users only) from here an admin user can navigate to the **edit category** and **add category** pages. Categories can be deleted from the manage technology page. When a category is deleted all associated technologies and comments are also deleted.
+ 
 ## Surface/Design (Design Choices fonts, icons, colours, styling, backgroundss)
 
 ### Imagery
-The overall image of the site was to be kept clear, simple and intuitive.
+The overall feel of the site was to be bright, fun, simple and intuitive.
 ### Colour scheme
 According to Shane Barker in ["The Psychology of Color in Web Design"](https://www.vandelaydesign.com/the-psychology-of-color-in-web-design/), pink raises emotions of fun and romance and is "ideal for websites that hearken back to olden days". The predominantly pink background image was picked with this in mind. The colours from the image were identified using [imagecolorpicker.com](https://imagecolorpicker.com/) and used throughout the site.
- A [minimum contrast ratio](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) of 4.5:1 for small text and 3:1 for large text is recommended. This site wanted a strong but not too stark contrast. The contrast ratio of the site is [11.14](assets/images/contrastratio.png). 
+ A [minimum contrast ratio](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) of 4.5:1 for small text and 3:1 for large text is recommended. There were a range of combinations of backgrounds and text across the site and their contrast ratios ranged from the best 10.45 (#f3e5f5 pink backgound of site and #000 - black text) to 4.81 (#ab47bc navbar backgound purple lighten-1 and #fff white text)
+
 ### Typography
-Information on the [psychology of fonts](https://fabrikbrands.com/font-psychology-and-typography-inspiration-in-logo-design) indicated that a serif font can  convey trust and respectability. With this in mind the Vesper Libre font was selected in [Google Fonts](https://fonts.google.com/) for its simplicity.
+The fonts were found on google font. The 'Press Start 2P' used for the title was picked because it looked a bit like a 1980s arcade game font and the 'Ubuntu Mono' was recommended by google fonts as a popular pairing and it was clear and very readable.
 ## Features
 - Responsiveness on all device sizes.
+- A home page which dynamically displays images of all the categories that have been added to the site.
 - A navigation bar on main page that displays navigation relevent to the user type.
-- Navigation links to registration/login page
-- A means of allowing registered users to add new technologies to site.
-- A means of allowing members to edit or delete their own additions to the sitedisplaying a random question and four answer options from the question bank and then removing that question from the question bank to avoid duplication.
-- A means of allowing registered users to post comments on the technologies.
-- A means of allowing registered users to post comments on the technologies.
-- A means of allowing an admin user to edit the categories.
+- A page to view all the technologies that are on the site
+- A way of searching all the technologies with means of dynamically populating of category drop down menus to include all added categories.
+- A means of allowing visitors to register.
+- A means of allowing registered users to add technologies and comments. 
+- A means of allowing registered users to edit or delete technologies and comments that they have added.
+- A means of allowing an admin user to add, edit and delete categories.
 - A means of dynamice populating of category drop down menus to incluse all added categories.
 
 ## Wireframes
 
 ## Future features
-Polls, rattings, favorites
+Polls, rattings, favorites.
+
 ## Languages used
 [HTML5](https://en.wikipedia.org/wiki/HTML5)
 
@@ -82,8 +92,8 @@ Polls, rattings, favorites
 [python](https://www.python.org/)
 
 ## Frameworks, Libraries and online resources used
-- The [Flask](https://flask.palletsprojects.com/en/2.0.x/) mictroframewor was used to build the app.
-- The [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) templating engine was used
+- The [Flask](https://flask.palletsprojects.com/en/2.0.x/) mictroframework was used to build the app.
+- The [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) templating engine was used.
 - [Balsamiq](https://balsamiq.com/wireframes/) was used to create the wireframes.
 - Gits's [gitpod](https://www.gitpod.io/) was used for writing and editing code, and for submitting and pushing to GitHub.
 - [Heroku](https://id.heroku.com/login) was used to deploy the app.
@@ -94,18 +104,16 @@ Polls, rattings, favorites
 - [Google Fonts](https://fonts.google.com/) was used to choose and import the font.
 - Foreground/Backgound contrast was checked using [contrast-ratio.com](https://contrast-ratio.com/). 
 - The space invader image for the favicon was found in [iconfinder.com](https://www.iconfinder.com/)
-- the favicon image was converted to an .ico file using [favicon.io](https://favicon.io/)
-- instructions for adding the favicon were found on [flask.palletsprojects.co](https://flask.palletsprojects.com/)
-_ Inorma
+- The favicon image was converted to an .ico file using [favicon.io](https://favicon.io/)
+- Instructions for adding the favicon were found on [flask.palletsprojects.co](https://flask.palletsprojects.com/)
 - The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [pythonmorsels.com](https://www.pythonmorsels.com/)
 - The html code was formatted using [webformatter.com](https://webformatter.com/html)
-- Information about automatically formatting  python with [black](https://pypi.org/project/black/) was found [freecodecamp.org](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)
+- Information about automatically formatting  python with [black](https://pypi.org/project/black/) was found on [freecodecamp.org](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)
 - The images were formatted using [https://tinypng.com/](https://tinypng.com/)
 - Help on datetime was found on [pythonexamples.org](https://pythonexamples.org/python-datetime-now/)
-- INformation on jinja filters was found on [exponea.com](https://docs.exponea.com/docs/filters)
-Information on date formatting was found on [jquery-az.com](https://www.jquery-az.com/python-datetime-to-string/) and [sendwithus.com](https://support.sendwithus.com/jinja/jinja_time/)
-
--
+- Information on jinja filters was found on [exponea.com](https://docs.exponea.com/docs/filters)
+- Information on date formatting was found on [jquery-az.com](https://www.jquery-az.com/python-datetime-to-string/) and [sendwithus.com](https://support.sendwithus.com/jinja/jinja_time/)
+- I made use of tutorials from [www.freecodecamp.org](https://www.freecodecamp.org/), [codemy.com](https://codemy.com/) and [www.udemy.com](https://www.udemy.com/)
 ## Images
 - The images were stored in [Imgur](https://i.imgur.com/)
 - The Walkman image is by [Florian Schmetz on unsplash.com](https://unsplash.com/photos/Rks6FTfX5OU)
@@ -115,12 +123,9 @@ Information on date formatting was found on [jquery-az.com](https://www.jquery-a
 - The acoustic coupler imager was found on [arstechnica.com](https://arstechnica.com/)
 - The credit card machine image was found on[singletrackworld.com](http://singletrackworld.com/)
 - The punch card image was found on [www.palvenn.no/](http://www.palvenn.no/)
--The homepage background image is by [Hello I'm Nik in unsplash.com](https://unsplash.com/photos/6nqbKX5UI9I)
-
-
-
+- The homepage background image is by [Hello I'm Nik in unsplash.com](https://unsplash.com/photos/6nqbKX5UI9I)
 ## Testing.
-Bugs identified during development and testing and their solutions can be seen [here](assets/images/buglog.png).
+Bugs identified during development and testing and their solutions can be seen [here](link to image).
 ### Validation
 - HTML and CSS. All pages of the quiz were tested by direct input into [validator.w3.org](https://validator.w3.org/) for html and [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) for css and errors identified were corrected until no errors were showing in either validator. 
 
