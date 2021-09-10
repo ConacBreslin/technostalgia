@@ -30,10 +30,12 @@
                     {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_technology') }}">Add a Technology</a></li>
+                    
                     <li><a href="{{ url_for('manage_categories') }}">Manage Categories</a></li>
+                    
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
-                    
+
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="{{ url_for('registration') }}">Register</a></li>
                     {% endif%}
@@ -43,14 +45,23 @@
 
         <!--Collapsed navbar code from Materialize.com -->
         <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align">Technostalgia</h4></li>
-            <li><a href="{{ url_for('get_technologies') }}">View Technologies</a></li>
+            <li><h4 class="center-align">Technostalgia</h4></li>               
 
-             <!--Only show these links to logged in users -->
+            <!--Show this links to all visitors to site -->
+            <li><a href="{{ url_for('get_technologies') }}">View Technologies</a></li>
+            
+
+            <!--Only show these links to logged in users -->
             {% if session.user %}
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
             <li><a href="{{ url_for('add_technology') }}">Add a Technology</a></li>
+
+            <!--Only show this link to logged in users -->
+            {% if session.user|lower == "admin"|lower %}
             <li><a href="{{ url_for('manage_categories') }}">Manage Categories</a></li>
+            {% endif %}
+
+
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
             <li><a href="{{ url_for('login') }}">Log In</a></li>
