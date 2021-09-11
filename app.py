@@ -49,8 +49,6 @@ def search():
             mongo.db.technologies.find({"$text": {"$search": category_search}})
         )
 
-    else:
-        technologies = mongo.db.technologies.find()
 
     return render_template("technologies.html", technologies=technologies)
 
@@ -201,10 +199,11 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
 
-    # Get the session user's username from the database
+    # Get the session user's username, comments and technologies from the database
     username = mongo.db.users.find_one({"username": session["user"]})["username"]
     comments = list(mongo.db.comments.find({"author": session["user"]}))
     technologies = list(mongo.db.technologies.find({"added_by": session["user"]}))
+   
 
     if session["user"]:
         return render_template(

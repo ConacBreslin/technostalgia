@@ -14,8 +14,10 @@
               class="btn-large waves-effect waves-light purple lighten-1"><i class="material-icons right">close</i>Edit
               this
               category name</a>
-            <a href="#modal{{ category._id }}"" class="btn-large waves-effect waves-light purple lighten-1 modal-trigger"><i
+            <a href="#modal{{ category._id }}" class="btn-large waves-effect waves-light purple lighten-1 modal-trigger"><i
                 class="material-icons right">close</i>Delete this category</a></span>
+              <a href="{{ url_for('add_technology' )}}" class="btn-large waves-effect waves-light purple lighten-1 "><i
+                  class="material-icons right">close</i>Add a technology</a></span>
         </div>
       </li>
       <!--  Delete category modal -->
