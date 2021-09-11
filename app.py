@@ -315,6 +315,17 @@ def add_category():
 
     # Add a new category to the database
     if request.method == "POST":
+
+        # Check if the category is already in the database
+        existing_category = mongo.db.categories.find_one(
+            {"category_name": request.form.get("category_name")}
+        )
+
+        if existing_category:
+            flash("This category already exists")
+            return redirect(url_for("add_category"))
+
+
         newcategory = {"category_name": request.form.get("category_name")}
         mongo.db.categories.insert_one(newcategory)
         flash("You have successfully added a new category.")
