@@ -28,7 +28,7 @@ def home():
 def get_technologies():
 
     # Find and display all technologies in database
-    technologies = mongo.db.technologies.find()
+    technologies = list(mongo.db.technologies.find())
     categories = mongo.db.categories.find()
     return render_template(
         "technologies.html", technologies=technologies, categories=categories
@@ -48,7 +48,7 @@ def search():
         technologies = list(
             mongo.db.technologies.find({"$text": {"$search": category_search}})
         )
-
+    
 
     return render_template("technologies.html", technologies=technologies)
 
