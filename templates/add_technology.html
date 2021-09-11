@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4 class="center-align">Add a technology</h4>
-
-<!-- Code for form from Materialize.com -->
 <div class="row">
+    <div class="col s12">
+        <h4 class="center-align">Add a technology</h4>
+    </div>
+
+    <!-- Code for form from Materialize.com -->
     <form class="col s12" method="POST" action="{{ url_for('add_technology') }}">
         <div class="card-panel">
 
@@ -46,7 +48,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">description</i>
-                    <textarea id="technology_description" name="technology_description" minlength="5" maxlength="200"
+                    <textarea id="technology_description" name="technology_description" minlength="5" maxlength="250"
                         placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate"
                         required></textarea>
                     <label for="technology_description">Description</label>
@@ -57,7 +59,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">thumb_up</i>
-                    <textarea id="best_bits" name="best_bits" minlength="5" maxlength="150"
+                    <textarea id="best_bits" name="best_bits" minlength="5" maxlength="200"
                         placeholder="What do you love most about this technology?" class="materialize-textarea validate"
                         required></textarea>
                     <label for="best_bits">Best bits</label>
@@ -68,7 +70,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">thumb_down</i>
-                    <textarea id="worst_bits" name="worst_bits" minlength="5" maxlength="150"
+                    <textarea id="worst_bits" name="worst_bits" minlength="5" maxlength="200"
                         placeholder="What do you NOT love about this technology?" class="materialize-textarea validate"
                         required></textarea>
                     <label for="worst_bits">Worst bits</label>
@@ -82,7 +84,8 @@
                         Add this technology now! <i class="material-icons right">add_circle_outline</i>
                     </button>
                     <!-- Button to cancel all changes and return to technologies -->
-                    <a href="{{ url_for('get_technologies') }}" class="btn-large waves-effect waves-light purple lighten-1">
+                    <a href="{{ url_for('get_technologies') }}"
+                        class="btn-large waves-effect waves-light purple lighten-1">
                         Cancel <i class="material-icons right">close</i></a>
                 </div>
             </div>

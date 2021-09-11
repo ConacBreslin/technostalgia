@@ -28,6 +28,8 @@ def home():
 
 @app.route("/get_technologies")
 def get_technologies():
+
+    # Find and display all technologies in database
     technologies = mongo.db.technologies.find()
     categories = mongo.db.categories.find()
     return render_template(
@@ -36,6 +38,8 @@ def get_technologies():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+
+    # Search by keyword or by category
     query = request.form.get("query")
     category_search = request.form.get("category_search")
     if query:
