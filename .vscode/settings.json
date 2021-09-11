@@ -21,6 +21,6 @@
       "**/CVS": true
    },
    "files.autoSave": "off",
-   "workbench.colorTheme": "Visual Studio Light",
+   "workbench.colorTheme": "Gitpod Light",
    "editor.defaultFormatter": "HookyQR.beautify"
 }

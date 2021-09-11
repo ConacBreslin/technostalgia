@@ -48,7 +48,6 @@ def search():
         technologies = list(
             mongo.db.technologies.find({"$text": {"$search": category_search}})
         )
-    
 
     return render_template("technologies.html", technologies=technologies)
 
