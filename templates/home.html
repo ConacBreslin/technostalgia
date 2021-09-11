@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row background-img">
-  <h1 class="center-align page-topper">Technostalgia</h1>
-  <h4 class="center-align">A place to reminisce about technologies that have been loved and lost, but not
-    forgotten.</h4>
+  <div class="col s12">
+    <h1 class="center-align page-topper">Technostalgia</h1>
+    <h4 class="center-align">A place to reminisce about technologies that have been loved and lost, but not
+      forgotten.</h4>
 
     <!-- Code for carousel from  Materialise.com -->
-  <div class="carousel">
-    {% for technology in technologies %}
-    <a class="carousel-item"><img src="{{ technology.technology_image }}"></a>
-    {% endfor %}
+    <div class="carousel">
+      {% for technology in technologies %}
+      <a class="carousel-item"><img src="{{ technology.technology_image }}"></a>
+      {% endfor %}
+    </div>
   </div>
-
 </div>
 {% endblock  %}

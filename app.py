@@ -1,7 +1,5 @@
 import os
-from flask import (
-    Flask, flash, render_template, redirect,
-    request, session, url_for)
+from flask import Flask, flash, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from datetime import datetime
 from bson.objectid import ObjectId
@@ -33,7 +31,8 @@ def get_technologies():
     technologies = mongo.db.technologies.find()
     categories = mongo.db.categories.find()
     return render_template(
-        "technologies.html", technologies=technologies, categories=categories)
+        "technologies.html", technologies=technologies, categories=categories
+    )
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -43,18 +42,17 @@ def search():
     query = request.form.get("query")
     category_search = request.form.get("category_search")
     if query:
-        technologies = list(
-            mongo.db.technologies.find({"$text": {"$search": query}}))
+        technologies = list(mongo.db.technologies.find({"$text": {"$search": query}}))
 
     elif category_search:
         technologies = list(
-            mongo.db.technologies.find({"$text": {"$search": category_search}}))
-            
+            mongo.db.technologies.find({"$text": {"$search": category_search}})
+        )
+
     else:
         technologies = mongo.db.technologies.find()
 
-    return render_template(
-        "technologies.html", technologies=technologies)
+    return render_template("technologies.html", technologies=technologies)
 
 
 @app.route("/add_comment", methods={"GET", "POST"})
@@ -66,7 +64,7 @@ def add_comment():
             "technology_name": request.form.get("technology_name"),
             "technology_comment": request.form.get("technology_comment"),
             "author": session["user"],
-            "created_on": datetime.now().strftime("%d %B, %Y at %H:%M")
+            "created_on": datetime.now().strftime("%d %B, %Y at %H:%M"),
         }
         mongo.db.comments.insert_one(comment)
 
@@ -83,16 +81,14 @@ def edit_comment(comment_id):
             "technology_name": request.form.get("technology_name"),
             "technology_comment": request.form.get("technology_comment"),
             "author": session["user"],
-            "editted_on": datetime.now().strftime("%d %B, %Y at %H:%M")
+            "editted_on": datetime.now().strftime("%d %B, %Y at %H:%M"),
         }
-        mongo.db.comments.update(
-            {"_id": ObjectId(comment_id)}, editted_comment)
+        mongo.db.comments.update({"_id": ObjectId(comment_id)}, editted_comment)
 
         flash("Your comment on  has been changed")
         return redirect(url_for("profile", username=session["user"]))
 
-    comment = mongo.db.comments.find_one(
-        {"_id": ObjectId(comment_id)})
+    comment = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
     return render_template("edit_comment.html", comment=comment)
 
 
@@ -106,12 +102,14 @@ def delete_comment(comment_id):
 
 @app.route("/comments/<technology_id>", methods=["GET", "POST"])
 def comments(technology_id):
-    technology = mongo.db.technologies.find_one({"_id": ObjectId(
-        technology_id)})
+    technology = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)})
     comments = list(mongo.db.comments.find())
     return render_template(
-        "comments.html", technology=technology,
-        comments=comments, page_title="Comment Page")
+        "comments.html",
+        technology=technology,
+        comments=comments,
+        page_title="Comment Page",
+    )
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -147,9 +145,12 @@ def registration():
 
         # Put the new user into the 'session' cookie
         session["user"] = request.form.get("username").lower()
-        
+
         flash(
-            "Welcome {}, you have registered and are logged in ".format(request.form.get("username")))
+            "Welcome {}, you have registered and are logged in ".format(
+                request.form.get("username")
+            )
+        )
         return redirect(url_for("get_technologies", username=session["user"]))
     return render_template("registration.html", page_title="Register")
 
@@ -163,6 +164,13 @@ def login():
             {"username": request.form.get("username").lower()}
         )
 
+        # Set the users session variable of is_admin to False in the 'session' cookie
+        session["is_admin"] = False
+
+        # Check if is_admin is true in database and if so set is_admin to true in session cookie
+        if "is_admin" in existing_user and existing_user["is_admin"] == True:
+            session["is_admin"] = True
+
         if existing_user:
 
             # Check if the hashed password matches the user's password
@@ -175,8 +183,7 @@ def login():
                         request.form.get("username")
                     )
                 )
-                return redirect(
-                    url_for("get_technologies", username=session["user"]))
+                return redirect(url_for("get_technologies", username=session["user"]))
 
             else:
                 # If passwords don't match
@@ -185,8 +192,7 @@ def login():
 
         else:
             # If username doesn't exist in database
-            flash(
-                "Your Username and/or Password were incorrect. Please try again")
+            flash("Your Username and/or Password were incorrect. Please try again")
         return redirect(url_for("login"))
 
     return render_template("login.html", page_title="Log In")
@@ -196,17 +202,18 @@ def login():
 def profile(username):
 
     # Get the session user's username from the database
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    comments = list(mongo.db.comments.find(
-                           {"author": session["user"]}))
-    technologies = list(
-        mongo.db.technologies.find({"added_by": session["user"]}))
-    
+    username = mongo.db.users.find_one({"username": session["user"]})["username"]
+    comments = list(mongo.db.comments.find({"author": session["user"]}))
+    technologies = list(mongo.db.technologies.find({"added_by": session["user"]}))
+
     if session["user"]:
         return render_template(
-            "profile.html", username=username,
-            comments=comments, technologies=technologies, page_title="Profile")
+            "profile.html",
+            username=username,
+            comments=comments,
+            technologies=technologies,
+            page_title="Profile",
+        )
 
     return redirect(url_for("login"))
 
@@ -239,23 +246,21 @@ def add_technology():
             "technology_name": request.form.get("technology_name"),
             "category_name": request.form.get("category_name"),
             "technology_image": request.form.get("technology_image"),
-            "technology_description": request.form.get(
-                "technology_description"),
+            "technology_description": request.form.get("technology_description"),
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
             "added_by": session["user"],
-            "added_on": datetime.now().strftime("%d %B, %Y at %H:%M")
+            "added_on": datetime.now().strftime("%d %B, %Y at %H:%M"),
         }
         mongo.db.technologies.insert_one(newtechnology)
-        flash(
-            "You have successfully added a new technology. Thank you!"
-        )
+        flash("You have successfully added a new technology. Thank you!")
         return redirect(url_for("profile", username=session["user"]))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
-        "add_technology.html", page_title="Add a Technology",
-        categories=categories, 
+        "add_technology.html",
+        page_title="Add a Technology",
+        categories=categories,
     )
 
 
@@ -268,22 +273,18 @@ def edit_technology(technology_id):
             "technology_name": request.form.get("technology_name"),
             "category_name": request.form.get("category_name"),
             "technology_image": request.form.get("technology_image"),
-            "technology_description": request.form.get(
-                "technology_description"),
+            "technology_description": request.form.get("technology_description"),
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
             "added_by": session["user"],
-            "added_on": ""
+            "added_on": "",
         }
 
-        mongo.db.technologies.update(
-            {"_id": ObjectId(technology_id)}, edittedtech)
-        flash(
-            "Your technology has been updated. Thank you!")
+        mongo.db.technologies.update({"_id": ObjectId(technology_id)}, edittedtech)
+        flash("Your technology has been updated. Thank you!")
         return redirect(url_for("get_technologies"))
 
-    technology = mongo.db.technologies.find_one(
-        {"_id": ObjectId(technology_id)})
+    technology = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
         "edit_technology.html", technology=technology, categories=categories
@@ -292,9 +293,11 @@ def edit_technology(technology_id):
 
 @app.route("/delete_technology/<technology_id>")
 def delete_technology(technology_id):
-    
+
     # Find and then delete comments on a technology from database
-    technology_name = mongo.db.technologies.find_one({"_id": ObjectId(technology_id)}).get("technology_name")
+    technology_name = mongo.db.technologies.find_one(
+        {"_id": ObjectId(technology_id)}
+    ).get("technology_name")
     mongo.db.comments.remove({"technology_name": technology_name})
 
     # Delete a technology from database
@@ -306,8 +309,9 @@ def delete_technology(technology_id):
 @app.route("/manage_categories")
 def manage_categories():
     categories = list(mongo.db.categories.find())
-    return render_template("manage_categories.html", 
-        categories=categories, page_title="Manage Categories")
+    return render_template(
+        "manage_categories.html", categories=categories, page_title="Manage Categories"
+    )
 
 
 @app.route("/add_category", methods=["GET", "POST"])
@@ -325,7 +329,6 @@ def add_category():
             flash("This category already exists")
             return redirect(url_for("add_category"))
 
-
         newcategory = {"category_name": request.form.get("category_name")}
         mongo.db.categories.insert_one(newcategory)
         flash("You have successfully added a new category.")
@@ -340,23 +343,26 @@ def edit_category(category_id):
     # Edit a technology in database
     if request.method == "POST":
         edittedcategory = {"category_name": request.form.get("category_name")}
-        mongo.db.categories.update({"_id": ObjectId(
-            category_id)}, edittedcategory)
+        mongo.db.categories.update({"_id": ObjectId(category_id)}, edittedcategory)
         flash("The category was successfully editted")
         return redirect(url_for("manage_categories"))
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("edit_category.html", category=category, page_title="Edit this Category")
+    return render_template(
+        "edit_category.html", category=category, page_title="Edit this Category"
+    )
 
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
 
     # Find and then delete technologies in a the category being deleted
-    category_name = mongo.db.categories.find_one({"_id": ObjectId(category_id)}).get("category_name")
+    category_name = mongo.db.categories.find_one({"_id": ObjectId(category_id)}).get(
+        "category_name"
+    )
     mongo.db.technologies.remove({"category_name": category_name})
 
-    technologies = mongo.db.technologies.find({ "category_name": category_name})
+    technologies = mongo.db.technologies.find({"category_name": category_name})
 
     for technology in technologies:
         delete_technology(technology.get("_id"))
@@ -368,5 +374,4 @@ def delete_category(category_id):
 
 
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")), debug=True)
+    app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
