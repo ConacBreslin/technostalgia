@@ -31,7 +31,7 @@
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_technology') }}">Add a Technology</a></li>
                     {% if session.is_admin == True %}
-                    <li><a href="{{ url_for('manage_categories') }}">Manage Categories</a></li>
+                    <li><a href="{{ url_for('manage_categories') }}">Manage the site</a></li>
                     {% endif %}
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
@@ -58,7 +58,7 @@
 
             <!--Only show this link to logged in users -->
             {% if session.user|lower == "admin"|lower %}
-            <li><a href="{{ url_for('manage_categories') }}">Manage Categories</a></li>
+            <li><a href="{{ url_for('manage_categories') }}">Manage the site</a></li>
             {% endif %}
 
 

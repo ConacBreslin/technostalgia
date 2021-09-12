@@ -14,37 +14,39 @@
               class="btn-large waves-effect waves-light purple lighten-1"><i class="material-icons right">edit</i>Edit
               this
               category name</a>
-            <a href="#modal{{ category._id }}" class="btn-large waves-effect waves-light purple lighten-1 modal-trigger"><i
+            <a href="#modal{{ category._id }}"
+              class="btn-large waves-effect waves-light purple lighten-1 modal-trigger"><i
                 class="material-icons right">close</i>Delete this category</a></span>
-              <a href="{{ url_for('add_technology' )}}" class="btn-large waves-effect waves-light purple lighten-1 "><i
-                  class="material-icons right">add_circle_outline</i>Add a technology</a></span>
+          <a href="{{ url_for('add_technology' )}}" class="btn-large waves-effect waves-light purple lighten-1 "><i
+              class="material-icons right">add_circle_outline</i>Add a technology</a></span>
         </div>
       </li>
       <!--  Delete category modal -->
-<div id="modal{{ category._id }}"" class="modal">
-  <div class="modal-content red">
-      <h4>Are you sure you want to delete this entire category?</h4>
-      <p>The category, all its technologies and associated comments will be deleted and you will not be able to retrieve them</p>
-  </div>
-  <div class="modal-footer center-align">
-      <a href="{{ url_for('delete_category', category_id=category._id) }}"
-          class="modal-close waves-effect waves-light btn-small red align-right">Yes I am
-          certain
-          I
-          want to
-          delete this entire category</a>
-      <a href="{{ url_for('manage_categories') }}"
-          class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">No,
-          return to
-          safety</a>
-  </div>
-</div>
+      <div id="modal{{ category._id }}"" class=" modal">
+        <div class="modal-content red">
+          <h4>Are you sure you want to delete this entire category?</h4>
+          <p>The category, all its technologies and associated comments will be deleted and you will not be able to
+            retrieve them</p>
+        </div>
+        <div class="modal-footer center-align">
+          <a href="{{ url_for('delete_category', category_id=category._id) }}"
+            class="modal-close waves-effect waves-light btn-small red align-right">Yes I am
+            certain
+            I
+            want to
+            delete this entire category</a>
+          <a href="{{ url_for('manage_categories') }}"
+            class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">No,
+            return to
+            safety</a>
+        </div>
+      </div>
 
       {% endfor %}
     </ul>
 
 
-    
+
 
     <!-- Button to add a category -->
     <div class="row">
@@ -55,5 +57,109 @@
       </div>
     </div>
   </div>
+</div>
+
+
+
+
+<!-- List all the technologies on the whole site-->
+<div class="row">
+  <div class="col s12 m6">
+    <h4 class="heading center-align">Manage technologies</h4>
+    {% for technology in technologies %}
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+          <ul>
+            <li><b>Name:</b> {{ technology.technology_name }}</li>
+            <li><b>Added by:</b> {{ technology.added_by|capitalize}}</li>
+            <li><b>Added on:</b> {{ technology.added_on }}</li>
+          </ul>
+        </div>
+        <div class="card-action purple lighten-5">
+          <a href="{{ url_for('edit_technology', technology_id=technology._id) }}"
+            class="waves-effect waves-light btn-small purple lighten-1 align-right"><i
+              class="material-icons right">edit</i>Edit this technology</a>
+          <a class="waves-effect waves-light  btn-small purple lighten-1 align-right modal-trigger"
+            href="#modal{{ technology._id }}"><i class="material-icons right">close</i>Delete
+            this technology</a>
+        </div>
+      </div>
+    </div>
+    <!--  Delete technology modal -->
+    <div id="modal{{ technology._id }}" class="modal">
+      <div class="modal-content purple lighten-5">
+        <h4>Are you sure you want to delete this technology?</h4>
+        <p>The entire entry and all its comments will be deleted and you will not be able to retrieve them</p>
+      </div>
+      <div class="modal-footer center-align purple lighten-5">
+        <a href="{{ url_for('delete_technology', technology_id=technology._id) }}"
+          class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">Yes I am
+          certain
+          I
+          want to
+          delete this</a>
+        <a href="{{ url_for('manage_categories', technology_id=technology._id) }}"
+          class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">No,
+          return to
+          safety</a>
+      </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+  <div class="col s12 m6">
+
+    <h4 class="heading center-align">Manage comments</h4>
+    {% for comment in comments %}
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+
+          <ul>
+            <li><b>Technology:</b> {{ comment.technology_name }}</li>
+            <li><b>Comment:</b> {{ comment.technology_comment }}</li>
+            <li><b>Added by:</b> {{ comment.author|capitalize }}  </li>
+            <li><b>Added on:</b> {{ comment.created_on }}</li>
+
+          </ul>
+
+        </div>
+        <div class="card-action purple lighten-5">
+          <a href="{{ url_for('edit_comment', comment_id=comment._id) }}"
+            class="waves-effect waves-light btn-small purple lighten-1 align-right"><i
+              class="material-icons right">edit</i>Edit this comment</a>
+          <a class="waves-effect waves-light  btn-small purple lighten-1 align-right modal-trigger"
+            href="#modal{{ comment._id }}"><i class="material-icons right">close</i>Delete
+            this
+            comment</a>
+        </div>
+      </div>
+    </div>
+    <!--  Delete comment modal -->
+    <div id="modal{{ comment._id }}" class="modal">
+      <div class="modal-content purple lighten-5">
+        <h4>Are you sure you want to delete this comment?</h4>
+        <p>It will not be permanenetly deleted and you will not be able to retrieve it</p>
+      </div>
+      <div class="modal-footer center-align purple lighten-5">
+        <a href="{{ url_for('delete_comment', comment_id=comment._id) }}"
+          class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">Yes I am
+          certain
+          I
+          want to
+          delete this comment</a>
+        <a href="{{ url_for('profile', username=session['user']) }}"
+          class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">No,
+          return to
+          safety</a>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+  
 </div>
 {% endblock %}

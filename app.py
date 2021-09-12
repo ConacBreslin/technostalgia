@@ -80,7 +80,7 @@ def edit_comment(comment_id):
             "technology_name": request.form.get("technology_name"),
             "technology_comment": request.form.get("technology_comment"),
             "author": session["user"],
-            "editted_on": datetime.now().strftime("%d %B, %Y at %H:%M"),
+            "editted_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
         }
         mongo.db.comments.update({"_id": ObjectId(comment_id)}, editted_comment)
 
@@ -312,8 +312,10 @@ def delete_technology(technology_id):
 @app.route("/manage_categories")
 def manage_categories():
     categories = list(mongo.db.categories.find())
+    technologies = list(mongo.db.technologies.find())
+    comments = list(mongo.db.comments.find())
     return render_template(
-        "manage_categories.html", categories=categories, page_title="Manage Categories"
+        "manage_categories.html", categories=categories, technologies=technologies, comments=comments, page_title="Manage Categories"
     )
 
 
