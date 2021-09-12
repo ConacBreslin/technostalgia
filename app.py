@@ -5,9 +5,6 @@ from datetime import datetime
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 
-if os.path.exists("env.py"):
-    import env
-
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -165,7 +162,7 @@ def login():
         session["is_admin"] = False
 
         # Check if is_admin is true in database and if so set is_admin to true in session cookie
-        if "is_admin" in existing_user and existing_user["is_admin"] == True:
+        if "is_admin" in existing_user and existing_user["is_admin"]:
             session["is_admin"] = True
 
         if existing_user:
@@ -189,7 +186,8 @@ def login():
 
         else:
             # If username doesn't exist in database
-            flash("Your Username and/or Password were incorrect. Please try again")
+            flash("""Your Username and/or
+            Password were incorrect. Please try again""")
         return redirect(url_for("login"))
 
     return render_template("login.html", page_title="Log In")
@@ -199,10 +197,12 @@ def login():
 def profile(username):
 
     # Get the session user's username, comments and technologies from the database
-    username = mongo.db.users.find_one({"username": session["user"]})["username"]
+    user = mongo.db.users.find_one({"username": session["user"]})
+    username = user["username"]
+    join_date = user["join_date"]
+
     comments = list(mongo.db.comments.find({"author": session["user"]}))
     technologies = list(mongo.db.technologies.find({"added_by": session["user"]}))
-   
 
     if session["user"]:
         return render_template(
@@ -211,6 +211,7 @@ def profile(username):
             comments=comments,
             technologies=technologies,
             page_title="Profile",
+            join_date=join_date
         )
 
     return redirect(url_for("login"))
@@ -295,7 +296,7 @@ def delete_technology(technology_id):
     # Find and then delete comments on a technology from database
     technology_name = mongo.db.technologies.find_one(
         {"_id": ObjectId(technology_id)}
-    ).get("technology_name")
+    )["technology_name"]
     mongo.db.comments.remove({"technology_name": technology_name})
 
     # Delete a technology from database
