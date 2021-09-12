@@ -124,6 +124,9 @@ Polls, rattings, favorites.
 - The credit card machine image was found on[singletrackworld.com](http://singletrackworld.com/)
 - The punch card image was found on [www.palvenn.no/](http://www.palvenn.no/)
 - The homepage background image is by [Hello I'm Nik in unsplash.com](https://unsplash.com/photos/6nqbKX5UI9I)
+- THe moog photo was foung on [(https://moogfoundation.org/)](https://moogfoundation.org/)
+- The mellotron photo was found on [https://bluebuzzmusic.com](https://bluebuzzmusic.com/)
+- THe Moog photo was found on [http://www.thesilo.ca](http://www.thesilo.ca/)
 ## Testing.
 Bugs identified during development and testing and their solutions can be seen [here](link to image).
 ### Validation

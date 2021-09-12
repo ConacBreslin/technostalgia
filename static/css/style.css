@@ -33,7 +33,7 @@ body {
 
 /*-- Logo and page header font --*/
 nav .brand-logo {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Ubuntu Mono', monospace;
     font-size: 1.5rem;
     margin: 0 50px;
     
@@ -52,7 +52,7 @@ nav .brand-logo {
 
 .background-img {
     min-height: 100vh;
-    background: url("../images/tapes.jpg") no-repeat center center;
+    background: url("../images/computer.jpg") no-repeat center center;
     background-size: cover;
 }
 

@@ -358,9 +358,10 @@ def delete_category(category_id):
     category_name = mongo.db.categories.find_one({"_id": ObjectId(category_id)}).get(
         "category_name"
     )
-    mongo.db.technologies.remove({"category_name": category_name})
 
     technologies = mongo.db.technologies.find({"category_name": category_name})
+
+    print(technologies)
 
     for technology in technologies:
         delete_technology(technology.get("_id"))
