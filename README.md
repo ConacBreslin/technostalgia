@@ -114,6 +114,7 @@ Polls, rattings, favorites.
 - Information on jinja filters was found on [exponea.com](https://docs.exponea.com/docs/filters)
 - Information on date formatting was found on [jquery-az.com](https://www.jquery-az.com/python-datetime-to-string/) and [sendwithus.com](https://support.sendwithus.com/jinja/jinja_time/)
 - I made use of tutorials from [www.freecodecamp.org](https://www.freecodecamp.org/), [codemy.com](https://codemy.com/) and [www.udemy.com](https://www.udemy.com/)
+- Code from https://regexr.com/ was used to set pattern for email validationa s materialize code was allowing invalid addresses.
 ## Images
 - The images were stored in [Imgur](https://i.imgur.com/)
 - The Walkman image is by [Florian Schmetz on unsplash.com](https://unsplash.com/photos/Rks6FTfX5OU)
@@ -148,6 +149,7 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 9. Logged in users should be able to Logout easily.
 10. The site administrator should be able to add new categories to teh site and these should automatically be included in all menus.
 ## Changes over course of development
+The manage_categories site was expanded to manage_site as it was easier to let admin users manage comments and technologies from there.
 
 ## Known Bugs
 

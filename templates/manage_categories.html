@@ -2,7 +2,8 @@
 {% block content %}
 <div class="row">
   <div class="col s12">
-    <h4 class="center-align">{{ page_title }}</h4>
+    <h4 class="center-align" id="top">{{ page_title }}</h4>
+
 
     <!-- Code for collapsible from  Materialise.com -->
     <ul class="collapsible">
@@ -59,7 +60,11 @@
   </div>
 </div>
 
-
+<!-- sticky back-to-top button-->
+<div>
+  <button onclick="topFunction()" id="scrollTop" title="Go to top">Top</button>
+  
+</div>
 
 
 <!-- List all the technologies on the whole site-->
