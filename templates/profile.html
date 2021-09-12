@@ -9,8 +9,7 @@
             </h3>
             <h5 class="align-left">
                Member since:  {{ membersince }}
-            </h5>
-            
+            </h5>         
         </div>
     </div>
 </div>
@@ -42,6 +41,7 @@
                 </div>
             </div>
         </div>
+
         <!--  Delete technology modal -->
         <div id="modal{{ technology._id }}" class="modal">
             <div class="modal-content purple lighten-5">
@@ -50,15 +50,9 @@
             </div>
             <div class="modal-footer center-align purple lighten-5">
                 <a href="{{ url_for('delete_technology', technology_id=technology._id) }}"
-                    class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">Yes I am
-                    certain
-                    I
-                    want to
-                    delete this</a>
+                    class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">Yes I am certain I want to delete this</a>
                 <a href="{{ url_for('get_technologies', technology_id=technology._id) }}"
-                    class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">No,
-                    return to
-                    safety</a>
+                    class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">No, return to safety</a>
             </div>
         </div>
 
@@ -71,7 +65,6 @@
         </div>
         {% endif %}
     </div>
-
     <div class="col s12 m6">
         {% if comments|length > 0 %}
         <h4 class="heading center-align">Your comments</h4>
@@ -79,26 +72,22 @@
         <div class="card horizontal">
             <div class="card-stacked">
                 <div class="card-content">
-
                     <ul>
                         <li><b>Technology:</b> {{ comment.technology_name }}</li>
                         <li><b>Your comment:</b> {{ comment.technology_comment }}</li>
                         <li><b>Added by you on:</b> {{ comment.created_on }}</li>
-
                     </ul>
-
                 </div>
                 <div class="card-action purple lighten-5">
                     <a href="{{ url_for('edit_comment', comment_id=comment._id) }}"
                         class="waves-effect waves-light btn-small purple lighten-1 align-right"><i
                             class="material-icons right">edit</i>Edit this comment</a>
                     <a class="waves-effect waves-light  btn-small purple lighten-1 align-right modal-trigger"
-                        href="#modal{{ comment._id }}"><i class="material-icons right">close</i>Delete
-                        this
-                        comment</a>
+                        href="#modal{{ comment._id }}"><i class="material-icons right">close</i>Delete this comment</a>
                 </div>
             </div>
         </div>
+
         <!--  Delete comment modal -->
         <div id="modal{{ comment._id }}" class="modal">
             <div class="modal-content purple lighten-5">
@@ -107,24 +96,18 @@
             </div>
             <div class="modal-footer center-align purple lighten-5">
                 <a href="{{ url_for('delete_comment', comment_id=comment._id) }}"
-                    class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">Yes I am
-                    certain
-                    I
-                    want to
-                    delete this comment</a>
+                    class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">Yes I am certain I want to delete this comment</a>
                 <a href="{{ url_for('profile', username=session['user']) }}"
                     class="modal-close waves-effect waves-light btn-small purple lighten-1 align-right">No,
                     return to
                     safety</a>
             </div>
         </div>
-
         {% endfor %}
     </div>
     {% else %}
     <div class="center-align">
         <h4>You haven't added any comments yet</h4>
-
         <a href="{{ url_for('get_technologies') }}"
             class="waves-effect waves-light btn-small purple lighten-1 align-right"><i
                 class="material-icons right">edit</i>Pick a technology to comment on</a>

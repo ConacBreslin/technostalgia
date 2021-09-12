@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div class="row">
     <div class="row">
         <h4 class="center-align">Edit your comment on {{ comment.technology_name}}</h4>
     </div>
+
     <!-- Code for form from Materialize.com -->
     <form class="col s12" method="POST" action="{{ url_for('edit_comment', comment_id=comment._id) }}">
         <div class="card-panel">
@@ -35,6 +37,7 @@
                     <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">
                         Edit this comment<i class="material-icons right">edit</i>
                     </button>
+
                     <!-- Button to cancel all changes and return to technologies -->
                     <a href="{{ url_for('profile', username=session["user"]) }}"
                         class="btn-large waves-effect waves-light purple lighten-1">

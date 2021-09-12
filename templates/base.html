@@ -26,7 +26,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_technologies') }}">View Technologies</a></li>
 
-                    <!--Only show these links to logged in users -->
+                    <!-- Only show these links to logged in users -->
                     {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_technology') }}">Add a Technology</a></li>
@@ -43,36 +43,33 @@
             </div>
         </nav>
 
-        <!--Collapsed navbar code from Materialize.com -->
+        <!-- Collapsed navbar code from Materialize.com -->
         <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align">Technostalgia</h4></li>               
+            <li>
+                <h4 class="center-align">Technostalgia</h4>
+            </li>
 
-            <!--Show this links to all visitors to site -->
+            <!-- Show this links to all visitors to site -->
             <li><a href="{{ url_for('get_technologies') }}">View Technologies</a></li>
-            
 
-            <!--Only show these links to logged in users -->
+            <!-- Only show these links to logged in users -->
             {% if session.user %}
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
             <li><a href="{{ url_for('add_technology') }}">Add a Technology</a></li>
 
-            <!--Only show this link to logged in users -->
+            <!-- Only show this link to logged in users -->
             {% if session.user|lower == "admin"|lower %}
             <li><a href="{{ url_for('manage_categories') }}">Manage the site</a></li>
             {% endif %}
-
-
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
             <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('registration') }}">Register</a></li>
             {% endif%}
         </ul>
-
     </header>
 
     <section>
-
         <!-- Place to display flash messages -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -88,7 +85,6 @@
     <main class="container">
         {% block content %}
         {% endblock %}
-        
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
