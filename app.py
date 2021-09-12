@@ -1,9 +1,13 @@
 import os
-from flask import Flask, flash, render_template, redirect, request, session, url_for
+from flask import (
+    Flask, flash, render_template,
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
-from datetime import datetime
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+if os.path.exists("env.py"):
+    import env
+
 
 app = Flask(__name__)
 
@@ -12,6 +16,7 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
 
 
 @app.route("/")
@@ -186,8 +191,8 @@ def login():
 
         else:
             # If username doesn't exist in database
-            flash("""Your Username and/or
-            Password were incorrect. Please try again""")
+            flash("""Your Username and/or Password were incorrect.
+             Please try again""")
         return redirect(url_for("login"))
 
     return render_template("login.html", page_title="Log In")
@@ -196,14 +201,13 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
 
-    # Get the session user's username, comments and technologies from the database
+    # Get the session user's username, joindate, comments and technologies from the database
     user = mongo.db.users.find_one({"username": session["user"]})
-    username = user["username"]
-    join_date = user["join_date"]
-
     comments = list(mongo.db.comments.find({"author": session["user"]}))
     technologies = list(mongo.db.technologies.find({"added_by": session["user"]}))
-
+    username = user["username"]
+    membersince = user["join_date"]
+   
     if session["user"]:
         return render_template(
             "profile.html",
@@ -211,7 +215,7 @@ def profile(username):
             comments=comments,
             technologies=technologies,
             page_title="Profile",
-            join_date=join_date
+            membersince=membersince,
         )
 
     return redirect(url_for("login"))
@@ -296,7 +300,7 @@ def delete_technology(technology_id):
     # Find and then delete comments on a technology from database
     technology_name = mongo.db.technologies.find_one(
         {"_id": ObjectId(technology_id)}
-    )["technology_name"]
+    ).get("technology_name")
     mongo.db.comments.remove({"technology_name": technology_name})
 
     # Delete a technology from database
@@ -374,4 +378,8 @@ def delete_category(category_id):
 
 
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=True)
+
+
