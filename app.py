@@ -293,7 +293,6 @@ def edit_technology(technology_id):
             "worst_bits": request.form.get(
                 "worst_bits"),
             "added_by": session["user"],
-            
         }
 
         mongo.db.technologies.update(

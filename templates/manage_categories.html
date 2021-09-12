@@ -92,6 +92,7 @@
             <li><b>Name:</b> {{ technology.technology_name }}</li>
             <li><b>Added by:</b> {{ technology.added_by|capitalize}}</li>
             <li><b>Added on:</b> {{ technology.added_on }}</li>
+            <li><b>Last editted on:</b> {{ technology.editted_on }}</li>
           </ul>
         </div>
         <div class="card-action purple lighten-5">
@@ -136,7 +137,7 @@
 <div class="row">
   <div class="col s12 center-align">
     <a href="{{ url_for('add_comment') }}" class="btn-small btn tooltipped waves-effect waves-light purple lighten-1" 
-    data-position="top" data-tooltip="Add comments from profile page">
+    data-position="top" data-tooltip="Will go to profile page to add comments">
       Add a comment<i class="material-icons right">add_circle_outline</i></a>
   </div>
 </div>
@@ -151,6 +152,7 @@
             <li><b>Comment:</b> {{ comment.technology_comment }}</li>
             <li><b>Added by:</b> {{ comment.author|capitalize }}  </li>
             <li><b>Added on:</b> {{ comment.created_on }}</li>
+            <li><b>Last editted on:</b> {{ comment.editted_on }}</li>
 
           </ul>
 

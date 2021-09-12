@@ -68,3 +68,6 @@ nav .brand-logo {
     margin-bottom: 5px;
 }
  
+.images {
+    min-width: 300px;
+}
