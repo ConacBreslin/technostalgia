@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col s12">
-    <h4 class="center-align">{{ page_title }}</h4>
+    <h4 class="center-align" id="comment-top" >{{ page_title }}</h4>
   </div>
 
   <!-- Card containing technology details -->
@@ -18,8 +18,8 @@
             <li><strong>Category: {{ technology.category_name }}</strong></li>
             <li>Name: {{ technology.technology_name }}</li>
             <li>Description: {{ technology.technology_description }}</li>
-            <li>Added by: {{ technology.added_by }}</li>
-            <li>Date added: {{ technology.added_on  }}</li>
+            <li>Added by: {{ technology.added_by|capitalize }}</li>
+            <li>Added on: {{ technology.added_on  }}</li>
           </ul>
         </div>
       </div>
@@ -116,7 +116,12 @@
   <div class="col s12 center-align">
     <a href="{{ url_for('get_technologies') }}" class="btn-large waves-effect waves-light purple lighten-1">Go back and
       browse all the technologies</a>
+      <br>
+      <button class="btn-large purple lighten-1" href="#comment-top">Back to top</button>
   </div>
 </div>
+
+
+
 </section>
 {% endblock %}

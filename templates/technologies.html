@@ -7,6 +7,7 @@
     <h4 class="center-align">You can filter your search by keyword or category</h4>
     
   </div>
+
 </div>
 
 <!-- Code for search box  -->
@@ -63,7 +64,7 @@
 {% for technology in technologies %}
 
 <div class="col s12 m7">
-  <div class="card horizontal medium hoverable">
+  <div class="card horizontal large hoverable">
     <div class="card-image">
       <img class="responsive-img" src="{{ technology.technology_image }}" alt="">
     </div>
@@ -75,8 +76,8 @@
           <li>Description: {{ technology.technology_description }}</li>
           <li>Best bits: {{ technology.best_bits }}</li>
           <li>Worst bits: {{ technology.worst_bits }}</li>
-          <li>Added by: {{ technology.added_by }}</li>
-          <li>Date added: {{ technology.added_on }}</li>
+          <li>Added by: {{ technology.added_by|capitalize }}</li>
+          <li>Added on: {{ technology.added_on }}</li>
 
         </ul>
       </div>
@@ -90,6 +91,11 @@
 
     </div>
   </div>
+</div>
+
+
+<div class="button-wrapper">
+  <button id="scroll-button" class="btn-small purple lighten-1">Scroll to top</button>
 </div>
 
 {% endfor %}

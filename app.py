@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -263,7 +264,7 @@ def add_technology():
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
             "added_by": session["user"],
-            "added_on": datetime.now().strftime("%d %B, %Y at %H:%M"),
+            "added_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
         }
         mongo.db.technologies.insert_one(newtechnology)
         flash("You have successfully added a new technology. Thank you!")
@@ -292,7 +293,7 @@ def edit_technology(technology_id):
             "worst_bits": request.form.get(
                 "worst_bits"),
             "added_by": session["user"],
-            "added_on": "",
+            
         }
 
         mongo.db.technologies.update(

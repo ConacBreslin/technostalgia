@@ -9,6 +9,8 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
 // jQuery code from Materialize.com  for modal
     $('.modal').modal();
+// jQuery code from Materialize.com  for tooltip
+    $('.tooltipped').tooltip();
 
     
 
