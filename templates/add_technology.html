@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">important_devices</i>
-                    <input id="technology_name" name="technology_name" minlength="5" maxlength="50" type="text"
+                    <input id="technology_name" name="technology_name" minlength="5" maxlength="30" type="text"
                         class="validate" placeholder="Name" required>
                     <label for="technology_name">Technology's name</label>
                 </div>
@@ -48,20 +48,19 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">description</i>
-                    <textarea id="technology_description" name="technology_description" minlength="5" maxlength="175"
-                        placeholder="Brief desciption, less than 250 characters!" class="materialize-textarea validate"
+                    <textarea id="technology_description" name="technology_description" minlength="5" maxlength="150"
+                        placeholder="Keep it brief (max 150 characters!)" class="materialize-textarea validate"
                         required></textarea>
                     <label for="technology_description">Description</label>
                 </div>
             </div>
-            <a class="btn tooltipped" data-position="bottom" data-tooltip="I am a tooltip">Hover me!</a>
-            
+           
             <!-- Input for adding a best bits about the technology -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3"></i>thumb_up</i>
-                    <textarea id="best_bits" name="best_bits" minlength="5" maxlength="100"
-                        placeholder="What do you love most about this technology?" class="materialize-textarea validate"
+                    <textarea id="best_bits" name="best_bits" minlength="5" maxlength="50"
+                        placeholder="Keep it REALLY short (max 50 characters!)" class="materialize-textarea validate"
                         required></textarea>
                     <label for="best_bits">Best bits</label>
                 </div>
@@ -71,12 +70,14 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">thumb_down</i>
-                    <textarea id="worst_bits" name="worst_bits" minlength="5" maxlength="100"
-                        placeholder="What do you NOT love about this technology?" class="materialize-textarea validate"
+                    <textarea id="worst_bits" name="worst_bits" minlength="5" maxlength="50"
+                        placeholder="Keep it REALLY short (max 50 characters!)" class="materialize-textarea validate" 
                         required></textarea>
                     <label for="worst_bits">Worst bits</label>
                 </div>
             </div>
+
+            
 
             <!-- Submit button for adding a technology -->
             <div class="row">

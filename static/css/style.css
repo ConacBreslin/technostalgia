@@ -6,6 +6,12 @@ body {
     background-color:#fb91db;
 } 
 
+.select-wrapper input.select-dropdown {
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+
+
 .flashes h4 {
     line-height: 1.5;
 }
@@ -34,8 +40,8 @@ body {
 /*-- Logo and page header font --*/
 nav .brand-logo {
     font-family: 'Ubuntu Mono', monospace;
-    font-size: 1.5rem;
-    margin: 0 50px;
+    font-size: 2rem;
+    margin: 0px 50px;
     
  
 }
@@ -68,6 +74,3 @@ nav .brand-logo {
     margin-bottom: 5px;
 }
  
-.images {
-    min-width: 300px;
-}
