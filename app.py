@@ -225,8 +225,7 @@ def profile(username):
     technologies = list(mongo.db.technologies.find(
         {"added_by": session["user"]}))
     username = user["username"]
-    membersince = user["join_date"]
-    
+    membersince = user["join_date"] 
     if session["user"]:
         return render_template(
             "profile.html",
@@ -268,7 +267,8 @@ def add_technology():
             "technology_name": request.form.get("technology_name"),
             "category_name": request.form.get("category_name"),
             "technology_image": request.form.get("technology_image"),
-            "technology_description": request.form.get("technology_description"),
+            "technology_description": request.form.get(
+                "technology_description"),
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
             "added_by": session["user"],
@@ -289,21 +289,22 @@ def add_technology():
 
 @app.route("/edit_technology/<technology_id>", methods=["GET", "POST"])
 def edit_technology(technology_id):
-   
+
     # Edit a technology in database
     if request.method == "POST":
 
         added_on = mongo.db.technologies.find_one(
-        {"_id": ObjectId(technology_id)}).get("added_on")
+            {"_id": ObjectId(technology_id)}).get("added_on")
 
         added_by = added_on = mongo.db.technologies.find_one(
-        {"_id": ObjectId(technology_id)}).get("added_by")
+            {"_id": ObjectId(technology_id)}).get("added_by")
 
         editted_tech = {
             "technology_name": request.form.get("technology_name"),
             "category_name": request.form.get("category_name"),
             "technology_image": request.form.get("technology_image"),
-            "technology_description": request.form.get("technology_description"),
+            "technology_description": request.form.get(
+                "technology_description"),
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
             "editted_by": session["user"],
@@ -346,7 +347,7 @@ def manage_categories():
     technologies = list(mongo.db.technologies.find())
     comments = list(mongo.db.comments.find())
     return render_template(
-        "manage_categories.html", 
+        "manage_categories.html",
         categories=categories, 
         technologies=technologies, 
         comments=comments, 
