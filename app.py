@@ -45,6 +45,7 @@ def search():
     query = request.form.get("query")
     category_search = request.form.get("category_search")
     technologies = list(mongo.db.technologies.find())
+    categories = list(mongo.db.categories.find())
     if query:
         technologies = list(mongo.db.technologies.find(
             {"$text": {"$search": query}}))
@@ -54,7 +55,7 @@ def search():
             mongo.db.technologies.find({"$text": {"$search": category_search}})
         )
 
-    return render_template("technologies.html", technologies=technologies)
+    return render_template("technologies.html", technologies=technologies, categories=categories)
 
 
 @app.route("/add_comment", methods={"GET", "POST"})
@@ -182,10 +183,12 @@ def login():
 
         # Check if is_admin is true in database and if so
         # set is_admin to true in session cookie
-        if "is_admin" in existing_user and existing_user["is_admin"]:
-            session["is_admin"] = True
-
+        
         if existing_user:
+
+            if "is_admin" in existing_user:
+                session["is_admin"] = True
+
 
             # Check if the hashed password matches the user's password
             if check_password_hash(
