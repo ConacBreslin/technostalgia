@@ -32,7 +32,7 @@ body {
 
 .page-topper  {
     font-family: 'Press Start 2P', cursive;
-    font-size: 3rem;
+    font-size: 2rem;
     margin: 100px 0;
 }
 
@@ -46,7 +46,7 @@ body {
 nav .brand-logo {
     font-family: 'Ubuntu Mono', monospace;
     font-size: 2rem;
-    margin: 0px 50px;
+    margin: 0px 25px;
 }
 
 /*-- Code snippet from https://css-tricks.com/perfect-full-page-background-image/ vendor extensions removed for this project --*/
@@ -67,7 +67,7 @@ nav .brand-logo {
     margin-bottom: 5px;
 }
  
-/*-- To creat sticky back-to-top buttons  --*/
+/*-- To create sticky back-to-top buttons  --*/
 #scroll-button {
     position: sticky;
     bottom: 0;
