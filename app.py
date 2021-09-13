@@ -55,7 +55,11 @@ def search():
             mongo.db.technologies.find({"$text": {"$search": category_search}})
         )
 
-    return render_template("technologies.html", technologies=technologies, categories=categories)
+    return render_template(
+        "technologies.html",
+        technologies=technologies,
+        categories=categories
+        )
 
 
 @app.route("/add_comment", methods={"GET", "POST"})
@@ -181,14 +185,12 @@ def login():
         # Set the session 'is_admin' to False in session cookie
         session["is_admin"] = False
 
-        # Check if is_admin is true in database and if so
-        # set is_admin to true in session cookie
-        
         if existing_user:
 
+            # Check if is_admin is true in database and if so
+            # set is_admin to true in session cookie
             if "is_admin" in existing_user:
                 session["is_admin"] = True
-
 
             # Check if the hashed password matches the user's password
             if check_password_hash(
@@ -228,7 +230,7 @@ def profile(username):
     technologies = list(mongo.db.technologies.find(
         {"added_by": session["user"]}))
     username = user["username"]
-    membersince = user["join_date"] 
+    membersince = user["join_date"]
     if session["user"]:
         return render_template(
             "profile.html",
@@ -351,9 +353,9 @@ def manage_categories():
     comments = list(mongo.db.comments.find())
     return render_template(
         "manage_categories.html",
-        categories=categories, 
-        technologies=technologies, 
-        comments=comments, 
+        categories=categories,
+        technologies=technologies,
+        comments=comments,
         page_title="Manage the Site"
     )
 
@@ -396,8 +398,8 @@ def edit_category(category_id):
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template(
-        "edit_category.html", 
-        category=category, 
+        "edit_category.html",
+        category=category,
         page_title="Edit this Category"
     )
 
