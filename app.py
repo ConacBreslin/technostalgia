@@ -81,10 +81,10 @@ def edit_comment(comment_id):
     # Edit a comment in database
     if request.method == "POST":
 
-        created_on = mongo.db.technologies.find_one(
+        created_on = mongo.db.comments.find_one(
             {"_id": ObjectId(comment_id)}).get("created_on")
 
-        author = mongo.db.technologies.find_one(
+        author = mongo.db.comments.find_one(
             {"_id": ObjectId(comment_id)}).get("author")
 
         editted_comment = {

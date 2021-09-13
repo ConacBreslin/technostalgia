@@ -74,3 +74,19 @@ nav .brand-logo {
     margin-bottom: 5px;
 }
  
+
+#scroll-button {
+    position: sticky;
+    bottom: 0;
+}
+
+
+#tech-scroll {
+    position: sticky;
+    bottom: 0;
+}
+
+#profile-scroll {
+    position: sticky;
+    bottom: 0;
+}

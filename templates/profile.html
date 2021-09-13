@@ -80,6 +80,7 @@
                         <li><b>Technology:</b> {{ comment.technology_name }}</li>
                         <li><b>Your comment:</b> {{ comment.technology_comment }}</li>
                         <li><b>Added by you on:</b> {{ comment.created_on }}</li>
+                        <li><b>Last editted on:</b> {{ comment.editted_on }}</li>
                     </ul>
                 </div>
                 <div class="card-action purple lighten-5">
@@ -119,4 +120,5 @@
     </div>
 </div>
 {% endif %}
+<a class="btn-large purple lighten-1" id="profile-scroll" href="#page-top">Back to top</a>
 {% endblock %}
