@@ -97,7 +97,7 @@ def edit_comment(comment_id):
         mongo.db.comments.update({"_id": ObjectId(
             comment_id)}, editted_comment)
 
-        flash("Your comment on  has been changed")
+        flash("Your comment has been changed")
         return redirect(url_for("profile", username=session["user"]))
 
     comment = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
