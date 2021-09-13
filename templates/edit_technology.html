@@ -2,20 +2,21 @@
 {% block content %}
 
 <div class="row">
-    <div class="col s12">
-        <h4 class="center-align">Edit your entry for {{ technology.technology_name}}</h4>
+    <div class="col s12 center-align"">
+        <h4 >Edit your entry for {{ technology.technology_name}}</h4>
+        <p>Unfortunately you cannot change the technology's name - but you can change everything else!</p>
     </div>
 
     <!-- Code for form from Materialize.com -->
     <form class="col s12" method="POST" action="{{ url_for('edit_technology', technology_id=technology._id) }}">
         <div class="card-panel">
 
-            <!-- Input for adding a technology's name  -->
+            <!-- Technology's name  -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">important_devices</i>
                     <input id="technology_name" name="technology_name" value="{{ technology.technology_name }}"
-                        minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" required>
+                        minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" disabled>
                     <label for="technology_name">Technology's name</label>
                 </div>
             </div>
@@ -25,7 +26,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">list</i>
                     <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled>Choose a category for your technology</option>
+                        <option value="" required>Choose a category for your technology</option>
                         {% for category in categories %}
                         {% if category.category_name == technology.category_name %}
                         <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
@@ -54,7 +55,7 @@
                     <i class="material-icons prefix purple-text text-darken-3">description</i>
                     <textarea id="technology_description" name="technology_description" minlength="5" maxlength="300"
                         placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate"
-                        required>{{ technology.technology_description }}</textarea>
+                        disabled>{{ technology.technology_description }}!</textarea>
                     <label for="technology_description">Description</label>
                 </div>
             </div>

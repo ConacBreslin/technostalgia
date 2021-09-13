@@ -62,27 +62,28 @@ def search():
         )
 
 
-@app.route("/add_comment", methods={"GET", "POST"})
+@app.route("/add_comment")
 def add_comment():
+    print(session["user"])
 
-    # Add a comment to the database
-    if request.method == "POST":
+    if session["user"]:
+                
+    # Add a comment to the database if logged in
+        comment = {
+            "technology_name": request.form.get("technology_name"),
+            "technology_comment": request.form.get("technology_comment"),
+            "author": session["user"],
+            "created_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
+            "editted_on": "No edits yet",
+        }
 
+        mongo.db.comments.insert_one(comment)
+        flash("Your comment has been added")
+    
+    else:
         # If person is not registered redirect them to registration
-        if session["user"]:
-            comment = {
-                "technology_name": request.form.get("technology_name"),
-                "technology_comment": request.form.get("technology_comment"),
-                "author": session["user"],
-                "created_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
-                "editted_on": "No edits yet",
-            }
-            mongo.db.comments.insert_one(comment)
-            flash("Your comment has been added")
-
-        else:
-            flash("You must be registered to add a comment")
-            return redirect(url_for("registration"))
+        flash("You must be registered to add a comment")
+        return redirect(url_for("registration"))
 
     return redirect(url_for("profile", username=session["user"]))
 
