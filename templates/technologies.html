@@ -28,7 +28,6 @@
         <!-- Code from Materialize.com for dropdown to select category to browse -->
         <select id="category_search" name="category_search" class="validate">
           <option value="" disabled selected>Choose a category to browse</option>
-          <option value="all">View all</option>
           {% for category in categories %}
           <option value="{{ category.category_name }}">{{ category.category_name }}</option>
           {% endfor %}
@@ -64,8 +63,8 @@
           <li><b>Category:</b> {{ technology.category_name }}</strong></li>
           <li><b>Name:</b> {{ technology.technology_name }}</li>
           <li><b>Description:</b> {{ technology.technology_description }}</li>
-          <li><b>Best bits:</b> {{ technology.best_bits }}</li>
-          <li><b>Worst bits:</b> {{ technology.worst_bits }}</li>
+          <li class="hide-on-small-only"><b>Best bits:</b> {{ technology.best_bits }}</li>
+          <li class="hide-on-small-only"><b>Worst bits:</b> {{ technology.worst_bits }}</li>
           <li><b>Added by: </b>{{ technology.added_by|capitalize }}</li>
           <li><b>Added on:</b> {{ technology.added_on }}</li>
         </ul>
@@ -79,7 +78,7 @@
 </div>
 {% endfor %}
 {% else %}
-<h3 class="red-text text-darken-4 center-align">No Results were Found, please try again</h3>
+<h3 class="red-text text-darken-4 center-align">No Results were found, please try again</h3>
 {% endif %}
 
     <a class="btn-large purple lighten-1" id="tech-scroll" href="#page-top">Back to top</a>
