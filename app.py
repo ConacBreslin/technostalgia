@@ -67,6 +67,7 @@ def add_comment():
             "technology_comment": request.form.get("technology_comment"),
             "author": session["user"],
             "created_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
+            "editted_on": "No edits yet",
         }
         mongo.db.comments.insert_one(comment)
 
@@ -79,10 +80,18 @@ def edit_comment(comment_id):
 
     # Edit a comment in database
     if request.method == "POST":
+
+        created_on = mongo.db.technologies.find_one(
+            {"_id": ObjectId(comment_id)}).get("created_on")
+
+        author = mongo.db.technologies.find_one(
+            {"_id": ObjectId(comment_id)}).get("author")
+
         editted_comment = {
             "technology_name": request.form.get("technology_name"),
             "technology_comment": request.form.get("technology_comment"),
-            "author": session["user"],
+            "author": author,
+            "created_on": created_on,
             "editted_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
         }
         mongo.db.comments.update({"_id": ObjectId(
@@ -259,12 +268,12 @@ def add_technology():
             "technology_name": request.form.get("technology_name"),
             "category_name": request.form.get("category_name"),
             "technology_image": request.form.get("technology_image"),
-            "technology_description": request.form.get(
-                "technology_description"),
+            "technology_description": request.form.get("technology_description"),
             "best_bits": request.form.get("best_bits"),
             "worst_bits": request.form.get("worst_bits"),
             "added_by": session["user"],
             "added_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
+            "editted_on": "No edits yet",
         }
         mongo.db.technologies.insert_one(newtechnology)
         flash("You have successfully added a new technology. Thank you!")
@@ -280,23 +289,31 @@ def add_technology():
 
 @app.route("/edit_technology/<technology_id>", methods=["GET", "POST"])
 def edit_technology(technology_id):
-
-    # Edit a techonolgy in database
+   
+    # Edit a technology in database
     if request.method == "POST":
-        edittedtech = {
+
+        added_on = mongo.db.technologies.find_one(
+        {"_id": ObjectId(technology_id)}).get("added_on")
+
+        added_by = added_on = mongo.db.technologies.find_one(
+        {"_id": ObjectId(technology_id)}).get("added_by")
+
+        editted_tech = {
             "technology_name": request.form.get("technology_name"),
             "category_name": request.form.get("category_name"),
             "technology_image": request.form.get("technology_image"),
-            "technology_description": request.form.get(
-                "technology_description"),
+            "technology_description": request.form.get("technology_description"),
             "best_bits": request.form.get("best_bits"),
-            "worst_bits": request.form.get(
-                "worst_bits"),
-            "added_by": session["user"],
+            "worst_bits": request.form.get("worst_bits"),
+            "editted_by": session["user"],
+            "added_on": added_on,
+            "added_by": added_by,
+            "editted_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
         }
 
         mongo.db.technologies.update(
-            {"_id": ObjectId(technology_id)}, edittedtech)
+            {"_id": ObjectId(technology_id)}, editted_tech)
         flash("Your technology has been updated. Thank you!")
         return redirect(url_for("get_technologies"))
 
