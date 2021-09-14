@@ -23,28 +23,23 @@ To enjoy visiting the site, to remind them of techologies they may have forgotte
 4. Register with the site.
 
 ##### In addition to the those aspects available to all users, all registered users should be able to log in to the website. When logged in they should be able to;
-1. Add new technologies to the site.
-2. Edit or delete the technolgies they have added.
-3. Add comments to any technology.
-4. Edit or delete the comments they have added to a technology.
-5. View their profile page
-6. Log out
+5. Add new technologies to the site.
+6. Edit or delete the technolgies they have added.
+7. Add comments to any technology.
+8. Edit or delete the comments they have added to a technology.
+9. View their profile page
+10. Log out
 
 ##### Admin user should be able to
-1. Add, edit or delete categories.
-2. Edit or delete any technology.
-3. Edit or delete any comment.
-
-
+11. Add, edit or delete categories.
+12. Edit or delete any technology.
+13. Edit or delete any comment.
 
 ## Strategy
 The site should provide a platform for people interested in obsolete technologies to come and be reminded of them and to share their experience of them.
-
-> Objective Requirements;         To encourage visitors to visit the site, register with it and to returen frequently.
-
-> Functional requirements; 	    To provide a collection of technologies that users can view. To provide a facility for users to register, log in and log out of the site. To provide registered users with the facility to add, edit and delete their own technologies and comments.
-
-> Non-functional requirements; 	The site should be attractive and intuitive.
+- Objective Requirements;         To encourage visitors to visit the site, register with it and to returen frequently.
+- Functional requirements; 	    To provide a collection of technologies that users can view. To provide a facility for users to register, log in and log out of the site. To provide registered users with the facility to add, edit and delete their own technologies and comments.
+- Non-functional requirements; 	The site should be attractive and intuitive.
 
 ## Scope
 
@@ -221,9 +216,11 @@ The  GitHub Repository can be forked to make a copy of the original repository o
 7.	Pressing Enter to create the local clone.## Credits
 
 ## Acknowledgements
-I would like to thank my mentor Chris Quinn whose advice is always perfectly judged. 
-I would liek to that my temporary mentor Da1isy McGirr for taking me on at short notice and giving me useful, practical advice. 
-I would like to thank many, many tutors in Code Institute for being unfailingly helpful, patient and knowledgeable for all the hours and hours I spent online with them.   
-I would like to thank Amy O'Shea from Code Institute for her [excellent presentation](https://www.youtube.com/watch?v=f7kpF8huK_8) on preparation for MS3 projects that helped me enormously is getting started.  
-I would like to thank my family and friends for all their support and feedback.
+I would liket ot thank the following people;
+- my mentor Chris Quinn whose advice is always perfectly judged. 
+_ my temporary mentor Daisy McGirr for taking me on at short notice and giving me useful, practical advice. 
+- Tim Nelson for his excellent walkthough projects in the Code Institute's diploma programme that provided essential guidance in the development process of this flask app.
+- the many tutors in Code Institute for being unfailingly helpful, patient and knowledgeable throughout the hours and hours I spent online with them.   
+- Amy O'Shea from Code Institute for her [excellent presentation](https://www.youtube.com/watch?v=f7kpF8huK_8) on preparation for MS3 projects that helped me enormously is getting started.  
+- my family and friends for all their support and feedback.
 
