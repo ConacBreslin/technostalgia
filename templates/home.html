@@ -3,14 +3,14 @@
 
 <div class="row background-img">
   <div class="col s12">
-    <h2 class="center-align page-topper">Technostalgia</h2>
-    <h4 class="center-align">A place to reminisce about technologies that have been loved and lost, but not
-      forgotten.</h4>
+    <h1 class="center-align page-topper">Technostalgia</h1>
+    <h2 class="center-align">A place to reminisce about technologies that have been loved and lost, but not
+      forgotten.</h2>
 
     <!-- Code for carousel from  Materialise.com -->
     <div class="carousel">
       {% for technology in technologies %}
-      <a class="carousel-item"><img src="{{ technology.technology_image }}"></a>
+      <a class="carousel-item"><img src="{{ technology.technology_image }}" alt="technology image"></a>
       {% endfor %}
     </div>
   </div>

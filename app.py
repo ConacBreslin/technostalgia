@@ -65,9 +65,9 @@ def search():
 @app.route("/add_comment", methods=["POST"])
 def add_comment():
 
-   git push
-                
-    # Add a comment to the database if logged in
+    if 'user' in session:
+
+        # Add a comment to the database if logged in
         comment = {
             "technology_name": request.form.get("technology_name"),
             "technology_comment": request.form.get("technology_comment"),
