@@ -95,3 +95,7 @@ nav .brand-logo {
     position: sticky;
     bottom: 0;
 }
+
+#profile-name {
+    font-size: 3rem;
+}

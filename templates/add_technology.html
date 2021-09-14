@@ -3,19 +3,17 @@
 
 <div class="row">
     <div class="col s12">
-        <h4 class="center-align">Add a technology</h4>
+        <h1 class="center-align general-title">Add a technology</h1>
     </div>
 
     <!-- Code for form from Materialize.com -->
     <form class="col s12" method="POST" action="{{ url_for('add_technology') }}">
         <div class="card-panel">
-
             <!-- Input for adding a technology's name  -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">important_devices</i>
-                    <input id="technology_name" name="technology_name" minlength="5" maxlength="30" type="text"
-                        class="validate" placeholder="Name" required>
+                    <input id="technology_name" name="technology_name" minlength="5" maxlength="30" type="text" class="validate" placeholder="Name" required />
                     <label for="technology_name">Technology's name</label>
                 </div>
             </div>
@@ -38,8 +36,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">camera_alt</i>
-                    <input id="technology_image" name="technology_image" type="text" class="validate"
-                        placeholder="Important! Must be a url" required>
+                    <input id="technology_image" name="technology_image" type="text" class="validate" placeholder="Important! Must be a url" required />
                     <label for="technology_image">Technology's Image</label>
                 </div>
             </div>
@@ -48,20 +45,16 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">description</i>
-                    <textarea id="technology_description" name="technology_description" minlength="5" maxlength="150"
-                        placeholder="Keep it brief (max 150 characters!)" class="materialize-textarea validate"
-                        required></textarea>
+                    <textarea id="technology_description" name="technology_description" minlength="5" maxlength="150" placeholder="Keep it brief (max 150 characters!)" class="materialize-textarea validate" required></textarea>
                     <label for="technology_description">Description</label>
                 </div>
             </div>
-           
+
             <!-- Input for adding a best bits about the technology -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">thumb_up</i>
-                    <textarea id="best_bits" name="best_bits" minlength="5" maxlength="50"
-                        placeholder="Keep it REALLY short (max 50 characters!)" class="materialize-textarea validate"
-                        required></textarea>
+                    <textarea id="best_bits" name="best_bits" minlength="5" maxlength="50" placeholder="Keep it REALLY short (max 50 characters!)" class="materialize-textarea validate" required></textarea>
                     <label for="best_bits">Best bits</label>
                 </div>
             </div>
@@ -70,25 +63,17 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">thumb_down</i>
-                    <textarea id="worst_bits" name="worst_bits" minlength="5" maxlength="50"
-                        placeholder="Keep it REALLY short (max 50 characters!)" class="materialize-textarea validate" 
-                        required></textarea>
+                    <textarea id="worst_bits" name="worst_bits" minlength="5" maxlength="50" placeholder="Keep it REALLY short (max 50 characters!)" class="materialize-textarea validate" required></textarea>
                     <label for="worst_bits">Worst bits</label>
                 </div>
             </div>
 
-            
-
             <!-- Submit button for adding a technology -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">
-                        Add this technology now! <i class="material-icons right">add_circle_outline</i>
-                    </button>
+                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">Add this technology now! <i class="material-icons right">add_circle_outline</i></button>
                     <!-- Button to cancel all changes and return to technologies -->
-                    <a href="{{ url_for('get_technologies') }}"
-                        class="btn-large waves-effect waves-light purple lighten-1">
-                        Cancel <i class="material-icons right">close</i></a>
+                    <a href="{{ url_for('get_technologies') }}" class="btn-large waves-effect waves-light purple lighten-1"> Cancel <i class="material-icons right">close</i></a>
                 </div>
             </div>
         </div>
