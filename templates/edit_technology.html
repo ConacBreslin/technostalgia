@@ -2,8 +2,8 @@
 {% block content %}
 
 <div class="row">
-    <div class="col s12 center-align"">
-        <h4 >Edit your entry for {{ technology.technology_name}}</h4>
+    <div class="col s12 center-align">
+        <h1 class="general-title">Edit your entry for {{ technology.technology_name}}</h1>
         <p>Unfortunately you cannot change the technology's name - but you can change everything else!</p>
     </div>
 
@@ -26,7 +26,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">list</i>
                     <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" required>Choose a category for your technology</option>
+                        <option value="" >Choose a category for your technology</option>
                         {% for category in categories %}
                         {% if category.category_name == technology.category_name %}
                         <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>

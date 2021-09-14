@@ -1,17 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4 class="center-align">{{ page_title }}</h4>
+<h1 class="center-align general-title">{{ page_title }}</h1>
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('registration') }}">
         <div class="card-panel">
-
             <!-- Input element for first name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">person_add</i>
-                    <input id="first_name" name="first_name" type="text" pattern="^[a-zA-Z]{4,20}$" class="validate"
-                        placeholder="First Name,  4-20 letters only" required>
+                    <input id="first_name" name="first_name" type="text" pattern="^[a-zA-Z]{4,20}$" class="validate" placeholder="First Name,  4-20 letters only" required />
                     <label for="first_name">First name</label>
                 </div>
             </div>
@@ -20,8 +18,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">person_add</i>
-                    <input id="last_name" name="last_name" type="text" pattern="^[a-zA-Z]{4,20}$" class="validate"
-                        placeholder="Last Name, 4-20 letters only" required>
+                    <input id="last_name" name="last_name" type="text" pattern="^[a-zA-Z]{4,20}$" class="validate" placeholder="Last Name, 4-20 letters only" required />
                     <label for="last_name">Last name</label>
                 </div>
             </div>
@@ -30,8 +27,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">mail</i>
-                    <input id="email" name="email" type="email" class="validate" placeholder="Email address"
-                        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+                    <input id="email" name="email" type="email" class="validate" placeholder="Email address" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required />
                     <label for="email">Email</label>
                 </div>
             </div>
@@ -40,8 +36,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">face</i>
-                    <input id="username" name="username" type="text" pattern="^[a-zA-Z0-9]{4,20}$" class="validate"
-                        placeholder="username, 4-20 alphanumeric characters allowed" required>
+                    <input id="username" name="username" type="text" pattern="^[a-zA-Z0-9]{4,20}$" class="validate" placeholder="username, 4-20 alphanumeric characters allowed" required />
                     <label for="username">Username</label>
                 </div>
             </div>
@@ -50,8 +45,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">lock</i>
-                    <input id="password" name="password" type="password" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                    <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required />
                     <label for="password">Password</label>
                 </div>
             </div>
@@ -60,8 +54,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">lock</i>
-                    <input id="confirm_password" name="confirm_password" type="password" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                    <input id="confirm_password" name="confirm_password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required />
                     <label for="confirm_password">Confirm Password</label>
                 </div>
             </div>
@@ -69,11 +62,8 @@
             <!-- Submit button for registration -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">
-                        Register<i class="material-icons right">forward</i>
-                    </button>
-                    <p>If you have already joined us you can <a href="{{ url_for('login') }}"
-                            class="btn-small waves-effect waves-light purple lighten-1">Log in Here</a></p>
+                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">Register<i class="material-icons right">forward</i></button>
+                    <p>If you have already joined us you can <a href="{{ url_for('login') }}" class="btn-small waves-effect waves-light purple lighten-1">Log in Here</a></p>
                 </div>
             </div>
         </div>
