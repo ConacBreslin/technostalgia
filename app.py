@@ -79,13 +79,10 @@ def add_comment():
         mongo.db.comments.insert_one(comment)
         flash("Your comment has been added")
         return redirect(url_for("profile", username=session["user"]))
-    
     else:
         # If person is not registered redirect them to registration
         flash("You must be registered to add a comment")
         return redirect(url_for("registration"))
-
-    
 
 
 @app.route("/edit_comment/<comment_id>", methods={"GET", "POST"})
