@@ -6,107 +6,115 @@
     <h1 class="center-align general-title">{{ page_title }}</h1>
   </div>
 
-  <!-- Card containing technology details -->
-  <div class="col s12 m8 offset-m2">
-    <div class="card horizontal small hoverable">
-      <div class="card-image">
-        <img src="{{ technology.technology_image }}" alt="">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <ul>
-            <li><strong>Category: {{ technology.category_name }}</strong></li>
-            <li>Name: {{ technology.technology_name }}</li>
-            <li>Description: {{ technology.technology_description }}</li>
-            <li>Added by: {{ technology.added_by|capitalize }}</li>
-            <li>Added on: {{ technology.added_on  }}</li>
-          </ul>
-        </div>
-      </div>
+
+
+  <!--technology details-->
+
+  <div class="row">
+    <div class="col m5">
+
+      <img src="{{ technology.technology_image }}" alt="">
     </div>
+
+    <div class="col m5">
+      <ul>
+        <li class="hide-on-small-only"><b>Category:</b> {{ technology.category_name }}</strong></li>
+        <li><b>Name:</b> {{ technology.technology_name }}</li>
+        <li><b>Description:</b> {{ technology.technology_description }}</li>
+        <li class="hide-on-small-only"><b>Best bits:</b> {{ technology.best_bits }}</li>
+        <li class="hide-on-small-only"><b>Worst bits:</b> {{ technology.worst_bits }}</li>
+        <li class="hide-on-small-only"><b>Added by: </b>{{ technology.added_by|capitalize }}</li>
+        <li class="hide-on-small-only"><b>Added on:</b> {{ technology.added_on }}</li>
+      </ul>
+      <a href="{{ url_for('comments', technology_id=technology._id) }}" class="purple-text text-darken-4">Add or read
+        comments about the {{ technology.technology_name}}</a>
+    </div>
+  </div>
+
+
+<div class="row"></div>
 
    
-  </div>
-</div>
 
-<!-- Form to add a comment -->
-<div class="row">
-  <div class="col s12 center-align">
-    <h2 class="heading comment-sub-heading">Add a comment about {{ technology.technology_name }}</h2>
-  </div>
-</div>
-<div class="row card-panel">
-  <form class="col s12 m8 offset-m2 " method="POST" action="{{ url_for('add_comment') }}">
-    <div class="input-field col s12">
-      <label for="technology_name">Technology</label>
-      <input id="technology_name" type="text" name="technology_name" value="{{ technology.technology_name }}">
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix purple-text text-darken-3">comment</i>
-        <label for="technology_comment">Your comments</label>
-        <textarea id="technology_comment" name="technology_comment" minlength="10" maxlength="200"
-          class="materialize-textarea validate" required></textarea>
+      <!-- Form to add a comment -->
+
+      <div class="col m6 center-align">
+        <h2 class="heading comment-sub-heading">Add a comment about the {{ technology.technology_name }}</h2>
+        <div class="row card-panel">
+          <form class="col s12 m8 offset-m2 " method="POST" action="{{ url_for('add_comment') }}">
+            <div class="input-field col s12">
+              <label for="technology_name">Technology</label>
+              <input id="technology_name" type="text" name="technology_name" value="{{ technology.technology_name }}">
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix purple-text text-darken-3">comment</i>
+                <label for="technology_comment">Your comments</label>
+                <textarea id="technology_comment" name="technology_comment" minlength="10" maxlength="200"
+                  class="materialize-textarea validate" required></textarea>
+              </div>
+            </div>
+
+            <!-- Reset Button -->
+            <div class="row card-action center-align">
+              <div class="col m6">
+                <!--Submit Button-->
+                <button type="submit" class="btn-large waves-effect waves-light purple lighten-1"><i
+                    class="material-icons prefix">forward</i>Submit</button>
+              </div>
+              <div class="col s6">
+                <button type="reset" class="btn-large waves-effect waves-light purple lighten-1">
+                  <i class="material-icons prefix">refresh</i>Clear
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+        <!-- Comments section-->
+        
+          <div class="col m6 center-align">
+            <h2 class="comment-sub-heading">Read all the comments about the {{ technology.technology_name }}</h2>
+          
+       
 
-    <!-- Reset Button -->
-    <div class="row card-action center-align">
-      <div class="col s6">
-        <!--Submit Button-->
-        <button type="submit" class="btn-large waves-effect waves-light purple lighten-1"><i
-            class="material-icons prefix">forward</i>Submit</button>
-      </div>
-      <div class="col s6">
-        <button type="reset" class="btn-large waves-effect waves-light purple lighten-1">
-          <i class="material-icons prefix">refresh</i>Clear
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
+        <!-- Comments on this technology -->
+        {% for comment in comments if comment.technology_name == technology.technology_name %}
+        <div class="row left-align">
+          <div class="col s12">
+            <div class="card">
+              <div class="card-content ">
+                <h2 class="card-title comment-sub-heading"><b>Name:</b>{{ comment.technology_name }}</h2>
+                <p><b>Comment:</b>{{ comment.technology_comment }}</p>
+                <p><em>Added by: {{ comment.author|capitalize }}</em></p>
+                <p><em>Added on: {{ comment.created_on }}</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% else %}
 
-<!-- Comments section-->
-<div class="row">
-  <div class="col s12 center-align">
-    <h2 class="comment-sub-heading">Comments</h2>
-  </div>
-</div>
+        <!-- If no comments -->
+        <div class="row">
+          <div class="col s12 center-align">
+            <h2 class="comment-sub-heading">No one has added a comment yet - you can be the first!</h2>
+            <button class="btn-large waves-effect waves-light purple lighten-1 tooltipped" data-position="top"
+              data-tooltip="You can add comments from the technology's card"><a class="white-text"
+                href="{{ url_for('get_technologies') }}">Add the first comment<i
+                  class="material-icons prefix">add_circle_outline</i></a></button>
+          </div>
+        </div>
+        {% endfor %}
 
-<!-- Comments on this technology -->
-{% for comment in comments if comment.technology_name == technology.technology_name %}
-<div class="row">
-  <div class="col s12">
-    <div class="card">
-      <div class="card-content ">
-        <h2 class="card-title comment-sub-heading">{{ comment.technology_name }}</h2>
-        <p>{{ comment.technology_comment }}</p>
-        <p><em>Added by: {{ comment.author|capitalize }}</em></p>
-        <p><em>Added on: {{ comment.created_on }}</em></p>
-      </div>
-    </div>
-  </div>
-</div>
-{% else %}
-
-<!-- If no comments -->
-<div class="row">
-  <div class="col s12 center-align">
-    <h2 class="comment-sub-heading">No one has added a comment yet - you can be the first!</h2>
-    <button class="btn-large waves-effect waves-light purple lighten-1 tooltipped" data-position="top" data-tooltip="You can add comments from the technology's card"><a class="white-text" href="{{ url_for('get_technologies') }}" >Add the first comment<i
-      class="material-icons prefix">add_circle_outline</i></a></button>
-  </div>
-</div>
-{% endfor %}
-
-<!-- Back to technologies page -->
-<div class="row">
-  <div class="col s12 center-align">
-<a href="{{ url_for('get_technologies') }}" class="btn-large waves-effect waves-light purple lighten-1 " >Go back and
-      browse all the technologies</a>
-    <br>
-    <a class="btn-large purple lighten-1" href="#page-top">Back to top</a>
-  </div>
-</div>
-</section>
-{% endblock %}
+        <!-- Back to technologies page -->
+        <div class="row">
+          <div class="col s12 center-align">
+            <a href="{{ url_for('get_technologies') }}" class="btn-large waves-effect waves-light purple lighten-1 ">Go
+              back and
+              browse all the technologies</a>
+            <br>
+            <a class="btn-large purple lighten-1 tech-scroll" href="#page-top">Back to top</a>
+          </div>
+        </div>
+        </section>
+        {% endblock %}

@@ -49,12 +49,12 @@
 {% for technology in technologies %}
 
 <div class="row">
-  <div class="col s5">
+  <div class="col m5 offset-1">
 
     <img src="{{ technology.technology_image }}" alt="">
   </div>
 
-  <div class="col s5 offset-1">
+  <div class="col m5">
     <ul>
       <li class="hide-on-small-only"><b>Category:</b> {{ technology.category_name }}</strong></li>
       <li><b>Name:</b> {{ technology.technology_name }}</li>
@@ -67,8 +67,8 @@
     <a href="{{ url_for('comments', technology_id=technology._id) }}" class="purple-text text-darken-4">Add or read
       comments about the {{ technology.technology_name}}</a>
   </div>
-  <hr>
-</div>
+  
+  
 {% endfor %}
 {% else %}
 <h3 class="red-text text-darken-4 center-align">No Results were found, please try again</h3>
