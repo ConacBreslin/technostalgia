@@ -8,7 +8,7 @@ body {
 
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 
 .general-title {
@@ -18,7 +18,7 @@ h2 {
 /*-- Home page styling --*/
 .page-topper  {
     font-family: 'Press Start 2P', cursive;
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin: 100px 0;
 }
 
@@ -80,18 +80,10 @@ nav .brand-logo {
 }
  
 /*-- To create sticky back-to-top buttons  --*/
-#scroll-button {
-    position: sticky;
-    bottom: 0;
-}
 
 
-#tech-scroll {
-    position: sticky;
-    bottom: 0;
-}
 
-#profile-scroll {
+#tech-scroll, #profile-scroll, #comments-scroll {
     position: sticky;
     bottom: 0;
 }

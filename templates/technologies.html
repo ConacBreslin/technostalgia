@@ -5,10 +5,12 @@
   <div class="col s12">
     <h1 class="center-align general-title">You can filter your search by keyword or category</h1>
   </div>
-</div>
+  </div>
+
 
 <!-- Code for search box  -->
 <div class="row card-panel">
+  
   <form action="{{ url_for('search') }}" method="post" class="col s12">
     <div class="row valign-wrapper center-align">
       <div class="input-field col s12">
@@ -40,7 +42,8 @@
           class="material-icons right">autorenew</i>Reset</a>
     </div>
   </form>
-</div>
+
+</div> 
 
 <!-- CBs customized cards-->
 
@@ -49,12 +52,12 @@
 {% for technology in technologies %}
 
 <div class="row">
-  <div class="col m5 offset-1">
+  <div class="col m5 offset-2">
 
     <img src="{{ technology.technology_image }}" alt="">
   </div>
 
-  <div class="col m5">
+  <div class="col m6">
     <ul>
       <li class="hide-on-small-only"><b>Category:</b> {{ technology.category_name }}</strong></li>
       <li><b>Name:</b> {{ technology.technology_name }}</li>
@@ -68,8 +71,10 @@
       comments about the {{ technology.technology_name}}</a>
   </div>
   
-  
+</div>
+<hr>
 {% endfor %}
+
 {% else %}
 <h3 class="red-text text-darken-4 center-align">No Results were found, please try again</h3>
 {% endif %}
