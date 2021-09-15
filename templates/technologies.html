@@ -17,70 +17,64 @@
         <label for="query">Search by keyword</label>
       </div>
     </div>
-    <div class="row">
-      <div class="col s12 m8">
-        <p><b>or</b></p>
-      </div>
+    <div class="col s12 m8">
+      <p><b>or</b></p>
     </div>
-    <div class="row">
-      <div class="col s12 m8">
+    <div class="col s12 m8">
 
-        <!-- Code from Materialize.com for dropdown to select category to browse -->
-        <select id="category_search" name="category_search" class="validate">
-          <option value="" disabled selected>Choose a category to browse</option>
-          {% for category in categories %}
-          <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-          {% endfor %}
-        </select>
-      </div>
+      <!-- Code from Materialize.com for dropdown to select category to browse -->
+      <select id="category_search" name="category_search" class="validate">
+        <option value="" disabled selected>Choose a category to browse</option>
+        {% for category in categories %}
+        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+        {% endfor %}
+      </select>
     </div>
-    <div class="row">
-      <!-- Search and reset buttons  -->
-      <div class="col s12 center-align">
-        <button type="submit" class="btn-small purple lighten-1"><i class="material-icons right">search</i>
-          Search
-        </button>
-        <a href="{{ url_for('get_technologies') }}" class="btn-small purple lighten-1"><i
-            class="material-icons right">autorenew</i>Reset</a>
-      </div>
+
+    <!-- Search and reset buttons  -->
+    <div class="col s12 center-align">
+      <button type="submit" class="btn-small purple lighten-1"><i class="material-icons right">search</i>
+        Search
+      </button>
+      <a href="{{ url_for('get_technologies') }}" class="btn-small purple lighten-1"><i
+          class="material-icons right">autorenew</i>Reset</a>
     </div>
   </form>
 </div>
 
+<!-- CBs customized cards-->
+
 {% if technologies|length > 0 %}
 
-<!-- Code from Materialize.com for cards -->
 {% for technology in technologies %}
 
-<div class="col s12 m7">
-  <div class="card horizontal large hoverable">
-    <div class="card-image">
-      <img class="responsive-img" src="{{ technology.technology_image }}" alt="">
-    </div>
-    <div class="card-stacked">
-      <div class="card-content">
-        <ul>
-          <li><b>Category:</b> {{ technology.category_name }}</strong></li>
-          <li><b>Name:</b> {{ technology.technology_name }}</li>
-          <li><b>Description:</b> {{ technology.technology_description }}</li>
-          <li class="hide-on-small-only"><b>Best bits:</b> {{ technology.best_bits }}</li>
-          <li class="hide-on-small-only"><b>Worst bits:</b> {{ technology.worst_bits }}</li>
-          <li><b>Added by: </b>{{ technology.added_by|capitalize }}</li>
-          <li><b>Added on:</b> {{ technology.added_on }}</li>
-        </ul>
-      </div>
-      <div class="card-action">
-        <a href="{{ url_for('comments', technology_id=technology._id) }}" class="purple-text text-darken-4">Add or read
-          comments about the {{ technology.technology_name}}</a>
-      </div>
-    </div>
+<div class="row">
+  <div class="col s5">
+
+    <img src="{{ technology.technology_image }}" alt="">
   </div>
+
+  <div class="col s5 offset-1">
+    <ul>
+      <li class="hide-on-small-only"><b>Category:</b> {{ technology.category_name }}</strong></li>
+      <li><b>Name:</b> {{ technology.technology_name }}</li>
+      <li><b>Description:</b> {{ technology.technology_description }}</li>
+      <li class="hide-on-small-only"><b>Best bits:</b> {{ technology.best_bits }}</li>
+      <li class="hide-on-small-only"><b>Worst bits:</b> {{ technology.worst_bits }}</li>
+      <li class="hide-on-small-only"><b>Added by: </b>{{ technology.added_by|capitalize }}</li>
+      <li class="hide-on-small-only"><b>Added on:</b> {{ technology.added_on }}</li>
+    </ul>
+    <a href="{{ url_for('comments', technology_id=technology._id) }}" class="purple-text text-darken-4">Add or read
+      comments about the {{ technology.technology_name}}</a>
+  </div>
+  <hr>
 </div>
 {% endfor %}
 {% else %}
 <h3 class="red-text text-darken-4 center-align">No Results were found, please try again</h3>
 {% endif %}
 
-    <a class="btn-large purple lighten-1" id="tech-scroll" href="#page-top">Back to top</a>
-  
+<!-- Return to top button-->
+<a class="btn-large purple lighten-1" id="tech-scroll" href="#page-top">Back to top</a>
+
 {% endblock  %}

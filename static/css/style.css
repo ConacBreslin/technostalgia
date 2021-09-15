@@ -117,3 +117,7 @@ nav .brand-logo {
   :-moz-placeholder { /* Firefox 18- */
     color: #000;
   }
+
+  .col img {
+      width: 100%;
+  }
