@@ -153,7 +153,7 @@ Bugs identified during development and testing and their solutions can be seen [
 - CSS code was tested repeatedly by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
 - JavaScript was checked using [jshint](https://jshint.com/). There were no errors and the warnings were checked, corrected where appropriate and otherwise left.
 - Python code was tested repeatedly with pep8 online validator until the vaildator deemed it 'All right'.
-- Lighthouse Audits. The site’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here](assets/images/lighthousereport.png).
+- Lighthouse Audits. The site’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here](static/images/lighthousereport.png).
 - Manual Testing. At every step of development the errors highlighted in the code were addressed before proceeeding.
 The app was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
 It was viewed on a variety of devices. Friends and family members reviewed the site to identify bugs and give feedback on user experience. The code was submitted for peer-review in Code Institute's peer-code-review channel in [slack.com](https://app.slack.com/). 
