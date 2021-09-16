@@ -112,3 +112,7 @@ nav .brand-logo {
   #myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
   }
+
+ #tech-card {
+     background-color: #f3e5f5;
+ }
