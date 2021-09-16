@@ -68,13 +68,9 @@
       <li class="hide-on-small-only"><b>Added on:</b> {{ technology.added_on }}</li>
     </ul>
     <a href="{{ url_for('comments', technology_id=technology._id) }}" class="btn-small purple lighten-1">Add or read
-      comments about the {{ technology.technology_name}}</a>
-      
-      
-  </div>
-  
+      comments about the {{ technology.technology_name}}</a>      
+  </div>  
 </div>
-
 {% endfor %}
 
 {% else %}
