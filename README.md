@@ -2,13 +2,13 @@
 Technologies are developing at an unprecedented pace. It is easy to forget about older technologies that were once cutting edge but are now obsolete and risk being forgotten. This site gives people the opportuntity to reminisce about these technologies.
 ![Technostalgia home page image](static link to image)
 ## Visit the deployed website
-[![Technostalgia](https://conac-technostalgia.herokuapp.com/)
+[[Technostalgia](https://conac-technostalgia.herokuapp.com/)
 
 ## User Experience (UX)
 
 ### Project Goals
 
-The site was created to enagage visitors so that they will want to register and visit regularly. It was built to fulfill the requirements of Code Institutes's Diploma in Full STack Development Milestone 3 project.
+The site was created to enagage visitors so that they will want to register and visit regularly. It was built to fulfill the requirements of Code Institutes's Diploma in Full Stack Development Milestone 3 project.
 
 #### Visitor Goals
 
@@ -40,8 +40,6 @@ The site should provide a platform for people interested in obsolete technologie
 - Objective Requirements;         To encourage visitors to visit the site, register with it and to returen frequently.
 - Functional requirements; 	    To provide a collection of technologies that users can view. To provide a facility for users to register, log in and log out of the site. To provide registered users with the facility to add, edit and delete their own technologies and comments.
 - Non-functional requirements; 	The site should be attractive and intuitive.
-
-## Scope
 
 ## Structure
 The site starts with a home page. From here there are four main areas to which visitors may  navigate depending on status (visitor, registered visitor, administrator).

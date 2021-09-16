@@ -127,7 +127,10 @@ def delete_comment(comment_id):
 def comments(technology_id):
     technology = mongo.db.technologies.find_one(
         {"_id": ObjectId(technology_id)})
-    comments = list(mongo.db.comments.find())
+    comments = list(mongo.db.comments.find(
+        {"technology_name": technology["technology_name"]}))
+
+
     return render_template(
         "comments.html",
         technology=technology,
