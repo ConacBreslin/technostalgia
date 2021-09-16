@@ -52,7 +52,7 @@ The site starts with a home page. From here there are four main areas to which v
 
 ## Skeleton
 
-The wireframes for the site can be seen [here]((static/images//wireframes.zip))
+The wireframes for the site can be seen [here](static/images/wireframes1.jpg) and [here](static/images/wireframes2.jpg)
 
 There are 12 pages on the site.
 The **home** page  introduces the site. It has a carousel displaying images of all the technologies that are on the site. Other pages can be navigated to from the navbar at the top of this. 
@@ -129,6 +129,7 @@ In the future users should be able to edit the technologies name (see known bugs
 - Information on date formatting was found on [jquery-az.com](https://www.jquery-az.com/python-datetime-to-string/) and [sendwithus.com](https://support.sendwithus.com/jinja/jinja_time/).
 - I made use of tutorials from [www.freecodecamp.org](https://www.freecodecamp.org/), [codemy.com](https://codemy.com/) and [www.udemy.com](https://www.udemy.com/).
 - Code from https://regexr.com/ was used to set pattern for email validationa s materialize code was allowing invalid addresses.
+- Wireframes were converted to .jpg using [freeconvert.com](https://www.freeconvert.com/)
 ## Images
 - The images were stored in [Imgur](https://i.imgur.com/).
 - The images were formatted using [https://tinypng.com/](https://tinypng.com/).
