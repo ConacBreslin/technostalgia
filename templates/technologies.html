@@ -51,13 +51,13 @@
 
 {% for technology in technologies %}
 
-<div class="row">
-  <div class="col m5 offset-2">
+<div class="row purple lighten-5">
+  <div class="col m4">
 
     <img src="{{ technology.technology_image }}" alt="">
   </div>
 
-  <div class="col m6">
+  <div class="col m8">
     <ul>
       <li class="hide-on-small-only"><b>Category:</b> {{ technology.category_name }}</strong></li>
       <li><b>Name:</b> {{ technology.technology_name }}</li>
@@ -67,12 +67,14 @@
       <li class="hide-on-small-only"><b>Added by: </b>{{ technology.added_by|capitalize }}</li>
       <li class="hide-on-small-only"><b>Added on:</b> {{ technology.added_on }}</li>
     </ul>
-    <a href="{{ url_for('comments', technology_id=technology._id) }}" class="purple-text text-darken-4">Add or read
+    <a href="{{ url_for('comments', technology_id=technology._id) }}" class="btn-small purple lighten-1">Add or read
       comments about the {{ technology.technology_name}}</a>
+      
+      
   </div>
   
 </div>
-<hr>
+
 {% endfor %}
 
 {% else %}

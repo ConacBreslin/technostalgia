@@ -1,11 +1,12 @@
 import os
 from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for)
+    Flask, flash, render_template, redirect,
+    request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+
 if os.path.exists("env.py"):
     import env
 
@@ -22,7 +23,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    # Find and display all technologies in database
+    # Find and display all technologies in database for carousel
     technologies = mongo.db.technologies.find()
     return render_template("/home.html", technologies=technologies)
 
@@ -32,7 +33,7 @@ def get_technologies():
 
     # Find and display all technologies in database
     technologies = list(mongo.db.technologies.find())
-    categories = mongo.db.categories.find()
+    categories = list(mongo.db.categories.find())
     return render_template(
         "technologies.html", technologies=technologies, categories=categories
     )
@@ -47,8 +48,8 @@ def search():
     technologies = list(mongo.db.technologies.find())
     categories = list(mongo.db.categories.find())
     if query:
-        technologies = list(mongo.db.technologies.find(
-            {"$text": {"$search": query}}))
+        technologies = list(
+            mongo.db.technologies.find({"$text": {"$search": query}}))
 
     elif category_search:
         technologies = list(
@@ -56,16 +57,14 @@ def search():
         )
 
     return render_template(
-        "technologies.html",
-        technologies=technologies,
-        categories=categories
-        )
+        "technologies.html", technologies=technologies, categories=categories
+    )
 
 
 @app.route("/add_comment", methods=["POST"])
 def add_comment():
 
-    if 'user' in session:
+    if "user" in session:
 
         # Add a comment to the database if logged in
         comment = {
@@ -92,7 +91,9 @@ def edit_comment(comment_id):
     if request.method == "POST":
 
         created_on = mongo.db.comments.find_one(
-            {"_id": ObjectId(comment_id)}).get("created_on")
+            {"_id": ObjectId(comment_id)}).get(
+            "created_on"
+        )
 
         author = mongo.db.comments.find_one(
             {"_id": ObjectId(comment_id)}).get("author")
@@ -104,8 +105,8 @@ def edit_comment(comment_id):
             "created_on": created_on,
             "editted_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
         }
-        mongo.db.comments.update({"_id": ObjectId(
-            comment_id)}, editted_comment)
+        mongo.db.comments.update(
+            {"_id": ObjectId(comment_id)}, editted_comment)
 
         flash("Your comment has been changed")
         return redirect(url_for("profile", username=session["user"]))
@@ -191,10 +192,11 @@ def login():
         session["is_admin"] = False
 
         if existing_user:
+            print(f"USER: {existing_user['is_admin']}")
 
             # Check if is_admin is true in database and if so
             # set is_admin to true in session cookie
-            if "is_admin" in existing_user:
+            if existing_user["is_admin"] is True:
                 session["is_admin"] = True
 
             # Check if the hashed password matches the user's password
@@ -212,14 +214,18 @@ def login():
 
             else:
                 # If passwords don't match
-                flash("""Your Username and/or Password were incorrect.
-             Please try again""")
+                flash(
+                    """Your Username and/or Password were incorrect.
+             Please try again"""
+                )
                 return redirect(url_for("login"))
 
         else:
             # If username doesn't exist in database
-            flash("""Your Username and/or Password were incorrect.
-             Please try again""")
+            flash(
+                """Your Username and/or Password were incorrect.
+             Please try again"""
+            )
         return redirect(url_for("login"))
 
     return render_template("login.html", page_title="Log In")
@@ -231,7 +237,8 @@ def profile(username):
     # Get the session user's username, joindate
     # comments and technologies from the database
     user = mongo.db.users.find_one({"username": session["user"]})
-    comments = list(mongo.db.comments.find({"author": session["user"]}))
+    comments = list(mongo.db.comments.find(
+        {"author": session["user"]}))
     technologies = list(mongo.db.technologies.find(
         {"added_by": session["user"]}))
     username = user["username"]
@@ -302,31 +309,25 @@ def edit_technology(technology_id):
 
     # Edit a technology in database
     if request.method == "POST":
+        techname = mongo.db.technologies
 
-        added_on = mongo.db.technologies.find_one(
-            {"_id": ObjectId(technology_id)}).get("added_on")
+        filter = {"_id": ObjectId(technology_id)}
 
-        added_by = added_on = mongo.db.technologies.find_one(
-            {"_id": ObjectId(technology_id)}).get("added_by")
-
-        editted_tech = {
-            "technology_name": request.form.get("technology_name"),
-            "category_name": request.form.get("category_name"),
-            "technology_image": request.form.get("technology_image"),
-            "technology_description": request.form.get(
-                "technology_description"),
-            "best_bits": request.form.get("best_bits"),
-            "worst_bits": request.form.get("worst_bits"),
-            "editted_by": session["user"],
-            "added_on": added_on,
-            "added_by": added_by,
-            "editted_on": datetime.now().strftime("%d, %B, %Y at %H:%M"),
+        newvalues = {
+            "$set": {
+                "category_name": request.form.get(
+                    "category_name"),
+                "technology_image": request.form.get("technology_image"),
+                "technology_description": request.form.get(
+                    "technology_description"),
+                "best_bits": request.form.get("best_bits"),
+                "worst_bits": request.form.get("worst_bits"),
+            }
         }
 
-        mongo.db.technologies.update(
-            {"_id": ObjectId(technology_id)}, editted_tech)
+        techname.update_one(filter, newvalues)
         flash("Your technology has been updated. Thank you!")
-        return redirect(url_for("get_technologies"))
+        return redirect(url_for("profile", username=session["user"]))
 
     technology = mongo.db.technologies.find_one(
         {"_id": ObjectId(technology_id)})
@@ -361,7 +362,7 @@ def manage_categories():
         categories=categories,
         technologies=technologies,
         comments=comments,
-        page_title="Manage the Site"
+        page_title="Manage the Site",
     )
 
 
@@ -394,8 +395,7 @@ def edit_category(category_id):
 
     # Edit a technology in database
     if request.method == "POST":
-        edittedcategory = {
-            "category_name": request.form.get("category_name")}
+        edittedcategory = {"category_name": request.form.get("category_name")}
         mongo.db.categories.update(
             {"_id": ObjectId(category_id)}, edittedcategory)
         flash("The category was successfully editted")
@@ -403,8 +403,7 @@ def edit_category(category_id):
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template(
-        "edit_category.html",
-        category=category,
+        "edit_category.html", category=category,
         page_title="Edit this Category"
     )
 
@@ -415,8 +414,7 @@ def delete_category(category_id):
     # Find and then delete technologies in a the category being deleted
     category_name = mongo.db.categories.find_one(
         {"_id": ObjectId(category_id)}).get(
-        "category_name"
-    )
+        "category_name")
 
     technologies = mongo.db.technologies.find({"category_name": category_name})
 
@@ -432,6 +430,6 @@ def delete_category(category_id):
 
 
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=True)
+    app.run(
+        host=os.environ.get("IP"),
+        port=int(os.environ.get("PORT")), debug=True)
