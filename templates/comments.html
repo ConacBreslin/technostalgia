@@ -11,12 +11,12 @@
   <!--technology details-->
 
   <div class="row">
-    <div class="col m5">
+    <div class="col l6">
 
       <img src="{{ technology.technology_image }}" alt="Picture of technology">
     </div>
 
-    <div class="col m5">
+    <div class="col l6 purple lighten-5">
       <ul>
         <li class="hide-on-small-only"><b>Category:</b> {{ technology.category_name }}</strong></li>
         <li><b>Name:</b> {{ technology.technology_name }}</li>
@@ -26,8 +26,7 @@
         <li class="hide-on-small-only"><b>Added by: </b>{{ technology.added_by|capitalize }}</li>
         <li class="hide-on-small-only"><b>Added on:</b> {{ technology.added_on }}</li>
       </ul>
-      <a href="{{ url_for('comments', technology_id=technology._id) }}" class="purple-text text-darken-4">Add or read
-        comments about the {{ technology.technology_name}}</a>
+      <a href="{{ url_for('comments', technology_id=technology._id) }}" class="btn-large purple lighten-1">Add or read comments on the {{ technology.technology_name}}</a>
     </div>
   </div>
 
@@ -39,7 +38,7 @@
       <!-- Form to add a comment -->
 
       <div class="col m6 center-align">
-        <h2 class="heading comment-sub-heading">Add a comment about the {{ technology.technology_name }}</h2>
+        <h2 class="heading comment-sub-heading">Add a comment</h2>
         <div class="row card-panel">
           <form class="col s12 m8 offset-m2 " method="POST" action="{{ url_for('add_comment') }}">
             <div class="input-field col s12">
@@ -71,10 +70,12 @@
           </form>
         </div>
       </div>
+
+      
         <!-- Comments section-->
         
           <div class="col m6 center-align">
-            <h2 class="comment-sub-heading">Read all the comments about the {{ technology.technology_name }}</h2>
+            <h2 class="comment-sub-heading">Read the comments</h2>
           
        
 
@@ -87,7 +88,7 @@
                 <h2 class="card-title comment-sub-heading"><b>Name:</b>{{ comment.technology_name }}</h2>
                 <p><b>Comment:</b>{{ comment.technology_comment }}</p>
                 <p><em>Added by: {{ comment.author|capitalize }}</em></p>
-                <p><em>Added on: {{ comment.created_on }}</em></p>
+                <p class="hide-on-small-only"><em>Added on: {{ comment.created_on }}</em></p>
               </div>
             </div>
           </div>
@@ -112,9 +113,6 @@
             <a href="{{ url_for('get_technologies') }}" class="btn-large waves-effect waves-light purple lighten-1 ">Go
               back and
               browse all the technologies</a>
-            
-          
-            
           </div>
         </div>
         </section>

@@ -121,7 +121,7 @@ In the future users should be able to edit the technologies name (see known bugs
 - The space invader image for the favicon was found in [iconfinder.com](https://www.iconfinder.com/).
 - The favicon image was converted to an .ico file using [favicon.io](https://favicon.io/).
 - Instructions for adding the favicon were found on [flask.palletsprojects.co](https://flask.palletsprojects.com/).
-- The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [pythonmorsels.com](https://www.pythonmorsels.com/) and [css-tricks.com](https://css-tricks.com/).
+- The following websites were used for problem solving [stackoverflow.com](https://stackoverflow.com/), [w3schools.com](https://www.w3schools.com/), [geeksforgeeks.org](https://www.geeksforgeeks.org/), [pythonmorsels.com](https://www.pythonmorsels.com/), [teamtreehouse.com](https://teamtreehouse.com/) and [css-tricks.com](https://css-tricks.com/).
 - The html code was formatted using [webformatter.com](https://webformatter.com/html).
 - Information about automatically formatting  python with [black](https://pypi.org/project/black/) was found on [freecodecamp.org](https://www.freecodecamp.org/news/auto-format-your-python-code-with-black/)
 - Help on datetime was found on [pythonexamples.org](https://pythonexamples.org/python-datetime-now/).
@@ -189,8 +189,9 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 The manage_categories site was expanded to manage_site as it was easier to let admin users manage comments and technologies from there.
 
 ## Known Bugs
-It was noted during testing that if a logged in user was allowed to change the name of a technology it lost the associated comments. This is because the technology name was used as the check to match comments and technologies. If the name got changed this check would not match and for this reason the facility to allow users to edit the technology name was removed. If time allowed I could have used unique Ids to match technologoies and  comments or added the comments as a list to the technology and iterated through this to display them. 
-During testing it was noted that in the search facility on the tcehnologies page, ig a user selected a category the result would (as intended) show all the technologies in that category however if any of the words in teh category name appeared in any of the fields included in the index then they also got displayed. If there was time I would make this search function more specific.
+1. It was noted during testing that if a logged in user was allowed to change the name of a technology it lost the associated comments. This is because the technology name was used as the check to match comments and technologies. If the name got changed this check would not match and for this reason the facility to allow users to edit the technology name was removed. If time allowed I could have used unique Ids to match technologoies and  comments or added the comments as a list to the technology and iterated through this to display them. 
+2. During testing it was noted that in the search facility on the tcehnologies page, ig a user selected a category the result would (as intended) show all the technologies in that category however if any of the words in teh category name appeared in any of the fields included in the index then they also got displayed. If there was time I would make this search function more specific.
+3.The carousel overlap the background image on some mobile phones and does not look great.
 
 ## Deployment
 ### The project was deployed to Heroku in the following way. 

@@ -54,7 +54,7 @@
 <div class="row purple lighten-5">
   <div class="col m4">
 
-    <img src="{{ technology.technology_image }}" alt="">
+    <img src="{{ technology.technology_image }}" alt="Picture of technology">
   </div>
 
   <div class="col m8">
@@ -78,10 +78,6 @@
 {% endfor %}
 
 {% else %}
-<h3 class="red-text text-darken-4 center-align">No Results were found, please try again</h3>
+<h3 class="center-align">No Results were found, please try again</h3>
 {% endif %}
-
-<!-- Return to top button-->
-<a class="btn-large purple lighten-1" id="tech-scroll" href="#page-top">Back to top</a>
-
 {% endblock  %}
