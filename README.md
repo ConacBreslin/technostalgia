@@ -129,7 +129,7 @@ It would be nice if the admin user could search/sort the technologies and commen
 - Information on jinja filters was found on [exponea.com](https://docs.exponea.com/docs/filters).
 - Information on date formatting was found on [jquery-az.com](https://www.jquery-az.com/python-datetime-to-string/) and [sendwithus.com](https://support.sendwithus.com/jinja/jinja_time/).
 - I made use of tutorials from [www.freecodecamp.org](https://www.freecodecamp.org/), [codemy.com](https://codemy.com/) and [www.udemy.com](https://www.udemy.com/).
-- Code from https://regexr.com/ was used to set pattern for email validationa s materialize code was allowing invalid addresses.
+- Code from https://regexr.com/ was used to set pattern for email(and url validation.
 - Documents were converted to .jpg using [freeconvert.com](https://www.freeconvert.com/)
 ## Images
 - The images were stored in [Imgur](https://i.imgur.com/).
