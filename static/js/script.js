@@ -11,9 +11,6 @@ $(document).ready(function () {
     $('.modal').modal();
 // jQuery code from Materialize.com  for tooltip
     $('.tooltipped').tooltip();
-
-    
-
       });
 
 // jQuery code from Code Institute's tutorial to validate select input

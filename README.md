@@ -52,7 +52,9 @@ The site starts with a home page. From here there are four main areas to which v
 
 ## Skeleton
 
-there are 12 pages on the site.
+The wireframes for the site can be seen [here]((static/images//wireframes.zip))
+
+There are 12 pages on the site.
 The **home** page  introduces the site. It has a carousel displaying images of all the technologies that are on the site. Other pages can be navigated to from the navbar at the top of this. 
 
 The **registration** page has a form which a visitor can complete to register for the site. It contains a link to the login page for visitors who are already registered. 
@@ -90,8 +92,6 @@ The fonts were found on google font. The 'Press Start 2P' used for the title was
 - The functionality so that when a technology is deleted all the comments associated iwth that technology are also deleted.
 - A check that user wants to perform irreversible actions before they do so.
 - The ability for registered, logged in users to create edit and delete comments
-
-## Wireframes
 
 ## Future features
 To increase the interactivity of the site future features could include polls, ratings, favorites.
@@ -148,9 +148,9 @@ Other images on the site were added by users.
 ## Testing.
 Bugs identified during development and testing and their solutions can be seen [here](link to image).
 ### Validation
-- HTML code was vadated by direct input into [validator.w3.org](https://validator.w3.org/). To avoid the errors that this finds with jinja templating the code was accessed by the inspect button.
-- CSS code was vaildated by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/).
-- Python code was tested with pep8 online validator
+- HTML code for each individual page was validited by direct input into [validator.w3.org](https://validator.w3.org/). To avoid most of the errors that come up due to jinja templating the code was copied my inspecting the page a copying the outer html and running it through the validator. There were residual issues relating to this that recurred on every page. These can be see [here]()
+- CSS code was tested repeatedly by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
+- Python code was tested repeatedly with pep8 online validator until the vaildator deemed it 'All right'.
 - Lighthouse Audits. The site’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here](assets/images/lighthousereport.png).
 - Manual Testing. At every step of development the errors highlighted in the code were addressed before proceeeding.
 The app was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.

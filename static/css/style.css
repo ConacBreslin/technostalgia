@@ -82,12 +82,6 @@ nav .brand-logo {
 /*-- To create sticky back-to-top buttons  --*/
 
 
-
-#tech-scroll, #profile-scroll,  {
-    position: sticky;
-    bottom: 0;
-}
-
 #profile-name {
     font-size: 3rem;
 }
@@ -125,7 +119,7 @@ nav .brand-logo {
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
     cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 0, 10px; /* Some padding */
+    padding: 0 10px; /* Some padding */
     border-radius: 10px; /* Rounded corners */
     font-size: 18px; /* Increase font size */
   }

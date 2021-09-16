@@ -1,7 +1,7 @@
 import os
 from flask import (
-    Flask, flash, render_template, redirect,
-    request, session, url_for)
+    Flask, flash, render_template,
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -48,8 +48,8 @@ def search():
     technologies = list(mongo.db.technologies.find())
     categories = list(mongo.db.categories.find())
     if query:
-        technologies = list(
-            mongo.db.technologies.find({"$text": {"$search": query}}))
+        technologies = list(mongo.db.technologies.find(
+            {"$text": {"$search": query}}))
 
     elif category_search:
         technologies = list(
@@ -192,8 +192,6 @@ def login():
         session["is_admin"] = False
 
         if existing_user:
-            print(f"USER: {existing_user['is_admin']}")
-
             # Check if is_admin is true in database and if so
             # set is_admin to true in session cookie
             if existing_user["is_admin"] is True:
@@ -237,8 +235,7 @@ def profile(username):
     # Get the session user's username, joindate
     # comments and technologies from the database
     user = mongo.db.users.find_one({"username": session["user"]})
-    comments = list(mongo.db.comments.find(
-        {"author": session["user"]}))
+    comments = list(mongo.db.comments.find({"author": session["user"]}))
     technologies = list(mongo.db.technologies.find(
         {"added_by": session["user"]}))
     username = user["username"]
@@ -315,8 +312,7 @@ def edit_technology(technology_id):
 
         newvalues = {
             "$set": {
-                "category_name": request.form.get(
-                    "category_name"),
+                "category_name": request.form.get("category_name"),
                 "technology_image": request.form.get("technology_image"),
                 "technology_description": request.form.get(
                     "technology_description"),
@@ -381,7 +377,8 @@ def add_category():
             flash("This category already exists")
             return redirect(url_for("add_category"))
 
-        newcategory = {"category_name": request.form.get("category_name")}
+        newcategory = {"category_name": request.form.get(
+            "category_name")}
         mongo.db.categories.insert_one(newcategory)
         flash("You have successfully added a new category.")
         return redirect(url_for("manage_categories"))
@@ -414,11 +411,10 @@ def delete_category(category_id):
     # Find and then delete technologies in a the category being deleted
     category_name = mongo.db.categories.find_one(
         {"_id": ObjectId(category_id)}).get(
-        "category_name")
+        "category_name"
+    )
 
     technologies = mongo.db.technologies.find({"category_name": category_name})
-
-    print(technologies)
 
     for technology in technologies:
         delete_technology(technology.get("_id"))
@@ -430,6 +426,5 @@ def delete_category(category_id):
 
 
 if __name__ == "__main__":
-    app.run(
-        host=os.environ.get("IP"),
-        port=int(os.environ.get("PORT")), debug=True)
+    app.run(host=os.environ.get("IP"), port=int(
+        os.environ.get("PORT")), debug=True)
