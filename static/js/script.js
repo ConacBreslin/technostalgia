@@ -1,3 +1,5 @@
+//Code on line 2 from teamtreehouse.com to help resolve jshint errors
+// jshint esversion: 6
 $(document).ready(function () {
 // jQuery code from Materialize.com for sidebar navigation
     $(".sidenav").sidenav({edge: "right"});

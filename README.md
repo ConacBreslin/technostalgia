@@ -150,6 +150,7 @@ Bugs identified during development and testing and their solutions can be seen [
 ### Validation
 - HTML code for each individual page was validited by direct input into [validator.w3.org](https://validator.w3.org/). To avoid most of the errors that come up due to jinja templating the code was copied my inspecting the page a copying the outer html and running it through the validator. There were residual issues relating to this that recurred on every page. These can be see [here]()
 - CSS code was tested repeatedly by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
+- JavaScript was checked using [jshint](https://jshint.com/). There were no errors and the warnings were checked, corrected where appropriate and otherwise left.
 - Python code was tested repeatedly with pep8 online validator until the vaildator deemed it 'All right'.
 - Lighthouse Audits. The site’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here](assets/images/lighthousereport.png).
 - Manual Testing. At every step of development the errors highlighted in the code were addressed before proceeeding.

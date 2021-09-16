@@ -6,13 +6,25 @@ body {
     background-color:#fb91db;
 } 
 
-
 h2 {
     font-size: 1.75rem;
 }
 
 .general-title {
     font-size: 2.5rem;
+}
+
+.flashes h4 {
+    line-height: 1.5;
+}
+
+/*-- To space buttons  --*/
+.btn-large {
+    margin-bottom: 20px;
+}
+
+.btn-small {
+    margin-bottom: 5px;
 }
 
 /*-- Home page styling --*/
@@ -26,32 +38,20 @@ h2 {
     font-family: 'Ubuntu Mono', monospace;
 }
 
-
-.flashes h4 {
-    line-height: 1.5;
-}
-
-.card-panel, .card-content, .card-action {
-    background-color:#f3e5f5;
-}
-
 .dropdown-content li>span {
     color:#4a148c;
     background-color: #f3e5f5;
 }
-
 
 .select-dropdown li.disabled>span {
     background-color: #9b47bc;
     color: #fff;
 }
 
-
-
 /*-- Backgorund colour of sidenav to match site --*/
 
 .sidenav {
-    background-color: #ff93de;
+    background-color: #f3e5f5;
 }
 
 /*-- Logo and page header font --*/
@@ -68,27 +68,12 @@ nav .brand-logo {
     background: url("../images/tapes.jpg") no-repeat center center;
     background-size: cover;
 }
-
-/*-- To space buttons  --*/
-
-.btn-large {
-    margin-bottom: 20px;
-}
-
-.btn-small {
-    margin-bottom: 5px;
-}
  
-/*-- To create sticky back-to-top buttons  --*/
-
-
+/*--  Profile page styling  --*/
 #profile-name {
     font-size: 3rem;
 }
 
-#add-comment-title {
-    font-size: 2rem;
-}
 /*-- Code from  https://css-tricks.com to style placeholder text --*/
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -108,7 +93,7 @@ nav .brand-logo {
       width: 100%;
   }
 
-/* Code from https://www.w3schools.com/ */
+/* Code from https://www.w3schools.com/ for back to top buttons */
 
 #myBtn {
     display: none; /* Hidden by default */
