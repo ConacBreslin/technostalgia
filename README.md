@@ -129,7 +129,7 @@ In the future users should be able to edit the technologies name (see known bugs
 - Information on date formatting was found on [jquery-az.com](https://www.jquery-az.com/python-datetime-to-string/) and [sendwithus.com](https://support.sendwithus.com/jinja/jinja_time/).
 - I made use of tutorials from [www.freecodecamp.org](https://www.freecodecamp.org/), [codemy.com](https://codemy.com/) and [www.udemy.com](https://www.udemy.com/).
 - Code from https://regexr.com/ was used to set pattern for email validationa s materialize code was allowing invalid addresses.
-- Wireframes were converted to .jpg using [freeconvert.com](https://www.freeconvert.com/)
+- Documents were converted to .jpg using [freeconvert.com](https://www.freeconvert.com/)
 ## Images
 - The images were stored in [Imgur](https://i.imgur.com/).
 - The images were formatted using [https://tinypng.com/](https://tinypng.com/).
@@ -149,7 +149,7 @@ Other images on the site were added by users.
 ## Testing.
 Bugs identified during development and testing and their solutions can be seen [here](link to image).
 ### Validation
-- HTML code for each individual page was validited by direct input into [validator.w3.org](https://validator.w3.org/). To avoid most of the errors that come up due to jinja templating the code was copied my inspecting the page a copying the outer html and running it through the validator. There were residual issues relating to this that recurred on every page. These can be see [here]()
+- HTML code for each individual page was validited by direct input into [validator.w3.org](https://validator.w3.org/). The results of tis can be seen  [here](static/images/htmlvalidation.jpg))
 - CSS code was tested repeatedly by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
 - JavaScript was checked using [jshint](https://jshint.com/). There were no errors and the warnings were checked, corrected where appropriate and otherwise left.
 - Python code was tested repeatedly with pep8 online validator until the vaildator deemed it 'All right'.
@@ -191,7 +191,10 @@ The manage_categories site was expanded to manage_site as it was easier to let a
 ## Known Bugs
 1. It was noted during testing that if a logged in user was allowed to change the name of a technology it lost the associated comments. This is because the technology name was used as the check to match comments and technologies. If the name got changed this check would not match and for this reason the facility to allow users to edit the technology name was removed. If time allowed I could have used unique Ids to match technologoies and  comments or added the comments as a list to the technology and iterated through this to display them. 
 2. During testing it was noted that in the search facility on the tcehnologies page, ig a user selected a category the result would (as intended) show all the technologies in that category however if any of the words in teh category name appeared in any of the fields included in the index then they also got displayed. If there was time I would make this search function more specific.
-3.The carousel overlap the background image on some mobile phones and does not look great.
+3. The carousel overlaps the background image on some mobile phones and does not look great.
+4. The Submit and clear buttons in the form to add a comment get overlapped or lost on some mobiles.
+5. ALthough the placeholder text for adding the technology image says it must be a url, there is no check to ensure it is and the form will accept an input that does not result in an image being uploaded.
+
 
 ## Deployment
 ### The project was deployed to Heroku in the following way. 

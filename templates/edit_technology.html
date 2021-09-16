@@ -10,13 +10,12 @@
     <!-- Code for form from Materialize.com -->
     <form class="col s12" method="POST" action="{{ url_for('edit_technology', technology_id=technology._id) }}">
         <div class="card-panel">
-
             <!-- Technology's name  -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">important_devices</i>
                     <input id="technology_name" name="technology_name" value="{{ technology.technology_name }}"
-                        minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" disabled>
+                        minlength="5" maxlength="100" type="text" class="validate" placeholder="Name" disabled />
                     <label for="technology_name">Technology's name</label>
                 </div>
             </div>
@@ -26,14 +25,12 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">list</i>
                     <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" >Choose a category for your technology</option>
-                        {% for category in categories %}
-                        {% if category.category_name == technology.category_name %}
+                        <option value="">Choose a category for your technology</option>
+                        {% for category in categories %} {% if category.category_name == technology.category_name %}
                         <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
                         {% else %}
                         <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                        {% endif %}
-                        {% endfor %}
+                        {% endif %} {% endfor %}
                     </select>
                     <label for="category_name">Choose a category for your technology</label>
                 </div>
@@ -44,7 +41,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">camera_alt</i>
                     <input id="technology_image" name="technology_image" value="{{ technology.technology_image }}"
-                        type="text" class="validate" placeholder="Important! Must be a url" required>
+                        type="text" class="validate" placeholder="Important! Must be a url" required />
                     <label for="technology_image">Technology's Image</label>
                 </div>
             </div>
@@ -55,7 +52,9 @@
                     <i class="material-icons prefix purple-text text-darken-3">description</i>
                     <textarea id="technology_description" name="technology_description" minlength="5" maxlength="300"
                         placeholder="Brief desciption, less than 300 characters!" class="materialize-textarea validate"
-                        required>{{ technology.technology_description }}!</textarea>
+                        required>
+{{ technology.technology_description }}!
+                    </textarea>
                     <label for="technology_description">Description</label>
                 </div>
             </div>
@@ -83,14 +82,12 @@
             <!-- Submit button for adding a technology -->
             <div class="row">
                 <div class="center-align col s6 offset-s3">
-                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">
-                        Edit this technology now! <i class="material-icons right">edit</i>
-                    </button>
+                    <button type="submit" class="btn-large waves-effect waves-light purple lighten-1">Edit this
+                        technology now! <i class="material-icons right">edit</i></button>
                     <!-- Button to cancel all changes and return to technologies -->
                     <a href="{{ url_for('get_technologies') }}"
-                        class="btn-large waves-effect waves-light purple lighten-1">
-                        Cancel Changes <i class="material-icons right">close</i>
-                    </a>
+                        class="btn-large waves-effect waves-light purple lighten-1"> Cancel Changes <i
+                            class="material-icons right">close</i> </a>
                 </div>
             </div>
         </div>
