@@ -188,7 +188,8 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 The manage_categories site was expanded to manage_site as it was easier to let admin users manage comments and technologies from there.
 
 ## Known Bugs
-It was noted during testing that if a logged in user was allowed to change the name of a technology it lost the associated comments. This is because the technology name was used as the check to match comments and tcehnologies. If this was changed this check would not match and for this reason the facility to allow users to edit the technology name was removed. If time allowed I could have used the linked the Ids and used this to match comments to tcehnologies, or I could have added the comments to the technology in a list a retrieved this when displaying the comments associated with a technology.
+It was noted during testing that if a logged in user was allowed to change the name of a technology it lost the associated comments. This is because the technology name was used as the check to match comments and technologies. If the name got changed this check would not match and for this reason the facility to allow users to edit the technology name was removed. If time allowed I could have used unique Ids to match technologoies and  comments or added the comments as a list to the technology and iterated through this to display them. 
+During testing it was noted that in the search facility on the tcehnologies page, ig a user selected a category the result would (as intended) show all the technologies in that category however if any of the words in teh category name appeared in any of the fields included in the index then they also got displayed. If there was time I would make this search function more specific.
 
 ## Deployment
 ### The project was deployed to Heroku in the following way. 
