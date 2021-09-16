@@ -224,10 +224,10 @@ The  GitHub Repository can be forked to make a copy of the original repository o
 4.	Opening Git Bash.
 5.	Changing the current working directory to the location where you want the cloned directory to be made.
 6.	Typing git clone, and pasting the URL copied in Step 3.
-7.	Pressing Enter to create the local clone.## Credits
+7.	Pressing Enter to create the local clone.
 
 ## Acknowledgements
-I would liket to thank the following people;
+I would like to thank the following people;
 - my mentor Chris Quinn whose advice is always perfectly judged. 
 _ my temporary mentor Daisy McGirr for taking me on at short notice and giving me useful, practical advice. 
 - Tim Nelson for his excellent walkthough projects in the Code Institute's diploma programme that provided essential guidance in the development process of this flask app.
