@@ -1,8 +1,8 @@
 # **Technostalgia - a website where you can reminisce about obsolete technologies**
 Technologies are developing at an unprecedented pace. It is easy to forget about older technologies that were once cutting edge but are now obsolete and risk being forgotten. This site gives people the opportuntity to reminisce about these technologies.
-![Technostalgia home page image](static link to image)
+
 ## Visit the deployed website
-[[Technostalgia](https://conac-technostalgia.herokuapp.com/)
+[![Technostalgia](static/images/banner.png "Visit the deployed site here")](https://conac-technostalgia.herokuapp.com/)
 
 ## User Experience (UX)
 
@@ -37,16 +37,16 @@ To enjoy visiting the site, to remind them of techologies they may have forgotte
 
 ## Strategy
 The site should provide a platform for people interested in obsolete technologies to come and be reminded of them and to share their experience of them.
-- Objective Requirements;         To encourage visitors to visit the site, register with it and to returen frequently.
+- Objective Requirements;         To encourage visitors to visit the site, register with it and to return frequently.
 - Functional requirements; 	    To provide a collection of technologies that users can view. To provide a facility for users to register, log in and log out of the site. To provide registered users with the facility to add, edit and delete their own technologies and comments.
 - Non-functional requirements; 	The site should be attractive and intuitive.
 
 ## Structure
 The site starts with a home page. From here there are four main areas to which visitors may  navigate depending on status (visitor, registered visitor, administrator).
-1. The registration and login in pages are available to all users. The Logout page is available to logged in users.
-2. The page to browse technologies is available to all users and from this page users can navigate to the comments page where all users can view the comments that have been added about a selected technology selected. REgistered, logged in users can add comments.
-3. All registered, logged in users can access their profile page. Thsi lists alll the technologies and comments they have added to the site. From this page they can navigate to edit either their technologies or the comments.
-4. Any user designated as an 'admin' user also has access to a page where the site can be managed. FRom this page categories can be added, and all the tcehnologies and comments on the site can be editted or deleted.
+1. The registration and login in pages are available to all users. The logout page is available to logged in users.
+2. The page to browse technologies is available to all users and from this page users can navigate to the comments page where all users can view the comments that have been added about a selected technology selected. Registered, logged in users can add comments.
+3. All registered, logged in users can access their profile page. This lists all the technologies and comments they have added to the site. From this page they can navigate to edit either their technologies or their comments.
+4. Any user designated as an 'admin' user also has access to a page where the site can be managed. From this page categories can be added, and all the technologies and comments on the site can be editted or deleted.
 
 ## Skeleton
 
@@ -57,7 +57,7 @@ The **home** page  introduces the site. It has a carousel displaying images of a
 
 The **registration** page has a form which a visitor can complete to register for the site. It contains a link to the login page for visitors who are already registered. 
 
-The **login** page has a form for returning registered users to log in to the site. It contains a link to the registration page for non-registered visitors.
+The **login** page has a form for returning registered users to log back in to the site. It contains a link to the registration page for non-registered visitors.
 
 The **technologies** page is where each technology and its information is displayed. The page can be searched by keyword or by category. Each technology is in a card from where the visitor can go to the **comments** page related to that technology. Here they can read all the comments that have been made about that technology and (if registered and logged in) they can add comments through a form.
 
@@ -65,7 +65,7 @@ The **add technology** page is accessed from the navbar (for registered, logged 
 
 A  **profile** page is accessible to registered, logged in users from the navbar. It displays all the technologies that the current user has added and all the comments they have made. From this page the user can go to the **edit technologies** or **edit comments** pages. Technologies and comments can be deleted from the profile page. If a technology is deleted all comments about the technology are also deleted. 
 
-The **manage the site** page is accessed from the navbar for admin users only. From here an admin user can go to the **add category** pages to add a new categoy. Categories can be deleted from the page. When a category is deleted all associated technologies and comments are also deleted. Admin users can navigate to the **edit category** page. They can see all the technologies and comments that have been added to the site and can delete a technology or comment from that page or go to the pages for editting technologies or comments.  
+The **manage the site** page is accessed from the navbar for admin users only. From here an admin user can link to the **add category** page to add a new categoy. Categories can be deleted from the page. When a category is deleted all associated technologies and comments are also deleted. Admin users can navigate to the **edit category** page. They can see all the technologies and comments that have been added to the site and can delete a technology or comment from that page or go to the pages for editting technologies or comments.  
  
 ## Surface/Design (Design Choices fonts, icons, colours, styling, backgroundss)
 
@@ -93,7 +93,9 @@ The fonts were found on google font. The 'Press Start 2P' used for the title was
 
 ## Future features
 To increase the interactivity of the site future features could include polls, ratings, favorites.
+
 In the future users should be able to edit the technologies name (see known bugs).
+
 It would be nice if the admin user could search/sort the technologies and comments on the manage the site page.
 
 ## Languages used
@@ -102,6 +104,8 @@ It would be nice if the admin user could search/sort the technologies and commen
 [CSS](https://en.wikipedia.org/wiki/CSS)
 
 [Python](https://www.python.org/)
+
+[JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
 
 ## Frameworks, Libraries and online resources used
@@ -127,7 +131,7 @@ It would be nice if the admin user could search/sort the technologies and commen
 - Information on jinja filters was found on [exponea.com](https://docs.exponea.com/docs/filters).
 - Information on date formatting was found on [jquery-az.com](https://www.jquery-az.com/python-datetime-to-string/) and [sendwithus.com](https://support.sendwithus.com/jinja/jinja_time/).
 - I made use of tutorials from [www.freecodecamp.org](https://www.freecodecamp.org/), [codemy.com](https://codemy.com/) and [www.udemy.com](https://www.udemy.com/).
-- Code from https://regexr.com/ was used to set pattern for email(and url validation.
+- Code from https://regexr.com/ was used to set pattern for email and url validation.
 - Documents were converted to .jpg using [freeconvert.com](https://www.freeconvert.com/)
 ## Images
 - The images were stored in [Imgur](https://i.imgur.com/).
@@ -146,12 +150,12 @@ It would be nice if the admin user could search/sort the technologies and commen
 Other images on the site were added by users.
 
 ## Testing.
-Bugs identified during development and testing and their solutions can be seen [here](link to image).
+Bugs identified during development and testing and their solutions on 2 pages [page 1](static/images/bugsone.png), [page 2](static/images/bugstwo.png).
 ### Validation
-- HTML code for each individual page was validited by direct input into [validator.w3.org](https://validator.w3.org/). The results of tis can be seen  [here](static/images/htmlvalidation.jpg))
+- HTML code for each individual page was validited by direct input into [validator.w3.org](https://validator.w3.org/). The results of this can be seen  [here](static/images/htmlvalidation.jpg))
 - CSS code was tested repeatedly by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
 - JavaScript was checked using [jshint](https://jshint.com/). There were no errors and the warnings were checked, corrected where appropriate and otherwise left.
-- Python code was tested repeatedly with pep8 online validator until the vaildator deemed it 'All right'.
+- Python code was tested repeatedly with [pep8 online validator](http://pep8online.com/) until the vaildator deemed it 'All right'.
 - Lighthouse Audits. The site’s Performance, Accessibility, Best Practices and SEO were assessed by [Chrome Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) and the results of this are [here](static/images/lighthousereport.png).
 - Manual Testing. At every step of development the errors highlighted in the code were addressed before proceeeding.
 The app was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
@@ -163,13 +167,13 @@ It was viewed on a variety of devices. Friends and family members reviewed the s
 2. All visitors should be able to view technologies on the site, search by category, or search by keyword.
 - The technologies page link is is visible on the navbar for all visitors. It shows all the technologies in cards to all visitors to the site. This page is headed by a search form which can search the technologies by keyword or category.
 3. All visitors should be able to view all the comments about any technology.
-- All visitors should be able to navigate to the comments page from within the technologies card.
+- All visitors can navigate to the comments page from within the technologies card.
 4.  All visitors should be able to register for the website.
 - The registration link is visible on the navbar for all visitors. It has a form for all the required registration details. All fields have specifications and requirements.
 5. Logged in visitors should be able to add new technologies to the site.
 -  The add a technology link is only visible on the navbar for logged in users. This page has a form which insists on the user filling in all the details necessary for a technology. It has guidance on what is needed through placeholder text.
 6. Logged in visitors should be able to edit or delete the technologies they have added.
-- This functionality is available to registered, logged in users from their profile page. The link to the profile page is only visible to logged in users.
+- This functionality is available to registered, logged in users from their profile page. The link to the profile page is only visible to logged in users. Unfortunately due to the way the comments were linked to the technology the ability for users to edit the technology name had to be disabled.
 7. Logged in visitors should be able to add comments to aon a form on the comments page. 
 - This facility is available to registered, logged in users when they have navigated from the technolgy's card on the technologies page. Although anyone can wrote a comment on the card, if a an unregistered user tries to submit a comment they get a flash message explaining this and get redirected to the registration page.
 8.  Logged in visitors should be able to edit or delete the comments they have added to a technology.
@@ -189,10 +193,10 @@ The manage_categories site was expanded to manage_site as it was easier to let a
 
 ## Known Bugs
 1. It was noted during testing that if a logged in user was allowed to change the name of a technology it lost the associated comments. This is because the technology name was used as the check to match comments and technologies. If the name got changed this check would not match and for this reason the facility to allow users to edit the technology name was removed. If time allowed I could have used unique Ids to match technologoies and  comments or added the comments as a list to the technology and iterated through this to display them. 
-2. During testing it was noted that in the search facility on the technologies page, if a user selected a category the result would (as intended) show all the technologies in that category however if any of the words in teh category name appeared in any of the fields included in the index then they also got displayed. If there was time I would make this search function more specific.
-3. The carousel overlaps the background image on some mobile phones and does not look great.
-4. The Submit and clear buttons in the form to add a comment get overlapped or lost on some mobiles.
-5. ALthough the placeholder text for adding the technology image says it must be a url, there is no check to ensure it is and the form will accept an input that does not result in an image being uploaded.
+2. During testing it was noted that in the search facility on the technologies page, if a user selected a category the result would (as intended) show all the technologies in that category however if any of the words in the category name appeared in any of the fields included in the index then they also got displayed. If there was time I would make this search function more specific.
+3. When tested it was noticed that the carousel overlaps the background image on some mobile phones and does not look great.
+4. The submit and clear buttons in the form to add a comment can get overlapped or lost on some mobiles.
+5. Although the placeholder text for adding the technology image says it must be a url, there is no check to ensure it is and the form will accept an input that does not result in an image being uploaded.
 6. On small screens sometimes some of the text overflow the buttons.
 
 
@@ -223,7 +227,7 @@ The  GitHub Repository can be forked to make a copy of the original repository o
 7.	Pressing Enter to create the local clone.## Credits
 
 ## Acknowledgements
-I would liket ot thank the following people;
+I would liket to thank the following people;
 - my mentor Chris Quinn whose advice is always perfectly judged. 
 _ my temporary mentor Daisy McGirr for taking me on at short notice and giving me useful, practical advice. 
 - Tim Nelson for his excellent walkthough projects in the Code Institute's diploma programme that provided essential guidance in the development process of this flask app.

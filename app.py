@@ -129,8 +129,6 @@ def comments(technology_id):
         {"_id": ObjectId(technology_id)})
     comments = list(mongo.db.comments.find(
         {"technology_name": technology["technology_name"]}))
-
-
     return render_template(
         "comments.html",
         technology=technology,
