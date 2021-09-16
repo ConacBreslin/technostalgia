@@ -95,7 +95,8 @@ The fonts were found on google font. The 'Press Start 2P' used for the title was
 
 ## Future features
 To increase the interactivity of the site future features could include polls, ratings, favorites.
-In the future users should be able to edit the technologies name (see known bugs)
+In the future users should be able to edit the technologies name (see known bugs).
+It would be nice if the admin user could search/sort the technologies and comments on the manage the site page.
 
 ## Languages used
 [HTML5](https://en.wikipedia.org/wiki/HTML5)
@@ -190,10 +191,11 @@ The manage_categories site was expanded to manage_site as it was easier to let a
 
 ## Known Bugs
 1. It was noted during testing that if a logged in user was allowed to change the name of a technology it lost the associated comments. This is because the technology name was used as the check to match comments and technologies. If the name got changed this check would not match and for this reason the facility to allow users to edit the technology name was removed. If time allowed I could have used unique Ids to match technologoies and  comments or added the comments as a list to the technology and iterated through this to display them. 
-2. During testing it was noted that in the search facility on the tcehnologies page, ig a user selected a category the result would (as intended) show all the technologies in that category however if any of the words in teh category name appeared in any of the fields included in the index then they also got displayed. If there was time I would make this search function more specific.
+2. During testing it was noted that in the search facility on the technologies page, if a user selected a category the result would (as intended) show all the technologies in that category however if any of the words in teh category name appeared in any of the fields included in the index then they also got displayed. If there was time I would make this search function more specific.
 3. The carousel overlaps the background image on some mobile phones and does not look great.
 4. The Submit and clear buttons in the form to add a comment get overlapped or lost on some mobiles.
 5. ALthough the placeholder text for adding the technology image says it must be a url, there is no check to ensure it is and the form will accept an input that does not result in an image being uploaded.
+6. On small screens sometimes some of the text overflow the buttons.
 
 
 ## Deployment

@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block content %}
 
 <div class="row">
@@ -37,7 +36,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix purple-text text-darken-3">camera_alt</i>
-                    <input id="technology_image" name="technology_image" type="text" class="validate" placeholder="Important! Must be a url" required />
+                    <input id="technology_image" name="technology_image" type="text" pattern="[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" class="validate" placeholder="Important! Must be a url" required />
                     <label for="technology_image">Technology's Image</label>
                 </div>
             </div>
