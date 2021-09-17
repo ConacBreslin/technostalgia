@@ -1,5 +1,6 @@
 # **Technostalgia - a website where you can reminisce about obsolete technologies**
 Technologies are developing at an unprecedented pace. It is easy to forget about older technologies that were once cutting edge but are now obsolete and risk being forgotten. This site gives people the opportuntity to reminisce about these technologies.
+For assessment purposes you can log in as an admin user with the username "Admin" and the password "Admin".
 
 ## Visit the deployed website
 [![Technostalgia](static/images/banner.png "Visit the deployed site here")](https://conac-technostalgia.herokuapp.com/)
