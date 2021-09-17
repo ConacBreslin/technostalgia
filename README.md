@@ -1,5 +1,6 @@
 # **Technostalgia - a website where you can reminisce about obsolete technologies**
 Technologies are developing at an unprecedented pace. It is easy to forget about older technologies that were once cutting edge but are now obsolete and risk being forgotten. This site gives people the opportuntity to reminisce about these technologies.
+
 For assessment purposes you can log in as an admin user with the username "Admin" and the password "Admin".
 
 ## Visit the deployed website
@@ -80,15 +81,15 @@ According to Shane Barker in ["The Psychology of Color in Web Design"](https://w
 The fonts were found on google font. The 'Press Start 2P' used for the title was picked because it looked like a 1980s arcade game font and the 'Ubuntu Mono' was recommended by google fonts as a popular pairing and it was clear and easily readable.
 ## Features
 - Responsiveness on all device sizes.
-- A nav bar that displays links dependent to the user type.
+- A nav bar that displays links dependent on the user type.
 - A home page which dynamically displays images of all the categories that have been added to the site.
-- A registration procedure which ensures each field meets the specified requiremnet, ensures every registered user has a unique username and a method of securing passwords. 
+- A registration procedure which ensures each field meets the specified requirement, ensures every registered user has a unique username and a method of securing passwords. 
 - A login page that ensures the users username and passwords match those with which they registered.
 - A logout procedure that closes the session.
 - A method of searching the technologies by keyword or category name.
 - The ability to allow admin users to create, edit and delete categories.
 - The ability for registered, logged in users to create, edit and delete technologies.
-- The functionality so that when a technology is deleted all the comments associated iwth that technology are also deleted.
+- The functionality so that when a technology is deleted all the comments associated with that technology are also deleted.
 - A check that user wants to perform irreversible actions before they do so.
 - The ability for registered, logged in users to create edit and delete comments
 
@@ -151,9 +152,9 @@ It would be nice if the admin user could search/sort the technologies and commen
 Other images on the site were added by users.
 
 ## Testing.
-Bugs identified during development and testing and their solutions on 2 pages [page 1](static/images/bugsone.png), [page 2](static/images/bugstwo.png).
+Bugs identified during development and testing and their solutions on 2 pages, [page 1](static/images/bugsone.png), [page 2](static/images/bugstwo.png).
 ### Validation
-- HTML code for each individual page was validited by direct input into [validator.w3.org](https://validator.w3.org/). The results of this can be seen  [here](static/images/htmlvalidation.jpg))
+- HTML code for each individual page was validited by direct input into [validator.w3.org](https://validator.w3.org/). The results of this can be seen  [here](static/images/htmlvalidation.jpg).
 - CSS code was tested repeatedly by direct input into [jigsaw.w3.org](https://jigsaw.w3.org/css-validator/) until it got a 'Congratulations! No error found!' message.
 - JavaScript was checked using [jshint](https://jshint.com/). There were no errors and the warnings were checked, corrected where appropriate and otherwise left.
 - Python code was tested repeatedly with [pep8 online validator](http://pep8online.com/) until the vaildator deemed it 'All right'.
@@ -194,11 +195,11 @@ The manage_categories site was expanded to manage_site as it was easier to let a
 
 ## Known Bugs
 1. It was noted during testing that if a logged in user was allowed to change the name of a technology it lost the associated comments. This is because the technology name was used as the check to match comments and technologies. If the name got changed this check would not match and for this reason the facility to allow users to edit the technology name was removed. If time allowed I could have used unique Ids to match technologoies and  comments or added the comments as a list to the technology and iterated through this to display them. 
-2. During testing it was noted that in the search facility on the technologies page, if a user selected a category the result would (as intended) show all the technologies in that category however if any of the words in the category name appeared in any of the fields included in the index then they also got displayed. If there was time I would make this search function more specific.
+2. During testing it was noted that in the search facility on the technologies page, if a user selected a category the result would (as intended) show all the technologies in that category however if any of the words in the category name appeared in any of the fields included in the index then the associated technology (which may not be in the category selected) also got displayed. If there was time I would make this search function more specific.
 3. When tested it was noticed that the carousel overlaps the background image on some mobile phones and does not look great.
 4. The submit and clear buttons in the form to add a comment can get overlapped or lost on some mobiles.
-5. Although the placeholder text for adding the technology image says it must be a url, there is no check to ensure it is and the form will accept an input that does not result in an image being uploaded.
-6. On small screens sometimes some of the text overflow the buttons.
+5. Some users found it hard to add urls and teh validation added made this harder for users but also made it less likley not to get a technology uploaded.
+6. On small screens sometimes some of the text overflows the buttons.
 
 
 ## Deployment
